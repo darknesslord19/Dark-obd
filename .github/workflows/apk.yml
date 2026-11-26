@@ -1,7 +1,7 @@
 name: APK Derle
 on: [push, workflow_dispatch]
 permissions:
-  contents: read
+  contents: write
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -16,3 +16,10 @@ jobs:
         with:
           name: DarkOBD-APK
           path: app/build/outputs/apk/debug/app-debug.apk
+      - name: Release olarak yayinla
+        if: github.ref == 'refs/heads/main'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cp app/build/outputs/apk/debug/app-debug.apk DarkOBD.apk
+          gh release create "v0.1-${{ github.run_number }}" DarkOBD.apk --target "${{ github.sha }}" --title "Dark OBD v0.1 (deneme)" --notes "Debug deneme surumu. Gercek aracta henuz test edilmedi." --latest
