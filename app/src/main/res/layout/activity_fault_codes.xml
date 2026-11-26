@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:id="@+id/obd_list"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_primary">
+
+    <!-- Main Content -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/spacing_large">
+
+                <!-- MIL Status Card -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/mil_status_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/spacing_large"
+                    android:visibility="gone"
+                    app:cardCornerRadius="@dimen/card_corner_radius"
+                    app:cardElevation="@dimen/elevation_hero_card"
+                    app:cardBackgroundColor="@color/fault_success">
+
+                    <!-- Top section with icon and status -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/card_padding_standard"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:id="@+id/mil_status_icon"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:src="@drawable/ic_check_engine"
+                                android:tint="@color/text_primary_dark"
+                                android:padding="@dimen/spacing_small"/>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:layout_marginStart="@dimen/spacing_large">
+
+                                <TextView
+                                    android:id="@+id/mil_status_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/fault_codes_no_codes"
+                                    android:textSize="@dimen/text_section_header"
+                                    android:textColor="@color/text_primary_dark"
+                                    android:textStyle="bold"/>
+
+                                <TextView
+                                    android:id="@+id/mil_status_subtitle"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/fault_codes_engine_ok"
+                                    android:textSize="@dimen/text_caption"
+                                    android:textColor="@color/text_hint_dark"
+                                    android:layout_marginTop="@dimen/spacing_xs"/>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Fault Codes RecyclerView -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/fault_codes_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:nestedScrollingEnabled="false"/>
+
+                <!-- Footer Spacer -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/footer_spacer_height" />
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <!-- Empty State -->
+        <LinearLayout
+            android:id="@+id/empty_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="@dimen/card_padding_standard"
+            android:visibility="visible">
+
+            <ImageView
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:src="@drawable/ic_check_engine"
+                android:tint="@color/fault_success"
+                android:layout_marginBottom="@dimen/spacing_large" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fault_codes_empty_title"
+                android:textSize="@dimen/text_section_header"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary_dark"
+                android:layout_marginBottom="@dimen/spacing_small" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fault_codes_empty_message"
+                android:textSize="@dimen/text_caption"
+                android:textColor="@color/text_tertiary_dark"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:layout_marginBottom="@dimen/spacing_xxl" />
+
+            <!-- Scan Button -->
+            <Button
+                android:id="@+id/scan_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fault_codes_button_scan"
+                android:textSize="@dimen/text_caption"
+                android:textStyle="bold"
+                android:backgroundTint="@color/fault_success"
+                android:textColor="@color/text_primary_dark" />
+        </LinearLayout>
+
+        <!-- Progress Bar -->
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:indeterminateTint="@color/fault_success" />
+
+        <!-- Overlay -->
+        <View
+            android:id="@+id/footer_overlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/background_overlay"
+            android:clickable="true"
+            android:focusable="true"
+            android:visibility="gone"/>
+
+    </FrameLayout>
+
+    <!-- Footer -->
+    <com.obddroid.ui.components.VehicleInfoFooter
+        android:id="@+id/vehicle_footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/background_secondary"
+        android:elevation="@dimen/elevation_footer"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

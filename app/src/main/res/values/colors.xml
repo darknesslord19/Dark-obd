@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="row_activated">#80808080</color>
+    <color name="colorPrimary">#2196F3</color>
+    <color name="colorPrimaryDark">#1976D2</color>
+    <color name="colorAccent">#03A9F4</color>
+
+    <!-- Vehicle Info Colors -->
+    <color name="primary">#2196F3</color>
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+    <color name="background_dark_semi">#F5F5F5</color>
+
+    <!-- Fault Code Severity Colors -->
+    <color name="fault_critical">#C62828</color>
+    <color name="fault_error">#EF6C00</color>
+    <color name="fault_warning">#FFA726</color>
+    <color name="fault_pending">#FFD54F</color>
+    <color name="fault_info">#757575</color>
+    <color name="fault_success">#4CAF50</color>
+
+    <!-- Dark Theme Colors -->
+    <color name="background_primary">#1E1E1E</color>
+    <color name="background_secondary">#212121</color>
+    <color name="background_overlay">#80000000</color>
+
+    <!-- Text Colors - Dark Theme -->
+    <color name="text_primary_dark">#FFFFFF</color>
+    <color name="text_secondary_dark">#B0BEC5</color>
+    <color name="text_tertiary_dark">#CCCCCC</color>
+    <color name="text_hint_dark">#E8F5E9</color>
+
+    <!-- UI chrome -->
+    <color name="menu_icon_tint">@color/colorAccent</color>
+</resources>

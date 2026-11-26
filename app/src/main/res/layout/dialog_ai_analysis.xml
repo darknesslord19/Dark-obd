@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="8dp"
+    app:cardBackgroundColor="@color/background_secondary">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/modal_header_background"
+            android:padding="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_ai_24"
+                    android:tint="@color/colorAccent"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="AI Analysis"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary_dark"
+                    android:layout_marginStart="16dp"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/ai_fault_code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="P0301 - Cylinder 1 Misfire"
+                android:textSize="14sp"
+                android:textColor="@color/text_secondary_dark"
+                android:layout_marginTop="8dp"/>
+        </LinearLayout>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#404040"/>
+
+        <!-- Loading Container -->
+        <LinearLayout
+            android:id="@+id/ai_loading_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="40dp"
+            android:gravity="center"
+            android:visibility="visible">
+
+            <ProgressBar
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:indeterminate="true"
+                android:indeterminateTint="@color/colorAccent"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Analyzing fault code with AI..."
+                android:textSize="16sp"
+                android:textColor="@color/text_secondary_dark"
+                android:layout_marginTop="16dp"/>
+        </LinearLayout>
+
+        <!-- Content Container -->
+        <ScrollView
+            android:id="@+id/ai_content_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxHeight="400dp"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:id="@+id/ai_analysis_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="@color/text_primary_dark"
+                    android:lineSpacingExtra="6dp"/>
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- Error Container -->
+        <LinearLayout
+            android:id="@+id/ai_error_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="40dp"
+            android:gravity="center"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:src="@drawable/ic_warning_24"
+                android:tint="@color/fault_error"/>
+
+            <TextView
+                android:id="@+id/ai_error_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Failed to get AI analysis"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary_dark"
+                android:layout_marginTop="16dp"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Please check your API key and internet connection"
+                android:textSize="14sp"
+                android:textColor="@color/text_secondary_dark"
+                android:layout_marginTop="8dp"
+                android:textAlignment="center"
+                android:gravity="center"/>
+        </LinearLayout>
+
+        <!-- Bottom buttons -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#404040"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end"
+            android:padding="16dp">
+
+            <Button
+                android:id="@+id/btn_retry"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="RETRY"
+                android:textColor="@color/colorAccent"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:background="?android:attr/selectableItemBackground"
+                android:paddingStart="24dp"
+                android:paddingEnd="24dp"
+                android:layout_marginEnd="8dp"
+                android:visibility="gone"/>
+
+            <Button
+                android:id="@+id/btn_close"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="CLOSE"
+                android:textColor="@color/fault_success"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:background="?android:attr/selectableItemBackground"
+                android:paddingStart="24dp"
+                android:paddingEnd="24dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

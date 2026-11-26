@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+                  xmlns:app="http://schemas.android.com/apk/res-auto"
+                  android:icon="@android:drawable/ic_menu_manage"
+                  android:title="@string/settings">
+
+    <PreferenceCategory
+        android:title="General Settings"
+        android:layout="@layout/preference_category">
+
+        <ListPreference
+            android:defaultValue="0"
+            android:dialogTitle="@string/measure_system"
+            android:entries="@array/measure_options"
+            android:entryValues="@array/measure_option_values"
+            android:key="measure_system"
+            android:summary="@string/measure_system_description"
+            android:title="@string/measure_system"
+            android:layout="@layout/preference_indented" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="full_screen"
+            android:summary="@string/full_screen_display_description"
+            android:title="@string/full_screen_display"
+            android:layout="@layout/preference_indented" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="Connection"
+        android:layout="@layout/preference_category">
+
+        <CheckBoxPreference
+            android:key="auto_reconnect_on_startup"
+            android:title="Auto-reconnect on startup"
+            android:summary="Automatically reconnect to your last adapter when the app starts"
+            android:defaultValue="true"
+            android:layout="@layout/preference_indented" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/remote_telemetry_settings_title"
+        android:layout="@layout/preference_category">
+
+        <EditTextPreference
+            android:key="remote_telemetry_host"
+            android:title="@string/remote_telemetry_host_title"
+            android:summary="@string/remote_telemetry_host_summary"
+            app:useSimpleSummaryProvider="true"
+            android:layout="@layout/preference_indented" />
+
+        <EditTextPreference
+            android:key="remote_telemetry_port"
+            android:title="@string/remote_telemetry_port_title"
+            android:summary="@string/remote_telemetry_port_summary"
+            android:defaultValue="1883"
+            android:inputType="number"
+            app:useSimpleSummaryProvider="true"
+            android:layout="@layout/preference_indented" />
+
+        <ListPreference
+            android:key="remote_telemetry_protocol"
+            android:title="@string/remote_telemetry_protocol_title"
+            android:entries="@array/remote_telemetry_protocol_options"
+            android:entryValues="@array/remote_telemetry_protocol_values"
+            android:defaultValue="tcp"
+            app:useSimpleSummaryProvider="true"
+            android:layout="@layout/preference_indented" />
+
+        <EditTextPreference
+            android:key="remote_telemetry_prefix"
+            android:title="@string/remote_telemetry_prefix_title"
+            android:summary="@string/remote_telemetry_prefix_summary"
+            android:defaultValue="obddroid/"
+            app:useSimpleSummaryProvider="true"
+            android:layout="@layout/preference_indented" />
+
+        <EditTextPreference
+            android:key="remote_telemetry_username"
+            android:title="@string/remote_telemetry_username_title"
+            app:useSimpleSummaryProvider="true"
+            android:layout="@layout/preference_indented" />
+
+        <EditTextPreference
+            android:key="remote_telemetry_password"
+            android:title="@string/remote_telemetry_password_title"
+            android:layout="@layout/preference_indented" />
+
+        <Preference
+            android:key="remote_telemetry_status"
+            android:title="@string/remote_telemetry_status_title"
+            android:summary="@string/remote_telemetry_status_never"
+            android:selectable="false"
+            android:layout="@layout/preference_indented"
+            app:iconSpaceReserved="false" />
+
+        <EditTextPreference
+            android:key="remote_telemetry_client_id"
+            android:title="@string/remote_telemetry_client_id_title"
+            app:useSimpleSummaryProvider="true"
+            android:layout="@layout/preference_indented" />
+
+        <ListPreference
+            android:key="remote_telemetry_qos"
+            android:title="@string/remote_telemetry_qos_title"
+            android:entries="@array/remote_telemetry_qos_options"
+            android:entryValues="@array/remote_telemetry_qos_values"
+            android:defaultValue="0"
+            app:useSimpleSummaryProvider="true"
+            android:layout="@layout/preference_indented" />
+
+        <ListPreference
+            android:key="remote_telemetry_update_period"
+            android:title="@string/remote_telemetry_update_period_title"
+            android:entries="@array/remote_telemetry_update_period_options"
+            android:entryValues="@array/remote_telemetry_update_period_values"
+            android:defaultValue="30"
+            app:useSimpleSummaryProvider="true"
+            android:layout="@layout/preference_indented" />
+
+        <CheckBoxPreference
+            android:key="remote_telemetry_retain"
+            android:title="@string/remote_telemetry_retain_title"
+            android:defaultValue="true"
+            android:layout="@layout/preference_indented" />
+
+        <MultiSelectListPreference
+            android:key="remote_telemetry_selected_items"
+            android:title="@string/remote_telemetry_selected_items_title"
+            android:defaultValue="@array/empty"
+            android:layout="@layout/preference_indented" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/csv_export_options"
+        android:layout="@layout/preference_category">
+
+        <ListPreference
+            android:defaultValue=","
+            android:dialogTitle="@string/csv_field_delimiter"
+            android:entries="@array/csv_field_delim_options"
+            android:entryValues="@array/csv_field_delim_values"
+            android:key="csv_field_delimiter"
+            android:summary="@string/csv_field_delimiter_description"
+            android:title="@string/csv_field_delimiter"
+            android:layout="@layout/preference_indented" />
+
+        <ListPreference
+            android:defaultValue="\n"
+            android:dialogTitle="@string/csv_rec_delimiter"
+            android:entries="@array/csv_record_delim_options"
+            android:entryValues="@array/csv_record_delim_values"
+            android:key="csv_record_delimiter"
+            android:summary="@string/csv_rec_delimiter_description"
+            android:title="@string/csv_rec_delimiter"
+            android:layout="@layout/preference_indented" />
+
+        <CheckBoxPreference
+            android:key="csv_text_quoted"
+            android:summary="@string/csv_text_quoted_description"
+            android:title="@string/csv_text_quoted"
+            android:layout="@layout/preference_indented" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="send_after_export"
+            android:summary="@string/send_after_export_descr"
+            android:title="@string/send_after_export"
+            android:layout="@layout/preference_indented" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/copilot_settings_title"
+        android:layout="@layout/preference_category">
+
+        <SwitchPreferenceCompat
+            android:key="copilot_enabled"
+            android:title="@string/copilot_enable_title"
+            android:summary="@string/copilot_enable_summary"
+            android:defaultValue="false"
+            android:layout="@layout/preference_indented" />
+
+        <SwitchPreferenceCompat
+            android:key="copilot_wake_word"
+            android:title="@string/copilot_wake_word_title"
+            android:summary="@string/copilot_wake_word_summary"
+            android:defaultValue="false"
+            android:layout="@layout/preference_indented"
+            app:dependency="copilot_enabled" />
+
+        <Preference
+            android:key="copilot_conversation_history"
+            android:title="Conversation History"
+            android:summary="View and manage your CoPilot conversation threads"
+            android:layout="@layout/preference_indented"
+            app:dependency="copilot_enabled" />
+
+        <Preference
+            android:key="copilot_delete_all_conversations"
+            android:title="Delete All Conversations"
+            android:summary="Permanently delete all stored CoPilot conversation threads from OpenAI"
+            android:layout="@layout/preference_indented"
+            app:dependency="copilot_enabled" />
+
+        <SwitchPreferenceCompat
+            android:key="copilot_tts_enabled"
+            android:title="Voice Responses"
+            android:summary="CoPilot speaks responses aloud (requires OpenAI API key)"
+            android:defaultValue="true"
+            android:layout="@layout/preference_indented"
+            app:dependency="copilot_enabled" />
+
+        <ListPreference
+            android:key="copilot_tts_voice"
+            android:title="Voice Selection"
+            android:entries="@array/copilot_voice_options"
+            android:entryValues="@array/copilot_voice_values"
+            android:defaultValue="alloy"
+            android:summary="Choose CoPilot's voice"
+            android:layout="@layout/preference_indented"
+            app:dependency="copilot_tts_enabled" />
+
+        <SwitchPreferenceCompat
+            android:key="copilot_tts_auto_play"
+            android:title="Auto-Play Responses"
+            android:summary="Automatically speak responses without tapping play button"
+            android:defaultValue="true"
+            android:layout="@layout/preference_indented"
+            app:dependency="copilot_tts_enabled" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/elm_options"
+        android:layout="@layout/preference_category">
+
+        <MultiSelectListPreference
+            android:defaultValue="@array/empty"
+            android:dialogTitle="@string/items_for_display"
+            android:entries="@array/empty"
+            android:entryValues="@array/empty"
+            android:key="data_items"
+            android:summary="@string/items_for_display_descr"
+            android:title="@string/items_for_display"
+            android:layout="@layout/preference_indented" />
+
+
+        <EditTextPreference
+            android:capitalize="characters"
+            android:defaultValue=""
+            android:key="elm_custom_init_cmds"
+            android:minLines="5"
+            android:summary="@string/elm_custom_init_descr"
+            android:title="@string/elm_custom_init"
+            android:layout="@layout/preference_indented" />
+
+        <ListPreference
+            android:dialogTitle="@string/elm_adaptive_timing"
+            android:key="adaptive_timing_mode"
+            android:summary="@string/elm_adaptive_timing_descr"
+            android:title="@string/elm_adaptive_timing"
+            android:layout="@layout/preference_indented" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="elm_reset_on_nrc"
+            android:summary="@string/elm_reset_on_nrc_descr"
+            android:title="@string/elm_reset_on_nrc"
+            android:layout="@layout/preference_indented" />
+
+        <EditTextPreference
+            android:capitalize="characters"
+            android:defaultValue="3"
+            android:inputType="number"
+            android:key="data_disable_max"
+            android:summary="@string/data_disable_max_description"
+            android:title="@string/data_disable_max"
+            android:layout="@layout/preference_indented" />
+
+        <MultiSelectListPreference
+            android:defaultValue="@array/empty"
+            android:dialogTitle="@string/disable_elm_cmds"
+            android:entries="@array/empty"
+            android:entryValues="@array/empty"
+            android:key="elm_cmd_disable"
+            android:summary="@string/disable_elm_cmds_descr"
+            android:title="@string/disable_elm_cmds"
+            android:layout="@layout/preference_indented" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="AI Features"
+        android:layout="@layout/preference_category">
+
+        <SwitchPreferenceCompat
+            android:key="ai_diagnostic_analysis_enabled"
+            android:title="AI Diagnostic Analysis"
+            android:summary="Automatically analyze scan results using GPT-4 for diagnosis and repair recommendations"
+            android:defaultValue="false"
+            android:layout="@layout/preference_indented" />
+
+        <EditTextPreference
+            android:key="openai_api_key"
+            android:title="OpenAI API Key"
+            android:summary="Configure your OpenAI API key for AI analysis"
+            android:inputType="textPassword"
+            android:layout="@layout/preference_indented"
+            app:dependency="ai_diagnostic_analysis_enabled" />
+
+        <ListPreference
+            android:key="openai_model"
+            android:title="AI Model"
+            android:entries="@array/openai_model_options"
+            android:entryValues="@array/openai_model_values"
+            android:defaultValue="gpt-4o"
+            android:summary="Choose which OpenAI model to use (GPT-4o is recommended for best accuracy)"
+            android:layout="@layout/preference_indented"
+            app:dependency="ai_diagnostic_analysis_enabled" />
+
+        <SwitchPreferenceCompat
+            android:key="ai_upload_scans_to_threads"
+            android:title="Upload Scans to CoPilot"
+            android:summary="Automatically attach scan reports to CoPilot conversations for contextual analysis"
+            android:defaultValue="true"
+            android:layout="@layout/preference_indented"
+            app:dependency="ai_diagnostic_analysis_enabled" />
+
+        <Preference
+            android:key="openai_api_info"
+            android:title="How to get an API key"
+            android:summary="Tap to learn how to obtain an OpenAI API key"
+            android:layout="@layout/preference_indented" />
+
+        <Preference
+            android:key="ai_privacy_notice"
+            android:title="Privacy Notice"
+            android:summary="AI analysis sends scan data (including VIN) to OpenAI. Your API key is required. No data is routed through OBD-Droid servers."
+            android:selectable="false"
+            android:layout="@layout/preference_indented"
+            app:iconSpaceReserved="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="Debugging"
+        android:layout="@layout/preference_category">
+
+        <ListPreference
+            android:defaultValue="INFO"
+            android:dialogTitle="@string/logging_level"
+            android:entries="@array/logging_options"
+            android:entryValues="@array/logging_options"
+            android:key="log_master"
+            android:summary="@string/logging_level_description"
+            android:title="@string/logging_level"
+            android:layout="@layout/preference_indented" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

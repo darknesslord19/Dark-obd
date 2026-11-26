@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/service_home"
+        android:title="Home"
+        android:icon="@drawable/ic_home_24"
+        android:enabled="true"/>
+    <item
+        android:id="@+id/service_none"
+        android:title="@string/obd_none"
+        android:visible="false"/>
+    <item
+        android:id="@+id/service_data"
+        android:title="@string/obd_data"
+        android:icon="@drawable/ic_chart"
+        android:enabled="false"/>
+    <item
+        android:id="@+id/service_testcontrol"
+        android:title="@string/service_testcontrol"
+        android:icon="@drawable/ic_tune_24"
+        android:enabled="false"/>
+    <item
+        android:id="@+id/service_codes"
+        android:title="@string/obd_codes"
+        android:icon="@drawable/ic_codes_menu_24"
+        android:enabled="false"/>
+    <item
+        android:id="@+id/settings"
+        android:title="@string/settings"
+        android:icon="@drawable/ic_settings_menu_24"
+        android:enabled="true"/>
+</menu>

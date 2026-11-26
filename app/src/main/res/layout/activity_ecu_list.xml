@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_primary">
+
+    <!-- Main Content -->
+    <FrameLayout
+        android:id="@+id/content_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Full-Width ECU Banner -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/fault_success"
+                    android:orientation="horizontal"
+                    android:padding="12dp"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🔌"
+                        android:textSize="20sp"
+                        android:layout_marginEnd="10dp"/>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="ECU Modules"
+                            android:textColor="#1A1A1A"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:letterSpacing="0.02"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Discover and view all Electronic Control Units (ECUs) in your vehicle"
+                            android:textColor="#2A2A2A"
+                            android:textSize="11sp"
+                            android:layout_marginTop="2dp"
+                            android:alpha="0.9"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/spacing_large">
+
+                <!-- RecyclerView for ECU List -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/ecu_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:nestedScrollingEnabled="false" />
+
+                <!-- Footer Spacer -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/footer_spacer_height" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <!-- Empty State -->
+        <LinearLayout
+            android:id="@+id/empty_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="@dimen/spacing_xxl"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🔌"
+                android:textSize="64sp"
+                android:layout_marginBottom="@dimen/spacing_large" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No ECUs Found"
+                android:textSize="@dimen/text_section_header"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary_dark"
+                android:layout_marginBottom="@dimen/spacing_small" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Connect to your vehicle and tap the scan button to discover ECUs"
+                android:textSize="@dimen/text_caption"
+                android:textColor="@color/text_tertiary_dark"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:layout_marginBottom="@dimen/spacing_xxl" />
+
+            <!-- Scan Button -->
+            <Button
+                android:id="@+id/scan_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Scan ECUs"
+                android:textSize="@dimen/text_caption"
+                android:textStyle="bold"
+                android:backgroundTint="@color/fault_success"
+                android:textColor="@color/text_primary_dark" />
+        </LinearLayout>
+
+        <!-- Progress Bar -->
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:indeterminateTint="@color/fault_success" />
+
+        <!-- Overlay -->
+        <View
+            android:id="@+id/footer_overlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/background_overlay"
+            android:clickable="true"
+            android:focusable="true"
+            android:visibility="gone"/>
+
+    </FrameLayout>
+
+    <!-- Footer -->
+    <com.obddroid.ui.components.VehicleInfoFooter
+        android:id="@+id/vehicle_footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/background_secondary"
+        android:elevation="@dimen/elevation_footer"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

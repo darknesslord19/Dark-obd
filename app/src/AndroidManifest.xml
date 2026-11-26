@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <!-- Legacy Bluetooth permissions for Android 11 and below -->
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" android:maxSdkVersion="30" />
+    <uses-permission android:name="android.permission.BLUETOOTH" android:maxSdkVersion="30" />
+
+    <!-- New Bluetooth permissions for Android 12+ (API 31+) -->
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <!-- Scans only list nearby OBD adapters; the app never derives location from them. -->
+    <uses-permission
+        android:name="android.permission.BLUETOOTH_SCAN"
+        android:usesPermissionFlags="neverForLocation"
+        tools:targetApi="s" />
+    <!-- BLUETOOTH_ADVERTISE not needed as we don't make device discoverable -->
+
+    <!-- to keep Bluetooth measurement running even when screen is inactive -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- Exports go through MediaStore (Documents/OBD-Droid) on Android 10+, which needs no storage permission.
+         Android 9 and below still write the public Documents folder directly. -->
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
+    <!-- allow access to WIFI adapter -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- Add for Android 13+ notifications -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <!-- Add for Android 14+ foreground services -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <!-- CsvLoggingService and ScanOrchestrator talk to the OBD adapter (Bluetooth, USB or WiFi):
+         connectedDevice, which has no daily limit (dataSync is capped at 6 h a day from Android 15). -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CONNECTED_DEVICE" />
+    <!-- Normal permission; satisfies the connectedDevice prerequisite for WiFi adapters when the
+         Bluetooth runtime permissions were not granted. -->
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <!-- Add for CoPilot voice input -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <queries>
+        <!-- For Bluetooth enabling -->
+        <intent>
+            <action android:name="android.bluetooth.adapter.action.REQUEST_ENABLE" />
+        </intent>
+        <!-- For file sharing -->
+        <intent>
+            <action android:name="android.intent.action.SEND" />
+            <data android:mimeType="*/*" />
+        </intent>
+        <!-- For opening web links (GitHub, etc) -->
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="https" />
+        </intent>
+    </queries>
+
+    <application
+        android:name="com.obddroid.ObdDroidApplication"
+        android:allowBackup="true"
+        android:enableOnBackInvokedCallback="true"
+        android:description="@string/app_description"
+        android:fullBackupContent="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme"
+        android:networkSecurityConfig="@xml/network_security_config">
+        <activity
+            android:name="com.obddroid.ui.activities.MainActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/app_name"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"
+                android:resource="@xml/device_filter" />
+        </activity>
+        <activity
+            android:name="com.obddroid.ui.activities.UsbDeviceListActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/select_device"
+            android:exported="false" />
+        <activity
+            android:name="com.obddroid.ui.activities.BtDeviceListActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/select_device"
+            android:exported="false" />
+        <activity
+            android:name="com.obddroid.ui.activities.UnifiedAdapterSelectionActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/select_device"
+            android:exported="false" />
+        <activity
+            android:name="com.obddroid.ui.activities.ChartActivity"
+            android:configChanges="touchscreen|orientation|screenSize"
+            android:label="@string/chart"
+            android:exported="false" />
+        <activity
+            android:name="com.obddroid.ui.activities.DashBoardActivity"
+            android:configChanges="touchscreen|orientation|screenSize"
+            android:label="@string/dashboard"
+            android:exported="false" />
+        <activity
+            android:name="com.obddroid.ui.activities.SettingsActivity"
+            android:configChanges="touchscreen|orientation|screenSize"
+            android:label="@string/settings"
+            android:exported="false" />
+        <activity
+            android:name="com.obddroid.ui.activities.CustomPidActivity"
+            android:label="@string/customize_display"
+            android:configChanges="touchscreen|orientation|screenSize"
+            android:exported="false" />
+        <activity
+            android:name="com.obddroid.ui.activities.CustomPidManagerActivity"
+            android:label="Custom PIDs"
+            android:configChanges="touchscreen|orientation|screenSize"
+            android:exported="false" />
+        <activity
+            android:name="com.obddroid.ui.activities.LiveDataActivity"
+            android:label="Live Data"
+            android:configChanges="touchscreen|orientation|screenSize"
+            android:exported="false" />
+        <activity
+            android:name="com.obddroid.features.fueleconomy.ui.FuelEconomyActivity"
+            android:label="Fuel Economy"
+            android:configChanges="touchscreen|orientation|screenSize"
+            android:exported="false" />
+        <activity
+            android:name="com.obddroid.features.emissions.ui.EmissionsActivity"
+            android:label="Emissions Diagnostics"
+            android:configChanges="touchscreen|orientation|screenSize"
+            android:exported="false" />
+        <activity
+            android:name="com.obddroid.features.vehiclehistory.ui.AutoCheckActivity"
+            android:label="Vehicle History"
+            android:configChanges="touchscreen|orientation|screenSize"
+            android:exported="false" />
+        <activity
+            android:name="com.obddroid.features.recalls.ui.RecallActivity"
+            android:label="@string/safety_recalls"
+            android:theme="@style/AppTheme.MaterialComponents"
+            android:configChanges="touchscreen|orientation|screenSize"
+            android:exported="false" />
+        <activity
+            android:name="com.obddroid.ui.activities.EcuListActivity"
+            android:label="@string/ecu_list_title"
+            android:configChanges="touchscreen|orientation|screenSize"
+            android:exported="false" />
+        <activity
+            android:name="com.obddroid.ui.activities.VehicleInfoActivity"
+            android:label="Vehicle Information"
+            android:configChanges="touchscreen|orientation|screenSize"
+            android:exported="false" />
+        <activity
+            android:name="com.obddroid.ui.activities.FaultCodesActivity"
+            android:label="Fault Codes"
+            android:configChanges="touchscreen|orientation|screenSize"
+            android:exported="false" />
+        <activity
+            android:name="com.obddroid.ui.activities.FaultCodeDetailsActivity"
+            android:label="Fault Code Details"
+            android:configChanges="touchscreen|orientation|screenSize"
+            android:parentActivityName="com.obddroid.ui.activities.FaultCodesActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.obddroid.ui.activities.FaultCodesActivity" />
+        </activity>
+        <activity
+            android:name="com.obddroid.features.copilot.ui.CoPilotActivity"
+            android:label="CoPilot"
+            android:theme="@style/AppTheme.MaterialComponents"
+            android:configChanges="touchscreen|orientation|screenSize"
+            android:parentActivityName="com.obddroid.ui.activities.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.obddroid.features.copilot.ui.ThreadManagerActivity"
+            android:label="Conversation History"
+            android:theme="@style/AppTheme.MaterialComponents.NoActionBar"
+            android:configChanges="touchscreen|orientation|screenSize"
+            android:parentActivityName="com.obddroid.ui.activities.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.obddroid.features.trackmode.TrackModeActivity"
+            android:label="Track Mode"
+            android:theme="@style/AppTheme.MaterialComponents"
+            android:configChanges="touchscreen|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:parentActivityName="com.obddroid.ui.activities.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.obddroid.ui.activities.ScanActivity"
+            android:label="Full Vehicle Scan"
+            android:configChanges="touchscreen|orientation|screenSize"
+            android:parentActivityName="com.obddroid.ui.activities.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.obddroid.ui.activities.EcuComparisonActivity"
+            android:label="ECU Comparison"
+            android:configChanges="touchscreen|orientation|screenSize"
+            android:parentActivityName="com.obddroid.ui.activities.EcuListActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.obddroid.ui.activities.BaselineScanSelectionActivity"
+            android:label="Select Baseline Scan"
+            android:configChanges="touchscreen|orientation|screenSize"
+            android:parentActivityName="com.obddroid.ui.activities.EcuListActivity"
+            android:exported="false" />
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"/>
+        </provider>
+        <service
+            android:name="com.obddroid.services.CsvLoggingService"
+            android:exported="false"
+            android:foregroundServiceType="connectedDevice"/>
+        <service
+            android:name="com.obddroid.scan.ScanOrchestrator"
+            android:exported="false"
+            android:foregroundServiceType="connectedDevice"/>
+    </application>
+
+</manifest>

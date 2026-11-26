@@ -1,0 +1,38 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+
+    <!-- Typography Scale -->
+    <dimen name="text_hero_title">20sp</dimen>
+    <dimen name="text_hero_subtitle">13sp</dimen>
+    <dimen name="text_section_header">16sp</dimen>
+    <dimen name="text_body">13sp</dimen>
+    <dimen name="text_caption">12sp</dimen>
+    <dimen name="text_label">10sp</dimen>
+    <dimen name="text_large_value">24sp</dimen>
+    <dimen name="text_medium_value">20sp</dimen>
+    <dimen name="text_small_value">14sp</dimen>
+
+    <!-- Spacing Scale (Compact for data-heavy pages) -->
+    <dimen name="spacing_xs">4dp</dimen>
+    <dimen name="spacing_small">8dp</dimen>
+    <dimen name="spacing_medium">12dp</dimen>
+    <dimen name="spacing_large">16dp</dimen>
+    <dimen name="spacing_xl">20dp</dimen>
+    <dimen name="spacing_xxl">24dp</dimen>
+
+    <!-- Card Dimensions -->
+    <dimen name="card_corner_radius">12dp</dimen>
+    <dimen name="card_padding_standard">14dp</dimen>
+    <dimen name="card_padding_compact">8dp</dimen>
+
+    <!-- Elevation Scale -->
+    <dimen name="elevation_hero_card">8dp</dimen>
+    <dimen name="elevation_content_card">4dp</dimen>
+    <dimen name="elevation_footer">16dp</dimen>
+
+    <!-- Layout Dimensions -->
+    <dimen name="footer_spacer_height">80dp</dimen>
+
+</resources>

@@ -1,0 +1,574 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_primary">
+
+    <!-- Main Content -->
+    <FrameLayout
+        android:id="@+id/content_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/spacing_small">
+
+                <!-- Vehicle Status Indicator Card -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/spacing_small"
+                    app:cardCornerRadius="@dimen/card_corner_radius"
+                    app:cardElevation="@dimen/elevation_content_card"
+                    app:cardBackgroundColor="@color/background_secondary">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/spacing_small"
+                        android:gravity="center_vertical">
+
+                        <!-- Status Indicator Circle -->
+                        <View
+                            android:id="@+id/vehicle_status_indicator"
+                            android:layout_width="12dp"
+                            android:layout_height="12dp"
+                            android:layout_marginEnd="@dimen/spacing_small"
+                            android:background="@drawable/circle_indicator"
+                            android:backgroundTint="@color/fault_warning" />
+
+                        <!-- Status Text -->
+                        <TextView
+                            android:id="@+id/vehicle_status_text"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:text="Vehicle Stopped - MPG calculation paused"
+                            android:textSize="@dimen/text_small_value"
+                            android:textColor="@color/text_primary_dark" />
+
+                        <!-- Speed Value -->
+                        <TextView
+                            android:id="@+id/vehicle_speed_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0 mph"
+                            android:textSize="@dimen/text_small_value"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_secondary_dark"
+                            android:layout_marginStart="@dimen/spacing_small" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Fuel Economy Chart Card -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/spacing_small"
+                    app:cardCornerRadius="@dimen/card_corner_radius"
+                    app:cardElevation="@dimen/elevation_content_card"
+                    app:cardBackgroundColor="@color/background_secondary">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/spacing_small">
+
+                        <!-- Current Values Header -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginBottom="@dimen/spacing_small">
+
+                            <!-- Instant MPG -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="horizontal"
+                                android:gravity="center">
+
+                                <View
+                                    android:layout_width="8dp"
+                                    android:layout_height="8dp"
+                                    android:layout_marginEnd="@dimen/spacing_small"
+                                    android:background="@drawable/circle_indicator"
+                                    android:backgroundTint="@color/fault_success" />
+
+                                <TextView
+                                    android:id="@+id/instant_mpg_value"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/value_placeholder"
+                                    android:textSize="@dimen/text_medium_value"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/text_primary_dark" />
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:layout_marginStart="@dimen/spacing_xs">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Inst"
+                                        android:textSize="@dimen/text_label"
+                                        android:textStyle="italic"
+                                        android:textColor="@color/text_secondary_dark" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="mpg"
+                                        android:textSize="@dimen/text_label"
+                                        android:textStyle="italic"
+                                        android:textColor="@color/text_secondary_dark" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:background="@color/text_secondary_dark"
+                                android:alpha="0.3" />
+
+                            <!-- Average MPG -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="horizontal"
+                                android:gravity="center">
+
+                                <View
+                                    android:layout_width="8dp"
+                                    android:layout_height="8dp"
+                                    android:layout_marginEnd="@dimen/spacing_small"
+                                    android:background="@drawable/circle_indicator"
+                                    android:backgroundTint="@color/fault_success" />
+
+                                <TextView
+                                    android:id="@+id/average_mpg_value"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/value_placeholder"
+                                    android:textSize="@dimen/text_medium_value"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/text_primary_dark" />
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:layout_marginStart="@dimen/spacing_xs">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Avg"
+                                        android:textSize="@dimen/text_label"
+                                        android:textStyle="italic"
+                                        android:textColor="@color/text_secondary_dark" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="mpg"
+                                        android:textSize="@dimen/text_label"
+                                        android:textStyle="italic"
+                                        android:textColor="@color/text_secondary_dark" />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <!-- Bar Chart -->
+                        <com.obddroid.features.fueleconomy.ui.FuelEconomyChart
+                            android:id="@+id/fuel_economy_chart"
+                            android:layout_width="match_parent"
+                            android:layout_height="140dp"
+                            android:layout_marginTop="@dimen/spacing_xs"
+                            android:layout_marginBottom="@dimen/spacing_small" />
+
+                        <!-- Chart Title -->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="AVERAGE FUEL ECONOMY"
+                            android:textSize="@dimen/text_caption"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_primary_dark"
+                            android:gravity="center"
+                            android:letterSpacing="0.05" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Fuel Level and Range Row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="@dimen/spacing_small">
+
+                    <!-- Fuel Level Card -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="@dimen/spacing_xs"
+                        app:cardCornerRadius="@dimen/card_corner_radius"
+                        app:cardElevation="@dimen/elevation_content_card"
+                        app:cardBackgroundColor="@color/background_secondary">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="@dimen/spacing_small"
+                            android:gravity="center">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical">
+
+                                <View
+                                    android:layout_width="8dp"
+                                    android:layout_height="8dp"
+                                    android:layout_marginEnd="@dimen/spacing_small"
+                                    android:background="@drawable/circle_indicator"
+                                    android:backgroundTint="@color/fault_success" />
+
+                                <TextView
+                                    android:id="@+id/fuel_level_value"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/value_placeholder"
+                                    android:textSize="@dimen/text_large_value"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/text_primary_dark" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="%"
+                                    android:textSize="@dimen/text_small_value"
+                                    android:textColor="@color/text_secondary_dark"
+                                    android:layout_marginStart="@dimen/spacing_xs" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="FUEL LEVEL"
+                                android:textSize="@dimen/text_label"
+                                android:textStyle="bold"
+                                android:textColor="@color/text_secondary_dark"
+                                android:letterSpacing="0.05"
+                                android:layout_marginTop="@dimen/spacing_xs" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Range Card -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="@dimen/spacing_xs"
+                        app:cardCornerRadius="@dimen/card_corner_radius"
+                        app:cardElevation="@dimen/elevation_content_card"
+                        app:cardBackgroundColor="@color/background_secondary">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="@dimen/spacing_small"
+                            android:gravity="center">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical">
+
+                                <View
+                                    android:layout_width="8dp"
+                                    android:layout_height="8dp"
+                                    android:layout_marginEnd="@dimen/spacing_small"
+                                    android:background="@drawable/circle_indicator"
+                                    android:backgroundTint="@color/fault_success" />
+
+                                <TextView
+                                    android:id="@+id/range_value"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/value_placeholder"
+                                    android:textSize="@dimen/text_large_value"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/text_primary_dark" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="miles"
+                                    android:textSize="@dimen/text_caption"
+                                    android:textColor="@color/text_secondary_dark"
+                                    android:layout_marginStart="@dimen/spacing_xs" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="RANGE"
+                                android:textSize="@dimen/text_label"
+                                android:textStyle="bold"
+                                android:textColor="@color/text_secondary_dark"
+                                android:letterSpacing="0.05"
+                                android:layout_marginTop="@dimen/spacing_xs" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+
+                <!-- Fuel Flow Card -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/spacing_small"
+                    app:cardCornerRadius="@dimen/card_corner_radius"
+                    app:cardElevation="@dimen/elevation_content_card"
+                    app:cardBackgroundColor="@color/background_secondary">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/spacing_small">
+
+                        <!-- Fuel Flow Value -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_gravity="center_horizontal"
+                            android:gravity="center_vertical">
+
+                            <View
+                                android:layout_width="8dp"
+                                android:layout_height="8dp"
+                                android:layout_marginEnd="@dimen/spacing_small"
+                                android:background="@drawable/circle_indicator"
+                                android:backgroundTint="@color/fault_success" />
+
+                            <TextView
+                                android:id="@+id/fuel_flow_value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/value_placeholder"
+                                android:textSize="@dimen/text_large_value"
+                                android:textStyle="bold"
+                                android:textColor="@color/text_primary_dark" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="gal/h"
+                                android:textSize="@dimen/text_caption"
+                                android:textColor="@color/text_secondary_dark"
+                                android:layout_marginStart="@dimen/spacing_xs" />
+                        </LinearLayout>
+
+                        <!-- Fuel Flow Gauge -->
+                        <com.obddroid.features.fueleconomy.ui.FuelFlowGauge
+                            android:id="@+id/fuel_flow_gauge"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="@dimen/spacing_xs"
+                            android:layout_marginBottom="@dimen/spacing_small" />
+
+                        <!-- Gauge Title -->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="FUEL FLOW"
+                            android:textSize="@dimen/text_label"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_secondary_dark"
+                            android:gravity="center"
+                            android:letterSpacing="0.05" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Throttle and Time to Empty Row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="@dimen/spacing_small">
+
+                    <!-- Throttle Position Card -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="@dimen/spacing_xs"
+                        app:cardCornerRadius="@dimen/card_corner_radius"
+                        app:cardElevation="@dimen/elevation_content_card"
+                        app:cardBackgroundColor="@color/background_secondary">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="@dimen/spacing_small"
+                            android:gravity="center">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical">
+
+                                <View
+                                    android:layout_width="8dp"
+                                    android:layout_height="8dp"
+                                    android:layout_marginEnd="@dimen/spacing_small"
+                                    android:background="@drawable/circle_indicator"
+                                    android:backgroundTint="@color/fault_success" />
+
+                                <TextView
+                                    android:id="@+id/throttle_position_value"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/value_placeholder"
+                                    android:textSize="@dimen/text_large_value"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/text_primary_dark" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="%"
+                                    android:textSize="@dimen/text_small_value"
+                                    android:textColor="@color/text_secondary_dark"
+                                    android:layout_marginStart="@dimen/spacing_xs" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="THROTTLE"
+                                android:textSize="@dimen/text_label"
+                                android:textStyle="bold"
+                                android:textColor="@color/text_secondary_dark"
+                                android:letterSpacing="0.05"
+                                android:layout_marginTop="@dimen/spacing_xs" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Time to Empty Card -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="@dimen/spacing_xs"
+                        app:cardCornerRadius="@dimen/card_corner_radius"
+                        app:cardElevation="@dimen/elevation_content_card"
+                        app:cardBackgroundColor="@color/background_secondary">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="@dimen/spacing_small"
+                            android:gravity="center">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical">
+
+                                <View
+                                    android:layout_width="8dp"
+                                    android:layout_height="8dp"
+                                    android:layout_marginEnd="@dimen/spacing_small"
+                                    android:background="@drawable/circle_indicator"
+                                    android:backgroundTint="@color/fault_success" />
+
+                                <TextView
+                                    android:id="@+id/time_to_empty_value"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/value_placeholder"
+                                    android:textSize="@dimen/text_large_value"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/text_primary_dark" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="hrs"
+                                    android:textSize="@dimen/text_caption"
+                                    android:textColor="@color/text_secondary_dark"
+                                    android:layout_marginStart="@dimen/spacing_xs" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="TIME TO EMPTY"
+                                android:textSize="@dimen/text_label"
+                                android:textStyle="bold"
+                                android:textColor="@color/text_secondary_dark"
+                                android:letterSpacing="0.05"
+                                android:layout_marginTop="@dimen/spacing_xs" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+
+                <!-- Footer Spacer -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/footer_spacer_height" />
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <!-- Overlay -->
+        <View
+            android:id="@+id/footer_overlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/background_overlay"
+            android:clickable="true"
+            android:focusable="true"
+            android:visibility="gone"/>
+
+    </FrameLayout>
+
+    <!-- Footer -->
+    <com.obddroid.ui.components.VehicleInfoFooter
+        android:id="@+id/vehicle_footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/background_secondary"
+        android:elevation="@dimen/elevation_footer"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

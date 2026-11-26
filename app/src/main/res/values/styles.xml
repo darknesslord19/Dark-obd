@@ -1,0 +1,131 @@
+<resources>
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar" >
+        <item name="android:activatedBackgroundIndicator">@drawable/activated_background</item>
+        <item name="actionMenuTextAppearance">@style/MenuTextAppearance</item>
+        <item name="android:dropDownListViewStyle">@style/PopupMenuListView</item>
+        <item name="windowActionBarOverlay">false</item>
+        <item name="android:textColorSecondary">#424242</item>
+        <item name="colorAccent">#000000</item>
+    </style>
+
+    <style name="MenuTextAppearance" parent="TextAppearance.AppCompat.Widget.ActionBar.Menu">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="PopupMenuListView" parent="Widget.AppCompat.ListView.DropDown">
+        <item name="android:divider">@android:color/transparent</item>
+        <item name="android:dividerHeight">0dp</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:activatedBackgroundIndicator">@drawable/activated_background</item>
+        <item name="actionMenuTextAppearance">@style/MenuTextAppearance</item>
+        <item name="android:dropDownListViewStyle">@style/PopupMenuListView</item>
+        <item name="windowActionBarOverlay">false</item>
+        <item name="colorPrimary">#212121</item>
+        <item name="colorPrimaryDark">#212121</item>
+        <item name="colorAccent">#000000</item>
+        <item name="android:textColorSecondary">#424242</item>
+        <item name="android:listPreferredItemHeight">40dp</item>
+        <item name="android:listPreferredItemHeightSmall">36dp</item>
+        <item name="android:listPreferredItemPaddingLeft">16dp</item>
+        <item name="android:listPreferredItemPaddingRight">16dp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textAppearanceListItem">@style/SettingsTextAppearance</item>
+        <item name="android:textAppearanceListItemSmall">@style/SettingsTextAppearanceSmall</item>
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
+    </style>
+
+    <style name="SettingsTextAppearance" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="SettingsTextAppearanceSmall" parent="TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="PreferenceDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">#2196F3</item>
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:textColorPrimary">#212121</item>
+        <item name="android:textColorSecondary">#757575</item>
+        <item name="android:windowTitleStyle">@style/DialogTitleStyle</item>
+    </style>
+
+    <style name="DialogTitleStyle" parent="TextAppearance.AppCompat.Title">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#212121</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="PreferenceThemeOverlay" parent="@style/PreferenceThemeOverlay">
+        <item name="preferenceCategoryTitleTextAppearance">@style/PreferenceCategoryTextAppearance</item>
+        <item name="android:textColorPrimary">#212121</item>
+        <item name="android:textColorSecondary">#757575</item>
+    </style>
+
+    <style name="PreferenceCategoryTextAppearance" parent="TextAppearance.AppCompat.Body2">
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <!-- Design System Text Appearances -->
+    <style name="TextAppearance.HeroTitle" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/text_hero_title</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_primary_dark</item>
+    </style>
+
+    <style name="TextAppearance.SectionHeader" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/text_section_header</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_primary_dark</item>
+        <item name="android:letterSpacing">0.02</item>
+    </style>
+
+    <!-- Material Components theme for activities using Material Design components -->
+    <style name="AppTheme.MaterialComponents" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <item name="android:activatedBackgroundIndicator">@drawable/activated_background</item>
+        <item name="actionMenuTextAppearance">@style/MenuTextAppearance</item>
+        <item name="android:dropDownListViewStyle">@style/PopupMenuListView</item>
+        <item name="windowActionBarOverlay">false</item>
+        <item name="android:textColorSecondary">#424242</item>
+        <item name="colorAccent">#000000</item>
+        <item name="colorPrimary">#212121</item>
+        <item name="colorPrimaryDark">#212121</item>
+    </style>
+
+    <!-- Material Components theme without action bar for custom Toolbar -->
+    <style name="AppTheme.MaterialComponents.NoActionBar" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:activatedBackgroundIndicator">@drawable/activated_background</item>
+        <item name="actionMenuTextAppearance">@style/MenuTextAppearance</item>
+        <item name="android:dropDownListViewStyle">@style/PopupMenuListView</item>
+        <item name="windowActionBarOverlay">false</item>
+        <item name="android:textColorSecondary">#424242</item>
+        <item name="colorAccent">#000000</item>
+        <item name="colorPrimary">#212121</item>
+        <item name="colorPrimaryDark">#212121</item>
+    </style>
+
+    <style name="Widget.OBD.ToggleButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="android:paddingTop">@dimen/spacing_small</item>
+        <item name="android:paddingBottom">@dimen/spacing_small</item>
+        <item name="android:textSize">@dimen/text_body</item>
+        <item name="android:textColor">@color/recalls_toggle_text</item>
+        <item name="cornerRadius">28dp</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="strokeColor">@color/recalls_toggle_stroke</item>
+        <item name="backgroundTint">@color/recalls_toggle_background</item>
+        <item name="rippleColor">@color/recalls_toggle_ripple</item>
+        <item name="checkedIcon">@null</item>
+    </style>
+</resources>

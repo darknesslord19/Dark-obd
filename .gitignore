@@ -1,0 +1,136 @@
+################################################################################
+# OBD-Droid .gitignore
+################################################################################
+
+#==============================================================================
+# Android Build Files
+#==============================================================================
+*.apk
+*.aar
+*.ap_
+*.aab
+*.dex
+*.class
+
+# Build output directories
+bin/
+gen/
+out/
+release/
+build/
+
+#==============================================================================
+# Gradle
+#==============================================================================
+.gradle/
+local.properties
+
+# Don't ignore gradle wrapper jar (needed for builds)
+!gradle/wrapper/gradle-wrapper.jar
+
+#==============================================================================
+# IDE Files (Android Studio / IntelliJ IDEA)
+#==============================================================================
+*.iml
+.idea/
+.navigation/
+captures/
+
+# Version control IDE settings
+vcs.xml
+
+# Claude Code AI assistant
+.claude/
+
+# ADB debugging files
+.adb/
+
+#==============================================================================
+# External Build Tools
+#==============================================================================
+
+# Native builds
+.externalNativeBuild
+.cxx/
+
+# ProGuard
+proguard/
+
+# Freeline
+freeline.py
+freeline/
+freeline_project_description.json
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+fastlane/readme.md
+
+# Lint
+lint/intermediates/
+lint/generated/
+lint/outputs/
+lint/tmp/
+lint/reports/
+
+#==============================================================================
+# Security & Credentials (NEVER COMMIT)
+#==============================================================================
+*.jks
+*.keystore
+google-services.json
+
+#==============================================================================
+# Logs & Profiling
+#==============================================================================
+*.log
+*.hprof
+
+#==============================================================================
+# OS-Specific Files
+#==============================================================================
+
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+ehthumbs.db
+Thumbs.db
+
+#==============================================================================
+# Editor Backup Files
+#==============================================================================
+*.bak
+*.tmp
+*.swp
+*~
+
+#==============================================================================
+# Project-Specific
+#==============================================================================
+
+# DTC Database (copied from submodule during build, not checked in)
+app/src/main/assets/dtc_codes.db
+
+# JDK directory
+.jdk
+
+# Temporary ideas/notes
+/ideas
+
+# External plugins (if any)
+/modules/androbod-plugins
+
+claude.md
+start-autocheck-dev.sh
+################################################################################
+# End of .gitignore
+################################################################################
+
+/.gradle-cache

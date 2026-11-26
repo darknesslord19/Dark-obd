@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--  OBD-Droid -->
+    <string name="app_name" translatable="false">OBD-Droid</string>
+    <string name="app_description">OBD vehicle diagnostics app for ELM327 Bluetooth adapter</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="title_connecting">Connecting…</string>
+    <string name="title_connected_to">Connected %s</string>
+    <string name="status_connect_device">Connect a Device</string>
+    <string name="status_online">Select Device</string>
+    <string name="status_demo_mode">Demo Mode</string>
+    <string name="status_viewing_saved">Viewing Saved Data</string>
+    <string name="back_again_to_exit">Press back again to close this app</string>
+    <string name="safety_recalls">Safety Recalls</string>
+    <string name="vin_hint">Enter 17-character VIN</string>
+    <string name="search_recalls">Search Recalls</string>
+    <string name="recalls_open_in_browser">Tap to view details on NHTSA.gov</string>
+    <string name="recalls_summary_heading">Summary</string>
+    <string name="recalls_remedy_heading">Remedy</string>
+    <string name="recalls_tab_all">All Recalls</string>
+    <string name="recalls_tab_all_with_count">All Recalls (%1$d)</string>
+    <string name="recalls_tab_open">Open Recalls</string>
+    <string name="recalls_tab_open_with_count">Open Recalls (%1$d)</string>
+    <string name="recalls_open_loading_message">Fetching open recalls from AutoCheck…</string>
+    <string name="recalls_open_empty_title">No Open Recalls Found</string>
+    <string name="recalls_open_empty_message">AutoCheck reports no outstanding safety recall campaigns for this vehicle.</string>
+    <string name="recalls_open_error_generic">Unable to load open recalls from AutoCheck.</string>
+    <string name="recalls_open_error_mismatch">AutoCheck reported open recalls but no details were provided.</string>
+    <string name="recalls_open_error_no_vin">Vehicle VIN is required to look up open recalls.</string>
+    <string name="recalls_open_default_description">Open recall campaign</string>
+    <string name="recalls_open_link_error">Unable to open AutoCheck recall details.</string>
+    <string name="recalls_open_retry">Retry</string>
+    <string name="open_recalls_provider_badge">Powered by AutoCheck</string>
+    <string name="open_recall_status_label">Status: %1$s</string>
+    <string name="open_recall_date_label">Date: %1$s</string>
+    <string name="open_recall_type_label">Type: %1$s</string>
+    <string name="open_recall_nhtsa_label">NHTSA Campaign #: %1$s</string>
+    <string name="open_recall_oem_label">Manufacturer #: %1$s</string>
+    <string name="open_recall_view_on_nhtsa">View on NHTSA.gov</string>
+    <string name="menu_more">More</string>
+    <string name="menu_more_description">More options</string>
+    <string name="value_placeholder">--</string>
+    <!-- menu  -->
+    <string name="action_connect">Connect</string>
+    <string name="obd_none">NO service</string>
+    <string name="obd_data">Live Data</string>
+    <string name="service_testcontrol">Test Suite</string>
+    <string name="obd_codes">Fault Codes</string>
+    <string name="obd_clearcodes">Clear Codes</string>
+    <string name="obd_clear_info">
+    This will reset the MIL and clear all emission-related diagnostic\n
+    information, including:\n
+    - Diagnostic trouble codes\n
+    - Freeze frame data\n
+    - Oxygen sensor test data\n
+    - Status of system monitoring tests\n
+    - On-board monitoring tests results\n
+    - Distance travelled while MIL activated\n
+    - Number of warm-ups since DTCs cleared\n
+    - Distance travelled since DTCs cleared\n
+    - Engine run time while MIL activated\n
+    - Time since DTCs cleared\n\n
+    Other manufacturer specific clearing/resetting actions may occur.\n
+    The loss of data may cause the vehicle to run poorly for a short \n
+    period of time while the ECU recalibrates itself.
+    </string>
+    <string name="fault_codes_title">Fault Codes</string>
+    <string name="fault_codes_empty_title">Ready to scan</string>
+    <string name="fault_codes_empty_message">Tap the scan button to check for diagnostic trouble codes.</string>
+    <string name="fault_codes_button_scan">Scan for codes</string>
+    <string name="fault_codes_button_rescan">Scan again</string>
+    <string name="fault_codes_generic_error">Unexpected error</string>
+    <string name="fault_codes_scan_failed">Scan failed: %1$s</string>
+    <string name="fault_codes_clear_success">Fault codes cleared successfully</string>
+    <string name="fault_codes_clear_failed">Failed to clear codes: %1$s</string>
+    <string name="fault_codes_status_summary">%1$d confirmed / %2$d pending</string>
+    <string name="fault_codes_no_codes">No fault codes</string>
+    <string name="fault_codes_engine_ok">Engine running normally</string>
+    <string name="fault_codes_clear_button">Clear fault codes</string>
+    <string name="fault_codes_status_confirmed">STORED</string>
+    <string name="fault_codes_status_pending">PENDING</string>
+    <string name="fault_codes_status_permanent">PERMANENT</string>
+    <string name="fault_codes_info_title">About Fault Codes</string>
+    <string name="fault_codes_info_ack">Got it</string>
+    <string name="fault_codes_info_message">Diagnostic Trouble Codes (DTCs)\n\nPERMANENT CODES (Red)\nEmissions-related codes that cannot be cleared with a scan tool. These clear automatically when the vehicle detects the issue is resolved.\n\nSTORED CODES (Orange)\nActive faults that triggered the Check Engine Light. These indicate current issues that need attention.\n\nPENDING CODES (Yellow)\nIntermittent issues detected but not yet confirmed. The ECU is monitoring these conditions.\n\nCODE PREFIXES:\nP - Powertrain (Engine, Transmission)\nC - Chassis (ABS, Suspension)\nB - Body (Airbags, Climate Control)\nU - Network or Communication\n\nHow It Works:\nThis page scans your vehicle using OBD-II Mode 03 (stored codes), Mode 07 (pending codes), and Mode 0A (permanent codes). Tap any code to inspect details, clear codes, or research fixes.</string>
+
+    <!-- Main Activity Help -->
+    <string name="main_info_title">About OBD-Droid</string>
+    <string name="main_info_ack">Got it</string>
+    <string name="main_info_message">OBD-Droid connects to your vehicle\'s OBD-II port to monitor engine performance, diagnose issues, and track vehicle health.\n\nGETTING STARTED:\n1. Tap Connect to select your OBD-II adapter\n2. Choose Bluetooth, USB, or WiFi connection\n3. Once connected, explore features from the home screen\n\nFEATURES:\n• Live Data - Real-time engine parameters\n• Fault Codes - Diagnose check engine lights\n• Vehicle Info - VIN, protocols, ECU details\n• Charts - Visualize sensor data over time\n\nTIPS:\n• Keep adapter plugged in while driving for best results\n• Some features require vehicle ignition ON\n• Not all vehicles support all OBD-II modes</string>
+
+    <!-- Live Data Help -->
+    <string name="live_data_info_title">About Live Data</string>
+    <string name="live_data_info_ack">Got it</string>
+    <string name="live_data_info_message">Monitor real-time engine parameters and sensor data from your vehicle.\n\nHOW IT WORKS:\nData refreshes continuously from supported PIDs (Parameter IDs). Tap any parameter to view in chart mode or enable GPS/motion telemetry for enhanced tracking.\n\nFEATURES:\n• Real-time sensor updates\n• GPS integration for speed/location\n• Motion sensors (acceleration, gyro)\n• Save reports for analysis\n• Create custom PIDs for advanced monitoring\n\nTIPS:\n• Not all vehicles support all PIDs\n• Refresh rate depends on adapter speed\n• Custom PIDs allow monitoring non-standard parameters</string>
+
+    <!-- Chart Help -->
+    <string name="chart_info_title">About Charts</string>
+    <string name="chart_info_ack">Got it</string>
+    <string name="chart_info_message">Visualize sensor data over time to identify patterns and trends.\n\nFEATURES:\n• Plot multiple parameters simultaneously\n• Zoom and pan through historical data\n• Snapshot charts for later review\n• Share charts with mechanics or friends\n\nTIPS:\n• Long-press chart to freeze current view\n• Use snapshot to save important trends\n• Charts help diagnose intermittent issues</string>
+
+    <!-- Vehicle Info Help -->
+    <string name="vehicle_info_info_title">About Vehicle Info</string>
+    <string name="vehicle_info_info_ack">Got it</string>
+    <string name="vehicle_info_info_message">View detailed information about your vehicle and its onboard systems.\n\nINFORMATION DISPLAYED:\n• VIN (Vehicle Identification Number)\n• Supported OBD protocols\n• ECU (Engine Control Unit) details\n• Calibration IDs\n• Emissions compliance\n\nFEATURES:\n• Refresh to update information\n• Save reports for records\n• Verify vehicle specifications\n\nUSES:\n• Confirm VIN before purchase\n• Check emissions readiness\n• Verify ECU firmware versions</string>
+
+    <!-- Custom PID Manager Help -->
+    <string name="custom_pid_info_title">About Custom PIDs</string>
+    <string name="custom_pid_info_ack">Got it</string>
+    <string name="custom_pid_info_message">Create and manage custom Parameter IDs for advanced vehicle monitoring.\n\nWHAT ARE CUSTOM PIDs?\nCustom PIDs allow you to monitor non-standard OBD parameters specific to your vehicle make/model, such as turbo boost, transmission temp, or manufacturer-specific sensors.\n\nFEATURES:\n• Import/export PID definitions\n• Create custom formulas and units\n• Share PIDs with other users\n• Test PIDs before saving\n\nTIPS:\n• Consult vehicle service manual for PID values\n• Test new PIDs carefully to avoid errors\n• Share working PIDs with the community</string>
+
+    <!-- Scan Activity Help -->
+    <string name="scan_info_title">About Diagnostic Scan</string>
+    <string name="scan_info_ack">Got it</string>
+    <string name="scan_info_message">Perform comprehensive vehicle diagnostics and health checks.\n\nSCAN TYPES:\n• Quick Scan - Fast fault code check\n• Full Scan - Comprehensive system analysis\n• Emissions Scan - Readiness monitors\n\nFEATURES:\n• AI-powered analysis\n• Share reports with mechanics\n• Ask CoPilot for diagnostic help\n• Track scan history\n\nTIPS:\n• Perform scans with engine warm for accuracy\n• Regular scans help catch issues early\n• Use AI analysis for repair recommendations</string>
+
+    <plurals name="fault_codes_count">
+        <item quantity="one">%d fault code found</item>
+        <item quantity="other">%d fault codes found</item>
+    </plurals>
+    <!-- Fault Code Details Activity -->
+    <string name="fault_codes_details_title">Fault Code Details</string>
+    <string name="fault_codes_type_pending">Pending Code</string>
+    <string name="fault_codes_type_confirmed">Confirmed Code</string>
+    <string name="fault_codes_freeze_connect_first">Connect to vehicle first</string>
+    <string name="fault_codes_freeze_not_available">No freeze frame available</string>
+    <string name="fault_codes_nonda_watch_guide">Watch nonda\'s step-by-step guide</string>
+    <string name="fault_codes_nonda_search_channel">Search nonda\'s channel for this code</string>
+    <string name="fault_codes_web_search_failed">Unable to search web</string>
+    <string name="fault_codes_nonda_not_found">Could not open YouTube for this code</string>
+    <string name="fault_codes_nonda_searching">Opening nonda search results for %1$s</string>
+    <string name="fault_codes_nonda_failed">Unable to open YouTube. Please try again later.</string>
+    <string name="fault_codes_copied">Copied: %1$s</string>
+    <string name="fault_codes_copy_failed">Unable to copy to clipboard</string>
+
+    <!-- Emissions Activity -->
+    <string name="emissions_empty_title">Ready to Scan</string>
+    <string name="emissions_empty_message">Check your emissions readiness status and monitor system diagnostics</string>
+    <string name="emissions_button_scan">Scan Emissions Status</string>
+
+    <string name="obd_test_progress">OBD test control in progress.\n
+    Please check vehicle reaction.</string>
+    <string name="obd_test_confirm">OBD test control requested.\n\n
+    The requested OBD test control may generate:\n
+    - Vehicle motion\n
+    - Exhaust smoke\n
+    - High exhaust temperature\n
+    - Loud engine noise\n
+    - Fuel vapor\n
+    - etc.\n\n
+    Please confirm to perform this test control on your own risk in a safe test environment only!
+    </string>
+    <!--  BtDeviceListActivity -->
+    <string name="select_device">Select adapter</string>
+    <string name="title_paired_devices">Paired Devices</string>
+    <!-- ExportTask -->
+    <string name="send_to">Send to</string>
+    <string name="share">share</string>
+    <string name="time">Time [s]</string>
+    <string name="chart">Chart</string>
+    <string name="demo_stopped">Device connection was lost</string>
+    <string name="snapshot">snapshot</string>
+    <string name="save">Save Data</string>
+    <string name="load">Load Data</string>
+    <string name="saved_data">Saved Data</string>
+    <string name="loaded">loaded</string>
+    <string name="saved">saved</string>
+    <string name="connected_to">"Connected to "</string>
+    <string name="demo">Connected Demo Adapter</string>
+    <string name="saving_data">Saving data …</string>
+    <string name="loading_data">Loading data …</string>
+    <string name="connection_required_title">No vehicle connected</string>
+    <string name="connection_required_message">Please connect your adapter to continue.</string>
+    <string name="connection_overlay_connecting_title">Connecting to adapter…</string>
+    <string name="connection_overlay_connecting_subtitle">Establishing link, please wait</string>
+    <string name="connection_overlay_decoding_title">Loading vehicle data…</string>
+    <string name="connection_overlay_decoding_subtitle">Decoding vehicle information</string>
+    <string name="connection_overlay_finalizing_title">Loading vehicle data…</string>
+    <string name="connection_overlay_finalizing_subtitle">Finalizing vehicle profile</string>
+    <string name="connection_overlay_failed_title">Vehicle info unavailable</string>
+    <string name="connection_overlay_failed_subtitle">Reconnect your adapter to try again.</string>
+    <string name="action_save_report">Save report</string>
+    <string name="fault_codes_report_title">Save Fault Code Report</string>
+    <string name="fuel_economy_report_title">Save Fuel Economy Report</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="hud">Head Up Display</string>
+    <string name="filter">Filter selected</string>
+    <!-- Settings -->
+    <string name="settings">Settings</string>
+    <string name="measure_system_description">Controls units for speed, temperature, pressure, distance, and air flow</string>
+    <string name="measure_system">Measurement Units</string>
+    <string name="metric">Metric (km/h, °C, kPa, km)</string>
+    <string name="imperial">Imperial (mph, °F, PSI, miles)</string>
+    <string-array name="measure_options" translatable="false">
+        <item>@string/metric</item>
+        <item>@string/imperial</item>
+    </string-array>
+    <string-array name="measure_option_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string name="items_for_display">Data Items to Display</string>
+    <string name="items_for_display_descr">Select which vehicle data to monitor</string>
+    <string-array name="empty" translatable="false"/>
+    <string name="logging_level">Logging Level</string>
+    <string name="logging_level_description">Amount of detail to record in debug logs</string>
+    <string-array name="logging_options" translatable="false">
+        <item>OFF</item>
+        <item>SEVERE</item>
+        <item>WARNING</item>
+        <item>INFO</item>
+        <item>CONFIG</item>
+        <item>FINE</item>
+        <item>FINER</item>
+        <item>FINEST</item>
+        <item>ALL</item>
+    </string-array>
+    <!--
+    * key values for restore options
+    * - must align with enum MainActivity.PRESELECT
+    -->
+    <!--
+    * display values for restore options
+    * - must align with enum MainActivity.PRESELECT
+    -->
+    <string name="select_fault_code">Select fault code …</string>
+    <string name="devices_found">%d USB device(s) found</string>
+    <string name="unabletoconnect">Unable to connect device</string>
+    <string name="connectionlost">Device connection was lost</string>
+    <string name="disable_elm_cmds">Disabled Adapter Commands</string>
+    <string name="disable_elm_cmds_descr">Advanced: Disable specific adapter commands if causing issues</string>
+    <string name="elm_adaptive_timing">Adaptive Timing</string>
+    <string name="elm_adaptive_timing_descr">Allow adapter to automatically adjust communication timing</string>
+    <string name="elm_reset_on_nrc">Reset Adapter on Errors</string>
+    <string name="elm_reset_on_nrc_descr">Automatically reset the adapter when communication errors occur</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="disconnect_confirm_title">Confirm Disconnect</string>
+    <string name="disconnect_confirm_message">Are you sure you want to disconnect from the adapter?</string>
+    <string name="elm_options">Adapter Options</string>
+    <string name="elm_custom_init">Custom Initialization</string>
+    <string name="elm_custom_init_descr">Advanced: Custom commands sent to adapter at startup</string>
+    <!-- ELM communication states -->
+    <string name="UNDEFINED">Undefined</string>
+    <string name="INITIALIZING">Initializing…</string>
+    <string name="INITIALIZED">Initialized</string>
+    <string name="ECU_DETECT">ECU detect…</string>
+    <string name="ECU_DETECTED">ECU detected</string>
+    <string name="ECU_SELECTED">Vehicle Connected</string>
+    <string name="CONNECTING">Connecting…</string>
+    <string name="CONNECTED">Connected</string>
+    <string name="NODATA">No data</string>
+    <string name="STOPPED">Stopped</string>
+    <string name="DISCONNECTED">Disconnected</string>
+    <string name="BUSERROR">BUS error</string>
+    <string name="DATAERROR">DATA error</string>
+    <string name="RXERROR">RX error</string>
+    <string name="ERROR">Error</string>
+    <string name="data_disable_max">Error Tolerance</string>
+    <string name="data_disable_max_description">Number of errors before temporarily disabling a sensor</string>
+    <!-- the string array corresponding to state enum -->
+    <string-array name="elmcomm_states" translatable="false">
+        <item>@string/UNDEFINED</item>
+        <item>@string/INITIALIZING</item>
+        <item>@string/INITIALIZED</item>
+        <item>@string/ECU_DETECT</item>
+        <item>@string/ECU_DETECTED</item>
+        <item>@string/ECU_SELECTED</item>
+        <item>@string/CONNECTING</item>
+        <item>@string/CONNECTED</item>
+        <item>@string/NODATA</item>
+        <item>@string/STOPPED</item>
+        <item>@string/DISCONNECTED</item>
+        <item>@string/BUSERROR</item>
+        <item>@string/DATAERROR</item>
+        <item>@string/RXERROR</item>
+        <item>@string/ERROR</item>
+    </string-array>
+    <!-- CSV export options -->
+    <string name="csv_export_options">CSV Export Options</string>
+    <string name="csv_field_delimiter">Field Delimiter</string>
+    <string name="csv_field_delimiter_description">Character used to separate data fields</string>
+    <string name="csv_rec_delimiter">Record Delimiter</string>
+    <string name="csv_rec_delimiter_description">Character used to separate data rows</string>
+    <string name="csv_text_quoted">Quote Text Fields</string>
+    <string name="csv_text_quoted_description">Wrap text fields in quotation marks</string>
+    <string name="tab">TAB</string>
+    <string name="comma">COMMA</string>
+    <string name="semicolon">SEMICOLON</string>
+    <string name="send_after_export">Share After Export</string>
+    <string name="send_after_export_descr">Prompt to share file immediately after exporting</string>
+    <string-array name="csv_field_delim_options" translatable="false">
+        <item>@string/tab</item>
+        <item>@string/comma</item>
+        <item>@string/semicolon</item>
+    </string-array>
+    <string-array name="csv_field_delim_values" translatable="false">
+        <item>\t</item>
+        <item>,</item>
+        <item>;</item>
+    </string-array>
+    <string-array name="csv_record_delim_options" translatable="false">
+        <item>CR</item>
+        <item>LF</item>
+        <item>CRLF</item>
+    </string-array>
+    <string-array name="csv_record_delim_values" translatable="false">
+        <item>\r</item>
+        <item>\n</item>
+        <item>\r\n</item>
+    </string-array>
+    <string-array name="remote_telemetry_protocol_options">
+        <item>TCP (tcp://)</item>
+        <item>SSL/TLS (ssl://)</item>
+    </string-array>
+    <string-array name="remote_telemetry_protocol_values" translatable="false">
+        <item>tcp</item>
+        <item>ssl</item>
+    </string-array>
+    <string-array name="remote_telemetry_qos_options">
+        <item>At most once (QoS 0)</item>
+        <item>At least once (QoS 1)</item>
+        <item>Exactly once (QoS 2)</item>
+    </string-array>
+    <string-array name="remote_telemetry_qos_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="remote_telemetry_update_period_options">
+        <item>5 seconds</item>
+        <item>10 seconds</item>
+        <item>30 seconds</item>
+        <item>60 seconds</item>
+    </string-array>
+    <string-array name="remote_telemetry_update_period_values" translatable="false">
+        <item>5</item>
+        <item>10</item>
+        <item>30</item>
+        <item>60</item>
+    </string-array>
+    <string name="full_screen_display">Immersive Mode</string>
+    <string name="full_screen_display_description">Hide system bars for ultra-dark immersive experience</string>
+    <string name="display_color">Display color</string>
+    <string name="customize_display">Customize data display</string>
+    <string name="display_range">Display range</string>
+    <string name="reset_default">Default</string>
+    <string name="update_period_s">Update period [s]</string>
+    <!-- ECU List Activity -->
+    <string name="ecu_list_title">ECU Modules</string>
+    <!-- CSV logging -->
+    <string name="csv_logging_title">CSV Data Logging</string>
+    <string name="csv_logging_channel_description">Record live OBD measurements to CSV files</string>
+    <string name="csv_logging_start">Start CSV Logging</string>
+    <string name="csv_logging_stop">Stop CSV Logging</string>
+    <string name="csv_logging_notification_title">CSV logging active</string>
+    <string name="csv_logging_notification_text">Captured %1$d points across %2$d rows</string>
+    <string name="csv_logging_finished_text">Log saved as %1$s</string>
+    <string name="csv_logging_auto_paused">Logging paused after inactivity. Latest file: %1$s</string>
+    <string name="csv_logging_share">Share log</string>
+    <string name="csv_logging_started">CSV logging started</string>
+    <string name="csv_logging_stopped">CSV logging stopped</string>
+    <string name="csv_logging_auto_pause_message">CSV logging paused after 60 seconds of inactivity</string>
+    <string name="csv_logging_error">Unable to start CSV logging – storage unavailable</string>
+    <!-- GPS telemetry -->
+    <string name="gps_field_latitude">GPS Latitude</string>
+    <string name="gps_field_longitude">GPS Longitude</string>
+    <string name="gps_field_altitude">GPS Altitude</string>
+    <string name="gps_field_bearing">GPS Bearing</string>
+    <string name="gps_field_speed">GPS Speed</string>
+    <string name="gps_telemetry_start">Enable GPS Telemetry</string>
+    <string name="gps_telemetry_stop">Disable GPS Telemetry</string>
+    <string name="gps_telemetry_started">GPS telemetry enabled</string>
+    <string name="gps_telemetry_stopped">GPS telemetry disabled</string>
+    <string name="gps_permission_rationale">Location access is required to record GPS telemetry with your vehicle data.</string>
+    <string name="gps_permission_denied">Location permission denied. GPS telemetry remains disabled.</string>
+    <!-- Motion sensor telemetry -->
+    <string name="sensor_field_acc_x">Accel X</string>
+    <string name="sensor_field_acc_y">Accel Y</string>
+    <string name="sensor_field_acc_z">Accel Z</string>
+    <string name="motion_telemetry_start">Enable Motion Telemetry</string>
+    <string name="motion_telemetry_stop">Disable Motion Telemetry</string>
+    <string name="motion_telemetry_started">Motion telemetry enabled</string>
+    <string name="motion_telemetry_stopped">Motion telemetry disabled</string>
+    <!-- Remote Telemetry -->
+    <string name="remote_telemetry_settings_title">Remote Telemetry</string>
+    <string name="remote_telemetry_host_title">Server Host</string>
+    <string name="remote_telemetry_host_summary">Hostname or IP address of your remote telemetry server.</string>
+    <string name="remote_telemetry_port_title">Server Port</string>
+    <string name="remote_telemetry_port_summary">TCP port for the server (default 1883).</string>
+    <string name="remote_telemetry_protocol_title">Protocol</string>
+    <string name="remote_telemetry_prefix_title">Topic Prefix</string>
+    <string name="remote_telemetry_prefix_summary">Prefix prepended to each published topic (e.g. obddroid/vehicle/).</string>
+    <string name="remote_telemetry_username_title">Username</string>
+    <string name="remote_telemetry_password_title">Password</string>
+    <string name="remote_telemetry_client_id_title">Client Identifier</string>
+    <string name="remote_telemetry_qos_title">QoS Level</string>
+    <string name="remote_telemetry_update_period_title">Publish Interval</string>
+    <string name="remote_telemetry_retain_title">Retain Messages</string>
+    <string name="remote_telemetry_selected_items_title">Data Items to Share</string>
+    <string name="remote_telemetry_publish_all_items">All available data items will be shared.</string>
+    <string name="remote_telemetry_items_selected">%1$d items selected.</string>
+    <string name="remote_telemetry_password_configured">Password configured</string>
+    <string name="remote_telemetry_password_not_configured">Not configured - tap to set</string>
+    <string name="remote_telemetry_password_cleared">Remote telemetry password removed</string>
+    <string name="remote_telemetry_password_saved">Password saved securely</string>
+    <string name="remote_telemetry_publisher_start">Enable Remote Telemetry</string>
+    <string name="remote_telemetry_publisher_stop">Disable Remote Telemetry</string>
+    <string name="remote_telemetry_publisher_started">Remote telemetry enabled</string>
+    <string name="remote_telemetry_publisher_stopped">Remote telemetry disabled</string>
+    <string name="remote_telemetry_status_title">Remote Telemetry Status</string>
+    <string name="remote_telemetry_status_never">No remote telemetry attempts yet</string>
+    <string name="remote_telemetry_status_waiting_for_data">Remote telemetry initialized, waiting for new data</string>
+    <string name="remote_telemetry_status_publish_success">Last remote telemetry upload succeeded</string>
+    <string name="remote_telemetry_status_failure">Last remote telemetry upload failed at %1$s: %2$s</string>
+    <string name="remote_telemetry_status_success">Last remote telemetry upload succeeded at %1$s</string>
+    <string name="remote_telemetry_status_stopped">Remote telemetry stopped</string>
+    <string name="remote_telemetry_status_stopped_at">Remote telemetry stopped at %1$s</string>
+    <string name="remote_telemetry_status_waiting_since">Remote telemetry waiting for data since %1$s</string>
+    <string name="remote_telemetry_status_error_configuration">Server settings incomplete</string>
+    <string name="remote_telemetry_status_error_client">Unable to create remote telemetry client</string>
+    <string name="remote_telemetry_status_error_unknown">Unknown remote telemetry error</string>
+    <string name="remote_telemetry_status_snackbar_failure">Remote telemetry failed: %1$s</string>
+    <string name="remote_telemetry_status_snackbar_recovered">Remote telemetry recovered</string>
+    <string name="remote_telemetry_not_configured_title">Remote Telemetry Not Configured</string>
+    <string name="remote_telemetry_not_configured_message">Remote Telemetry requires configuration before it can be enabled.\n\nPlease configure the following in Settings:\n• Server Host (required)\n• Port (default: 1883)\n• Topic Prefix\n• Username/Password (if required)</string>
+    <string name="remote_telemetry_not_configured_open_settings">Open Settings</string>
+
+    <!-- CoPilot settings -->
+    <string name="copilot_settings_title">CoPilot Assistant</string>
+    <string name="copilot_enable_title">Enable CoPilot</string>
+    <string name="copilot_enable_summary">Knight Rider–style AI companion that can explain diagnostics and assist with workflows.</string>
+    <string name="copilot_wake_word_title">Use wake word</string>
+    <string name="copilot_wake_word_summary">Listen for "OBD Droid" before activating voice mode. Disable for noisy bays or privacy-sensitive environments.</string>
+    <!-- CoPilot TTS voice options -->
+    <string-array name="copilot_voice_options" translatable="false">
+        <item>Alloy (Neutral)</item>
+        <item>Echo (Male)</item>
+        <item>Fable (British Male)</item>
+        <item>Onyx (Deep Male)</item>
+        <item>Nova (Female)</item>
+        <item>Shimmer (Soft Female)</item>
+    </string-array>
+    <string-array name="copilot_voice_values" translatable="false">
+        <item>alloy</item>
+        <item>echo</item>
+        <item>fable</item>
+        <item>onyx</item>
+        <item>nova</item>
+        <item>shimmer</item>
+    </string-array>
+    <string-array name="openai_model_options" translatable="false">
+        <item>GPT-4o (Recommended - Most Accurate)</item>
+        <item>GPT-4o Mini (Faster, Lower Cost)</item>
+        <item>GPT-4 Turbo (Legacy)</item>
+    </string-array>
+    <string-array name="openai_model_values" translatable="false">
+        <item>gpt-4o</item>
+        <item>gpt-4o-mini</item>
+        <item>gpt-4-turbo</item>
+    </string-array>
+</resources>

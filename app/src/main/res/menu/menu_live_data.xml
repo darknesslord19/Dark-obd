@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- GPS Telemetry Toggle -->
+    <item
+        android:id="@+id/action_toggle_gps_telemetry"
+        android:title="Enable GPS Telemetry"
+        android:icon="@drawable/ic_gps_24"
+        app:showAsAction="never" />
+
+    <!-- Motion Telemetry Toggle -->
+    <item
+        android:id="@+id/action_toggle_motion_telemetry"
+        android:title="Enable Motion Telemetry"
+        android:icon="@drawable/ic_sensors_24"
+        app:showAsAction="never" />
+
+    <!-- Save Report -->
+    <item
+        android:id="@+id/action_save_report"
+        android:title="Save Report"
+        android:icon="@drawable/ic_file_upload_24"
+        app:showAsAction="never" />
+
+    <!-- Manage Custom PIDs -->
+    <item
+        android:id="@+id/action_manage_custom_pids"
+        android:title="Manage Custom PIDs"
+        android:icon="@android:drawable/ic_menu_add"
+        app:showAsAction="never" />
+
+    <!-- Help -->
+    <item
+        android:id="@+id/action_info"
+        android:title="Help"
+        android:icon="@drawable/ic_info_24"
+        app:showAsAction="never" />
+
+</menu>
