@@ -37,3 +37,12 @@ fi
 launch "izinli, BT kapali"
 adb shell svc bluetooth enable; sleep 8
 launch "izinli, BT acik"
+adb root; sleep 5
+adb logcat -b all -c
+adb shell am start -W -f 0x10008000 -n $PKG/com.obddroid.ui.activities.FaultCodeDetailsActivity --es fault_code P2463 --es fault_description Test
+sleep 10
+adb shell uiautomator dump /sdcard/ui.xml
+if adb logcat -d -b crash | grep -q "$PKG"; then START=detay; fail "detay ekrani"; fi
+adb shell cat /sdcard/ui.xml > ui.xml
+grep -q "Ne anlama geliyor" ui.xml && grep -qi "DPF rehberi" ui.xml || { echo "::error::Turkce aciklama veya DPF dugmesi ekranda yok"; exit 1; }
+echo "::notice::Gecti: Turkce ariza ekrani ve DPF dugmesi"

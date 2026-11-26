@@ -15,6 +15,11 @@
         app:showAsAction="never" />
 
     <item
+        android:id="@+id/action_dpf_guide"
+        android:title="DPF rehberi"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/action_save_report"
         android:title="@string/action_save_report"
         android:icon="@drawable/ic_save_24"

@@ -144,8 +144,8 @@ public class FaultCodesActivity extends AppCompatActivity {
 
         // Show appropriate message during verification
         if (isVerificationScan) {
-            scanButton.setText("Verifying...");
-            SnackbarHelper.showInfo(this, "Checking if codes are cleared...",
+            scanButton.setText("Kontrol ediliyor…");
+            SnackbarHelper.showInfo(this, "Silme işlemi kontrol ediliyor…",
                 SnackbarHelper.Duration.SHORT);
         }
 
@@ -188,7 +188,7 @@ public class FaultCodesActivity extends AppCompatActivity {
         if (currentCodes.isEmpty()) {
             // All codes successfully cleared!
             SnackbarHelper.showSuccess(this,
-                "✓ All fault codes cleared successfully!",
+                "✓ Doğrulama taramasında kod görülmedi",
                 SnackbarHelper.Duration.LONG);
             showNoCodesState();
         } else {
@@ -202,13 +202,11 @@ public class FaultCodesActivity extends AppCompatActivity {
 
             if (permanentCount > 0 && permanentCount == currentCodes.size()) {
                 SnackbarHelper.showWarning(this,
-                    permanentCount + " permanent code" + (permanentCount > 1 ? "s" : "") +
-                    " remain (can't be cleared with scan tool)",
+                    permanentCount + " kalıcı kod duruyor (cihazla silinemez)",
                     SnackbarHelper.Duration.LONG);
             } else {
                 SnackbarHelper.showWarning(this,
-                    currentCodes.size() + " code" + (currentCodes.size() > 1 ? "s" : "") +
-                    " still present after clearing",
+                    currentCodes.size() + " kod silme sonrası hâlâ mevcut",
                     SnackbarHelper.Duration.LONG);
             }
             showFaultCodes(currentCodes);
@@ -234,22 +232,22 @@ public class FaultCodesActivity extends AppCompatActivity {
     private void clearCodes() {
         if (isScanning) {
             log.fine("Clear request ignored – operation already in progress");
-            SnackbarHelper.showInfo(this, "Scan operation in progress. Please wait...");
+            SnackbarHelper.showInfo(this, "Tarama sürüyor, lütfen bekleyin…");
             return;
         }
 
         if (currentCodes.isEmpty()) {
             log.fine("Clear request ignored – no codes to clear");
-            SnackbarHelper.showInfo(this, "No fault codes to clear. Scan for codes first.");
+            SnackbarHelper.showInfo(this, "Silinecek kod yok. Önce tarama yapın.");
             return;
         }
 
         // Show confirmation dialog
         new AlertDialog.Builder(this)
-            .setTitle("Clear Fault Codes")
-            .setMessage("Are you sure you want to clear all fault codes? This action cannot be undone.")
-            .setPositiveButton("Clear", (dialog, which) -> performClearCodes())
-            .setNegativeButton("Cancel", null)
+            .setTitle("Arıza kodları silinsin mi?")
+            .setMessage("Önce kodları ve donmuş veriyi not edin. Silmek arızayı onarmaz; sorun sürerse kod geri gelir. Muayene hazırlık bilgileri de sıfırlanır. Kalıcı kodlar bu işlemle silinmez.\n\nAraç park halinde, kontak açık ve motor kapalı olmalı.")
+            .setPositiveButton("Sil", (dialog, which) -> performClearCodes())
+            .setNegativeButton("Vazgeç", null)
             .show();
     }
 
@@ -278,7 +276,7 @@ public class FaultCodesActivity extends AppCompatActivity {
                     // Show "waiting to rescan" message
                     scanButton.postDelayed(() -> {
                         SnackbarHelper.showInfo(this,
-                            "Verifying codes are cleared...",
+                            "Silme işlemi kontrol ediliyor…",
                             SnackbarHelper.Duration.SHORT);
                     }, 1000);
 
@@ -405,6 +403,13 @@ public class FaultCodesActivity extends AppCompatActivity {
             return true;
         } else if (id == R.id.action_clear_codes) {
             clearCodes();
+            return true;
+        } else if (id == R.id.action_dpf_guide) {
+            new AlertDialog.Builder(this)
+                .setTitle("DPF rehberi")
+                .setMessage(TurkishDtc.DPF_GUIDE)
+                .setPositiveButton("Kapat", null)
+                .show();
             return true;
         } else if (id == R.id.action_save_report) {
             showSaveReportDialog();

@@ -121,6 +121,18 @@ public class FaultCodeDetailsActivity extends AppCompatActivity {
         codeNumber.setText(faultCode);
         codeDescription.setText(faultDescription);
 
+        ((TextView) findViewById(R.id.fault_code_turkish)).setText(TurkishDtc.describe(faultCode));
+        String c = faultCode.trim().toUpperCase(java.util.Locale.ROOT);
+        if (c.matches("P2002|P242F|P244A|P245[2-589]|P2463")) {
+            android.view.View dpf = findViewById(R.id.btn_dpf_guide);
+            dpf.setVisibility(android.view.View.VISIBLE);
+            dpf.setOnClickListener(v -> new androidx.appcompat.app.AlertDialog.Builder(this)
+                    .setTitle("DPF rehberi")
+                    .setMessage(TurkishDtc.DPF_GUIDE)
+                    .setPositiveButton("Kapat", null)
+                    .show());
+        }
+
         // Set code type and icon based on pending status
         if (isPending) {
             codeType.setText(R.string.fault_codes_type_pending);

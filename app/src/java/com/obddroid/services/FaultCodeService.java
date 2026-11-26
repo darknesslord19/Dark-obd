@@ -144,16 +144,8 @@ public class FaultCodeService implements RawTelegramListener {
                     String response = sendAndAwait("04", CLEAR_TIMEOUT_MS);
                     log.info("Clear response: " + response);
                     String upper = response.toUpperCase(Locale.US);
-                    // Accept various success responses:
-                    // - "44" (standard positive response = 0x40 + 0x04)
-                    // - "STOPPED" (ECU reset after clearing)
-                    // - "OK", "NODATA" (some adapters)
-                    // - Empty response (some adapters)
-                    return upper.contains("44")
-                        || upper.contains("STOPPED")
-                        || upper.contains("OK")
-                        || upper.contains("NODATA")
-                        || response.trim().isEmpty();
+                    // Yalnızca ECU onayı (0x44) başarı sayılır; NODATA, STOPPED, OK veya boş yanıt değil.
+                    return upper.contains("44");
                 } finally {
                     CommService.elm.removeRawTelegramListener(this);
                 }
