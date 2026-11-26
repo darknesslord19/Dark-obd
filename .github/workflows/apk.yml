@@ -16,6 +16,11 @@ jobs:
         with: { gradle-version: '8.13' }
       - run: gradle :app:assembleDebug --no-daemon --stacktrace
       - run: cp "$(find app/build/outputs/apk/debug -name '*.apk' | head -1)" DarkOBD-Full.apk
+      - name: APK imzala
+        run: |
+          S="$(ls -d "$ANDROID_HOME"/build-tools/* | sort -V | tail -1)/apksigner"
+          "$S" sign --key ci/testkey.pk8 --cert ci/testkey.x509.pem DarkOBD-Full.apk
+          "$S" verify --print-certs DarkOBD-Full.apk | grep -i a40da80a59d170caa950cf15c18c454d47a39b26989d8b640ecd745ba71bf5dc
       - uses: actions/upload-artifact@v4
         with: { name: DarkOBD-Full, path: DarkOBD-Full.apk }
   test:
