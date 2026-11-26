@@ -15,8 +15,10 @@ fail() {
 }
 launch() {
   adb shell am force-stop $PKG
+  adb shell am force-stop com.android.settings
+  adb shell input keyevent KEYCODE_HOME; sleep 3
   adb logcat -b all -c
-  START=$(adb shell am start -W -n $PKG/com.obddroid.ui.activities.MainActivity 2>&1 | tr -d '\r')
+  START=$(adb shell am start -W -f 0x10008000 -n $PKG/com.obddroid.ui.activities.MainActivity 2>&1 | tr -d '\r')
   echo "$START"
   sleep 20
   if adb logcat -d -b crash | grep -q "$PKG" || ! adb shell pidof $PKG >/dev/null; then fail "$1"; fi
