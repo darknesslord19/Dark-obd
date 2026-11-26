@@ -18,8 +18,29 @@ jobs:
       - run: cp "$(find app/build/outputs/apk/debug -name '*.apk' | head -1)" DarkOBD-Full.apk
       - uses: actions/upload-artifact@v4
         with: { name: DarkOBD-Full, path: DarkOBD-Full.apk }
-  release:
+  test:
     needs: build
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        api: [30, 34]
+    steps:
+      - uses: actions/checkout@v4
+        with: { persist-credentials: false }
+      - uses: actions/download-artifact@v4
+        with: { name: DarkOBD-Full }
+      - run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules && sudo udevadm trigger --name-match=kvm
+      - uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: ${{ matrix.api }}
+          arch: x86_64
+          target: google_apis
+          script: bash ci/smoke.sh
+  release:
+    needs: test
     runs-on: ubuntu-latest
     permissions:
       contents: write
