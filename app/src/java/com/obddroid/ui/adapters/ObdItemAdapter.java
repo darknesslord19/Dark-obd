@@ -111,21 +111,17 @@ public class ObdItemAdapter extends ArrayAdapter<Object>
         // Get preference selections
         Set<String> pidsToShow = prefs.getStringSet(SettingsActivity.KEY_DATA_ITEMS, null);
 
-        // If no preferences set, or preferences are empty, show all available PIDs
+        // Seçim yoksa hepsini göster. Anahtarlar String olmayabilir (ör. Integer),
+        // bu yüzden String'e dönüştürmeden doğrudan değerleri al.
         if (pidsToShow == null || pidsToShow.isEmpty()) {
-            // Show all available PIDs by default
-            if (pvs instanceof TypedPvList) {
-                TypedPvList<String, ?> typed = (TypedPvList<String, ?>) pvs;
-                Set<String> allKeys = new HashSet<>();
-                for (Map.Entry<String, ?> entry : typed.entrySetTyped()) {
-                    allKeys.add(entry.getKey());
+            HashSet<Object> all = new HashSet<>();
+            for (Object key : pvs.keySet()) {
+                Object value = pvs.get(key);
+                if (value instanceof IndexedProcessVar) {
+                    all.add(value);
                 }
-                pidsToShow = allKeys;
-            } else {
-                @SuppressWarnings("unchecked")
-                Set<String> rawKeys = (Set<String>) pvs.keySet();
-                pidsToShow = rawKeys;
             }
+            return all;
         }
 
         return getMatchingItems(pvs, pidsToShow);
