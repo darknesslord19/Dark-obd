@@ -852,7 +852,12 @@ public class MainActivity extends AppCompatActivity
                 {
                     // remember initial bluetooth state
                     initialBtStateEnabled = mBluetoothAdapter.isEnabled();
-                    if (!initialBtStateEnabled)
+                    if (!initialBtStateEnabled && !PermissionManager.hasBluetoothPermissions(this))
+                    {
+                        // Android 12+: izin olmadan REQUEST_ENABLE SecurityException ile çökertir
+                        PermissionManager.requestBluetoothPermissions(this);
+                    }
+                    else if (!initialBtStateEnabled)
                     {
                         // request to enable bluetooth
                         Intent enableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
@@ -1092,25 +1097,12 @@ public class MainActivity extends AppCompatActivity
 
         // stop communication service, then restore the Bluetooth state, once the sleep command is out
         final CommService commService = mCommService;
-        final BluetoothAdapter btAdapter = mBluetoothAdapter;
-        final boolean restoreBtOff = !initialBtStateEnabled;
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
             if (commService != null)
             {
                 commService.stop();
             }
 
-            // if bluetooth adapter was switched OFF before ...
-            if (btAdapter != null && restoreBtOff)
-            {
-                // ... turn it OFF again (only supported on Android 12 and below)
-                // Note: Android 13+ removed the ability for apps to disable Bluetooth
-                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
-                    // Suppress deprecation - required for backward compatibility with API < 33
-                    @SuppressWarnings("deprecation")
-                    boolean disabled = btAdapter.disable();
-                }
-            }
         }, ELM_SLEEP_FLUSH_MS);
 
         log.info(String.format("%s %s finished",
@@ -1692,6 +1684,17 @@ public class MainActivity extends AppCompatActivity
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults)
     {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == PermissionManager.PERMISSION_REQUEST_BLUETOOTH) {
+            if (PermissionManager.hasBluetoothPermissions(this)
+                    && mBluetoothAdapter != null && !mBluetoothAdapter.isEnabled()) {
+                try {
+                    launchActivityForResult(new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE), REQUEST_ENABLE_BT);
+                } catch (SecurityException | android.content.ActivityNotFoundException e) {
+                    log.warning("Bluetooth açma penceresi başlatılamadı: " + e.getMessage());
+                }
+            }
+            return;
+        }
         if (requestCode == PermissionManager.PERMISSION_REQUEST_LOCATION) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 startGpsTelemetryInternal();
