@@ -6,13 +6,18 @@ fail() {
   if [ -z "$msg" ]; then
     msg=$(adb logcat -d | grep -E "$PKG|AndroidRuntime|FATAL|Fatal signal|lowmemorykiller" | grep -E "Killing|died|crash|FATAL|Fatal|Exception|ANR|kill|Force" | tail -25 | cut -c1-260)
   fi
+  msg="$msg
+--start: $(echo "$START" | tr '\n' ' ')
+--exit-info: $(adb shell dumpsys activity exit-info $PKG | tr -d '\r' | grep -E "reason=|description=|timestamp=" | head -8)
+--log: $(adb logcat -d | grep "$PKG" | tail -15 | cut -c1-230)"
   echo "::error title=CRASH ($1)::$(echo "${msg:-kayit yok, surec yok}" | sed 's/%/%25/g' | awk '{printf "%s%%0A",$0}')"
   exit 1
 }
 launch() {
   adb shell am force-stop $PKG
   adb logcat -b all -c
-  adb shell am start -W -n $PKG/com.obddroid.ui.activities.MainActivity
+  START=$(adb shell am start -W -n $PKG/com.obddroid.ui.activities.MainActivity 2>&1 | tr -d '\r')
+  echo "$START"
   sleep 20
   if adb logcat -d -b crash | grep -q "$PKG" || ! adb shell pidof $PKG >/dev/null; then fail "$1"; fi
   echo "::notice::Gecti: $1"
