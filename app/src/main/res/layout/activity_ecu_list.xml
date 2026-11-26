@@ -48,7 +48,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="ECU Modules"
+                            android:text="ECU modülleri"
                             android:textColor="#1A1A1A"
                             android:textSize="14sp"
                             android:textStyle="bold"
@@ -57,7 +57,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Discover and view all Electronic Control Units (ECUs) in your vehicle"
+                            android:text="Araçtaki elektronik kontrol ünitelerini görüntüleyin"
                             android:textColor="#2A2A2A"
                             android:textSize="11sp"
                             android:layout_marginTop="2dp"
@@ -113,7 +113,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="No ECUs Found"
+                android:text="ECU bulunamadı"
                 android:textSize="@dimen/text_section_header"
                 android:textStyle="bold"
                 android:textColor="@color/text_primary_dark"
@@ -122,7 +122,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Connect to your vehicle and tap the scan button to discover ECUs"
+                android:text="Araca bağlanıp ECU taraması yapın"
                 android:textSize="@dimen/text_caption"
                 android:textColor="@color/text_tertiary_dark"
                 android:textAlignment="center"
@@ -134,7 +134,7 @@
                 android:id="@+id/scan_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Scan ECUs"
+                android:text="ECU’ları tara"
                 android:textSize="@dimen/text_caption"
                 android:textStyle="bold"
                 android:backgroundTint="@color/fault_success"

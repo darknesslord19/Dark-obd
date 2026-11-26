@@ -236,7 +236,7 @@ final class AutoCheckExtraCards {
         ownerLayout.setPadding(0, 0, 0, isLast ? 0 : spacingMedium);
 
         TextView header = new TextView(context);
-        header.setText("Owner #" + owner.ownerNumber);
+        header.setText("Sahip no " + owner.ownerNumber);
         header.setTextSize(16);
         header.setTextColor(Color.parseColor("#00ACC1"));
         header.setTypeface(null, Typeface.BOLD);

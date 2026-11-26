@@ -83,7 +83,7 @@ public class ThreadManagerActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setTitle("Conversation History");
+            getSupportActionBar().setTitle("Konuşma geçmişi");
         }
     }
 
@@ -118,19 +118,17 @@ public class ThreadManagerActivity extends AppCompatActivity {
         }
 
         new AlertDialog.Builder(this)
-            .setTitle("CoPilot Conversations & Privacy")
-            .setMessage("CoPilot stores your conversation history (including uploaded scan reports) on your device and with OpenAI so sessions can resume seamlessly.\n\n" +
-                "You can delete any conversation at any time, or wipe all data using the button below. " +
-                "Export conversations before deleting if you want to keep a record.")
+            .setTitle("CoPilot konuşmaları ve gizlilik")
+            .setMessage("CoPilot, yüklenen tarama raporları dahil konuşma geçmişini cihazınızda ve OpenAI’de saklar.\n\nBir konuşmayı veya tüm verileri istediğiniz zaman silebilirsiniz. Kayıt istiyorsanız önce dışa aktarın.")
             .setCancelable(false)
-            .setPositiveButton("I Understand", (dialog, which) -> {
+            .setPositiveButton("Anladım", (dialog, which) -> {
                 getSharedPreferences(PREFS_PRIVACY, MODE_PRIVATE)
                     .edit()
                     .putBoolean(KEY_PRIVACY_ACK, true)
                     .apply();
                 dialog.dismiss();
             })
-            .setNegativeButton("Close Screen", (dialog, which) -> {
+            .setNegativeButton("Ekranı kapat", (dialog, which) -> {
                 dialog.dismiss();
                 finish();
             })
@@ -156,7 +154,7 @@ public class ThreadManagerActivity extends AppCompatActivity {
 
             } catch (Exception e) {
                 runOnUiThread(() -> {
-                    Toast.makeText(this, "Error loading conversations: " + e.getMessage(),
+                    Toast.makeText(this, "Konuşmalar yüklenemedi: " + e.getMessage(),
                         Toast.LENGTH_SHORT).show();
                 });
             }
@@ -168,9 +166,9 @@ public class ThreadManagerActivity extends AppCompatActivity {
 
         // Update count text
         if (count == 0) {
-            threadCountText.setText("No conversations");
+            threadCountText.setText("Konuşma yok");
         } else if (count == 1) {
-            threadCountText.setText("1 conversation");
+            threadCountText.setText("1 konuşma");
         } else {
             threadCountText.setText(count + " conversations");
         }
@@ -193,11 +191,11 @@ public class ThreadManagerActivity extends AppCompatActivity {
 
     private void onDeleteThread(ThreadItem thread) {
         new AlertDialog.Builder(this)
-            .setTitle("Delete Conversation")
-            .setMessage("Delete conversation for " + thread.getDisplayName() + "?\n\n" +
+            .setTitle("Konuşmayı sil")
+            .setMessage("Şu konuşma silinsin: " + thread.getDisplayName() + "?\n\n" +
                 "This will permanently delete the conversation from both your device and OpenAI's servers.")
-            .setPositiveButton("Delete", (dialog, which) -> performDeleteThread(thread))
-            .setNegativeButton("Cancel", null)
+            .setPositiveButton("Sil", (dialog, which) -> performDeleteThread(thread))
+            .setNegativeButton("Vazgeç", null)
             .show();
     }
 
@@ -210,12 +208,12 @@ public class ThreadManagerActivity extends AppCompatActivity {
                     threads.remove(thread);
                     adapter.notifyDataSetChanged();
                     updateUI();
-                    Toast.makeText(this, "Conversation deleted", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Konuşma silindi", Toast.LENGTH_SHORT).show();
                 });
 
             } catch (Exception e) {
                 runOnUiThread(() -> {
-                    Toast.makeText(this, "Error deleting conversation: " + e.getMessage(),
+                    Toast.makeText(this, "Konuşma silinemedi: " + e.getMessage(),
                         Toast.LENGTH_SHORT).show();
                 });
             }
@@ -224,20 +222,17 @@ public class ThreadManagerActivity extends AppCompatActivity {
 
     private void showDeleteAllConfirmation() {
         new AlertDialog.Builder(this)
-            .setTitle("Delete All Data")
-            .setMessage("This will permanently delete ALL your CoPilot conversations from both " +
-                "your device and OpenAI's servers.\n\n" +
-                "This action cannot be undone.\n\n" +
-                "Are you sure?")
-            .setPositiveButton("Delete All", (dialog, which) -> performDeleteAll())
-            .setNegativeButton("Cancel", null)
+            .setTitle("Tüm verileri sil")
+            .setMessage("TÜM CoPilot konuşmaları cihazınızdan ve OpenAI sunucularından kalıcı olarak silinecek.\n\nBu işlem geri alınamaz.\n\nEmin misiniz?")
+            .setPositiveButton("Tümünü sil", (dialog, which) -> performDeleteAll())
+            .setNegativeButton("Vazgeç", null)
             .setIcon(android.R.drawable.ic_dialog_alert)
             .show();
     }
 
     private void onCompareScans(ThreadItem thread) {
         if (TextUtils.isEmpty(thread.comparePrompt)) {
-            Toast.makeText(this, "Need at least two scans to compare", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Karşılaştırma için en az iki tarama gerekli", Toast.LENGTH_SHORT).show();
             return;
         }
         startCopilotForThread(thread, thread.comparePrompt);
@@ -268,12 +263,12 @@ public class ThreadManagerActivity extends AppCompatActivity {
                     threads.clear();
                     adapter.notifyDataSetChanged();
                     updateUI();
-                    Toast.makeText(this, "All conversations deleted", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Tüm konuşmalar silindi", Toast.LENGTH_SHORT).show();
                 });
 
             } catch (Exception e) {
                 runOnUiThread(() -> {
-                    Toast.makeText(this, "Error deleting conversations: " + e.getMessage(),
+                    Toast.makeText(this, "Konuşmalar silinemedi: " + e.getMessage(),
                         Toast.LENGTH_SHORT).show();
                 });
             }
@@ -282,7 +277,7 @@ public class ThreadManagerActivity extends AppCompatActivity {
 
     private void performExportThread(ThreadItem thread) {
         if (TextUtils.isEmpty(thread.threadId)) {
-            Toast.makeText(this, "Unable to export: conversation missing thread id", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Dışa aktarılamadı: konuşma kimliği yok", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -361,13 +356,13 @@ public class ThreadManagerActivity extends AppCompatActivity {
                 shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
 
                 runOnUiThread(() -> {
-                    Toast.makeText(this, "Conversation export ready", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Konuşma dışa aktarmaya hazır", Toast.LENGTH_SHORT).show();
                     startActivity(Intent.createChooser(shareIntent, "Share CoPilot conversation"));
                 });
 
             } catch (Exception e) {
                 runOnUiThread(() ->
-                    Toast.makeText(this, "Export failed: " + e.getMessage(), Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "Dışa aktarılamadı: " + e.getMessage(), Toast.LENGTH_LONG).show()
                 );
             }
         }).start();

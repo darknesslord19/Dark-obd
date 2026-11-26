@@ -54,7 +54,7 @@ public class BaselineScanSelectionActivity extends AppCompatActivity {
         // Set up action bar
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setTitle("Select Baseline Scan");
+            getSupportActionBar().setTitle("Referans tarama seçin");
         }
 
         // Initialize views
@@ -141,9 +141,9 @@ public class BaselineScanSelectionActivity extends AppCompatActivity {
 
         // Show confirmation dialog
         new android.app.AlertDialog.Builder(this)
-            .setTitle("Clear All Scans?")
-            .setMessage("This will permanently delete all " + scans.size() + " saved scans for this vehicle. This action cannot be undone.")
-            .setPositiveButton("Clear All", (dialog, which) -> {
+            .setTitle("Tüm taramalar silinsin mi?")
+            .setMessage("Kalıcı olarak silinecek tarama sayısı: " + scans.size() + " saved scans for this vehicle. This action cannot be undone.")
+            .setPositiveButton("Tümünü sil", (dialog, which) -> {
                 // Get current VIN
                 String vin = VehicleManager.getInstance(this).getCurrentVIN();
                 if (vin != null && !vin.isEmpty()) {
@@ -157,7 +157,7 @@ public class BaselineScanSelectionActivity extends AppCompatActivity {
                     log.info("Cleared all scans for VIN: " + vin);
                 }
             })
-            .setNegativeButton("Cancel", null)
+            .setNegativeButton("Vazgeç", null)
             .setIcon(android.R.drawable.ic_dialog_alert)
             .show();
     }
@@ -170,7 +170,7 @@ public class BaselineScanSelectionActivity extends AppCompatActivity {
 
         if (scans == null || scans.isEmpty()) {
             TextView emptyText = new TextView(this);
-            emptyText.setText("No saved scans available");
+            emptyText.setText("Kayıtlı tarama yok");
             emptyText.setTextSize(16);
             emptyText.setPadding(32, 32, 32, 32);
             emptyText.setGravity(android.view.Gravity.CENTER);

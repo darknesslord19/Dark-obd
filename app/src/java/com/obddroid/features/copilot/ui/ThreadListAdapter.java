@@ -101,7 +101,7 @@ public class ThreadListAdapter extends RecyclerView.Adapter<ThreadListAdapter.Th
 
             // Set VIN
             if (thread.vin != null && !thread.vin.isEmpty()) {
-                threadVin.setText("VIN: " + thread.vin);
+                threadVin.setText("Şasi no: " + thread.vin);
                 threadVin.setVisibility(View.VISIBLE);
             } else {
                 threadVin.setVisibility(View.GONE);
@@ -112,7 +112,7 @@ public class ThreadListAdapter extends RecyclerView.Adapter<ThreadListAdapter.Th
                 threadLastScan.setText(thread.lastScanSummary);
                 threadLastScan.setVisibility(View.VISIBLE);
             } else {
-                threadLastScan.setText("No scans yet");
+                threadLastScan.setText("Henüz tarama yok");
                 threadLastScan.setVisibility(View.VISIBLE);
             }
 

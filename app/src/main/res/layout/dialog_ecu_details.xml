@@ -32,7 +32,7 @@
                 android:id="@+id/ecu_name_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ECU Details"
+                android:text="ECU ayrıntıları"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@android:color/white"/>
@@ -58,7 +58,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Status"
+                android:text="Durum"
                 android:textSize="12sp"
                 android:textColor="#757575"
                 android:textStyle="bold"
@@ -68,7 +68,7 @@
                 android:id="@+id/ecu_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="No changes"
+                android:text="Değişiklik yok"
                 android:textSize="16sp"
                 android:textColor="#4CAF50"
                 android:textStyle="bold"
@@ -85,7 +85,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="BASELINE SCAN"
+                    android:text="REFERANS TARAMA"
                     android:textSize="14sp"
                     android:textColor="#1976D2"
                     android:textStyle="bold"/>
@@ -165,7 +165,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="CURRENT SCAN"
+                    android:text="MEVCUT TARAMA"
                     android:textSize="14sp"
                     android:textColor="#F57C00"
                     android:textStyle="bold"/>
@@ -174,7 +174,7 @@
                     android:id="@+id/current_timestamp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Live Data"
+                    android:text="Canlı veri"
                     android:textSize="11sp"
                     android:textColor="#757575"
                     android:layout_marginStart="8dp"/>
@@ -258,7 +258,7 @@
                 android:id="@+id/btn_close"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
-                android:text="Close"
+                android:text="Kapat"
                 android:textColor="#757575"
                 android:textSize="14sp"
                 android:background="?android:attr/selectableItemBackground"

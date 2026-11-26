@@ -80,13 +80,13 @@ final class FaultCodeUiHelper
         // Set code type and icon based on pending status
         if (faultCode.isPending)
         {
-            codeType.setText("Pending Code");
+            codeType.setText("Bekleyen kod");
             statusIcon.setImageResource(android.R.drawable.ic_menu_recent_history);
             statusIcon.setColorFilter(Color.parseColor("#FF9800"));
         }
         else
         {
-            codeType.setText("Confirmed Code");
+            codeType.setText("Onaylı kod");
             statusIcon.setImageResource(android.R.drawable.ic_menu_myplaces);
             statusIcon.setColorFilter(Color.parseColor("#F57C00"));
         }
@@ -150,12 +150,12 @@ final class FaultCodeUiHelper
                 String videoUrl = getNondaVideoUrl(faultCode.code);
                 if (videoUrl == null)
                 {
-                    SnackbarHelper.showWarning(activity, "Could not open YouTube for this code");
+                    SnackbarHelper.showWarning(activity, "Bu kod için YouTube açılamadı");
                     return;
                 }
                 if (!hasDirectVideo)
                 {
-                    SnackbarHelper.showInfo(activity, "Opening nonda search results for " + faultCode.code);
+                    SnackbarHelper.showInfo(activity, "Nonda sonuçları açılıyor: " + faultCode.code);
                 }
                 launchNondaVideo(activity, videoUrl);
             });
@@ -193,7 +193,7 @@ final class FaultCodeUiHelper
         Object item = adapter.getItem(position);
         if (!(item instanceof EcuCodeItem))
         {
-            SnackbarHelper.showWarning(activity, "No fault code data available for this item");
+            SnackbarHelper.showWarning(activity, "Bu öğe için arıza verisi yok");
             return;
         }
 
@@ -218,17 +218,17 @@ final class FaultCodeUiHelper
             switch (svc)
             {
                 case ObdProt.OBD_SVC_PENDINGCODES:
-                    codeType.setText("Pending Code");
+                    codeType.setText("Bekleyen kod");
                     statusIcon.setImageResource(android.R.drawable.ic_menu_recent_history);
                     statusIcon.setColorFilter(Color.parseColor("#FF9800"));
                     break;
                 case ObdProt.OBD_SVC_PERMACODES:
-                    codeType.setText("Permanent Code");
+                    codeType.setText("Kalıcı kod");
                     statusIcon.setImageResource(android.R.drawable.ic_dialog_alert);
                     statusIcon.setColorFilter(Color.parseColor("#F44336"));
                     break;
                 default:
-                    codeType.setText("Confirmed Code");
+                    codeType.setText("Onaylı kod");
                     statusIcon.setImageResource(android.R.drawable.ic_menu_myplaces);
                     statusIcon.setColorFilter(Color.parseColor("#F57C00"));
                     break;
@@ -260,7 +260,7 @@ final class FaultCodeUiHelper
         {
             if (freezeStatus != null)
             {
-                freezeStatus.setText("Connect to vehicle first");
+                freezeStatus.setText("Önce araca bağlanın");
             }
             freezeFrameOption.setAlpha(0.5f);
             freezeFrameOption.setEnabled(false);
@@ -297,12 +297,12 @@ final class FaultCodeUiHelper
                 String videoUrl = getNondaVideoUrl(code);
                 if (videoUrl == null)
                 {
-                    SnackbarHelper.showWarning(activity, "Could not open YouTube for this code");
+                    SnackbarHelper.showWarning(activity, "Bu kod için YouTube açılamadı");
                     return;
                 }
                 if (!hasDirectVideo)
                 {
-                    SnackbarHelper.showInfo(activity, "Opening nonda search results for " + code);
+                    SnackbarHelper.showInfo(activity, "Nonda sonuçları açılıyor: " + code);
                 }
                 launchNondaVideo(activity, videoUrl);
             });
@@ -463,7 +463,7 @@ final class FaultCodeUiHelper
                     log.log(Level.SEVERE, "Show freeze frame modal", e);
                     activity.runOnUiThread(() ->
                             SnackbarHelper.showError(activity,
-                                    "Error showing freeze frame data: " + e.getMessage()));
+                                    "Donmuş veri gösterilemedi: " + e.getMessage()));
                 }
                 finally
                 {
@@ -485,7 +485,7 @@ final class FaultCodeUiHelper
         catch (Exception e)
         {
             log.log(Level.SEVERE, "Show freeze frame modal", e);
-            SnackbarHelper.showError(activity, "Error showing freeze frame data: " + e.getMessage());
+            SnackbarHelper.showError(activity, "Donmuş veri gösterilemedi: " + e.getMessage());
         }
     }
 
@@ -592,14 +592,14 @@ final class FaultCodeUiHelper
         ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
         if (clipboard == null)
         {
-            SnackbarHelper.showWarning(context, "Clipboard not available on this device");
+            SnackbarHelper.showWarning(context, "Bu cihazda pano kullanılamıyor");
             return;
         }
 
         String text = code + " - " + description;
         ClipData clip = ClipData.newPlainText("OBD Fault Code", text);
         clipboard.setPrimaryClip(clip);
-        SnackbarHelper.showSuccess(context, "Copied: " + code);
+        SnackbarHelper.showSuccess(context, "Kopyalandı: " + code);
     }
 
     static boolean hasDirectNondaVideo(String faultCode)
@@ -636,7 +636,7 @@ final class FaultCodeUiHelper
         catch (ActivityNotFoundException | SecurityException ex)
         {
             log.log(Level.WARNING, "Failed to open nonda video link: " + url, ex);
-            SnackbarHelper.showError(context, "Unable to open YouTube. Please try again later.");
+            SnackbarHelper.showError(context, "YouTube açılamadı. Daha sonra deneyin.");
         }
     }
 
@@ -848,7 +848,7 @@ final class FaultCodeUiHelper
                     log.log(Level.SEVERE, "Show freeze frame modal", e);
                     activity.runOnUiThread(() ->
                             SnackbarHelper.showError(activity,
-                                    "Error showing freeze frame data: " + e.getMessage()));
+                                    "Donmuş veri gösterilemedi: " + e.getMessage()));
                 }
             };
 
@@ -866,7 +866,7 @@ final class FaultCodeUiHelper
         catch (Exception e)
         {
             log.log(Level.SEVERE, "Show freeze frame modal", e);
-            SnackbarHelper.showError(activity, "Error showing freeze frame data: " + e.getMessage());
+            SnackbarHelper.showError(activity, "Donmuş veri gösterilemedi: " + e.getMessage());
         }
     }
 
@@ -914,7 +914,7 @@ final class FaultCodeUiHelper
         catch (Exception e)
         {
             log.log(Level.SEVERE, "Failed to launch CoPilot", e);
-            SnackbarHelper.showError(activity, "Error launching CoPilot: " + e.getMessage());
+            SnackbarHelper.showError(activity, "CoPilot açılamadı: " + e.getMessage());
         }
     }
 }

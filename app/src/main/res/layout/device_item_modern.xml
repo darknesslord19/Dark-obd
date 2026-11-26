@@ -33,7 +33,7 @@
             android:textSize="16sp"
             android:textColor="?android:attr/textColorPrimary"
             android:textStyle="bold"
-            android:text="Device Name"
+            android:text="Cihaz adı"
             android:maxLines="1"
             android:ellipsize="end"/>
 
@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:textSize="14sp"
             android:textColor="?android:attr/textColorSecondary"
-            android:text="Tap to connect • Hold for details"
+            android:text="Bağlanmak için dokunun • Ayrıntı için basılı tutun"
             android:layout_marginTop="2dp"/>
 
     </LinearLayout>

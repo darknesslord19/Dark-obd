@@ -17,7 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="No custom PIDs.\n\nPre-loaded manufacturer PIDs are disabled by default.\nTap any PID to enable it, or tap '+ Add Custom PID' to create your own."
+        android:text="Özel PID yok.\n\nHazır üretici PID’leri varsayılan olarak kapalıdır.\nAçmak için PID’ye dokunun veya yenisini ekleyin."
         android:textAlignment="center"
         android:textSize="16sp"
         android:visibility="gone" />
@@ -34,7 +34,7 @@
             android:id="@+id/btn_add_pid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="+ Add Custom PID" />
+            android:text="+ Özel PID ekle" />
     </LinearLayout>
 
 </RelativeLayout>

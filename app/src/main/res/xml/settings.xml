@@ -5,7 +5,7 @@
                   android:title="@string/settings">
 
     <PreferenceCategory
-        android:title="General Settings"
+        android:title="Genel ayarlar"
         android:layout="@layout/preference_category">
 
         <ListPreference
@@ -28,13 +28,13 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:title="Connection"
+        android:title="Bağlantı"
         android:layout="@layout/preference_category">
 
         <CheckBoxPreference
             android:key="auto_reconnect_on_startup"
-            android:title="Auto-reconnect on startup"
-            android:summary="Automatically reconnect to your last adapter when the app starts"
+            android:title="Açılışta otomatik bağlan"
+            android:summary="Uygulama açılınca son adaptöre otomatik bağlanır"
             android:defaultValue="true"
             android:layout="@layout/preference_indented" />
 
@@ -194,40 +194,40 @@
 
         <Preference
             android:key="copilot_conversation_history"
-            android:title="Conversation History"
-            android:summary="View and manage your CoPilot conversation threads"
+            android:title="Konuşma geçmişi"
+            android:summary="CoPilot konuşmalarını görüntüleyin ve yönetin"
             android:layout="@layout/preference_indented"
             app:dependency="copilot_enabled" />
 
         <Preference
             android:key="copilot_delete_all_conversations"
-            android:title="Delete All Conversations"
-            android:summary="Permanently delete all stored CoPilot conversation threads from OpenAI"
+            android:title="Tüm konuşmaları sil"
+            android:summary="OpenAI’de kayıtlı tüm CoPilot konuşmalarını kalıcı olarak siler"
             android:layout="@layout/preference_indented"
             app:dependency="copilot_enabled" />
 
         <SwitchPreferenceCompat
             android:key="copilot_tts_enabled"
-            android:title="Voice Responses"
-            android:summary="CoPilot speaks responses aloud (requires OpenAI API key)"
+            android:title="Sesli yanıtlar"
+            android:summary="CoPilot yanıtları sesli okur (OpenAI API anahtarı gerekir)"
             android:defaultValue="true"
             android:layout="@layout/preference_indented"
             app:dependency="copilot_enabled" />
 
         <ListPreference
             android:key="copilot_tts_voice"
-            android:title="Voice Selection"
+            android:title="Ses seçimi"
             android:entries="@array/copilot_voice_options"
             android:entryValues="@array/copilot_voice_values"
             android:defaultValue="alloy"
-            android:summary="Choose CoPilot's voice"
+            android:summary="CoPilot sesini seçin"
             android:layout="@layout/preference_indented"
             app:dependency="copilot_tts_enabled" />
 
         <SwitchPreferenceCompat
             android:key="copilot_tts_auto_play"
-            android:title="Auto-Play Responses"
-            android:summary="Automatically speak responses without tapping play button"
+            android:title="Yanıtları otomatik oynat"
+            android:summary="Oynat düğmesine basmadan yanıtları seslendirir"
             android:defaultValue="true"
             android:layout="@layout/preference_indented"
             app:dependency="copilot_tts_enabled" />
@@ -294,52 +294,52 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:title="AI Features"
+        android:title="Yapay zekâ özellikleri"
         android:layout="@layout/preference_category">
 
         <SwitchPreferenceCompat
             android:key="ai_diagnostic_analysis_enabled"
-            android:title="AI Diagnostic Analysis"
-            android:summary="Automatically analyze scan results using GPT-4 for diagnosis and repair recommendations"
+            android:title="Yapay zekâ teşhis analizi"
+            android:summary="Tarama sonuçlarını GPT-4 ile analiz edip öneri sunar"
             android:defaultValue="false"
             android:layout="@layout/preference_indented" />
 
         <EditTextPreference
             android:key="openai_api_key"
-            android:title="OpenAI API Key"
-            android:summary="Configure your OpenAI API key for AI analysis"
+            android:title="OpenAI API anahtarı"
+            android:summary="Yapay zekâ analizi için API anahtarınızı girin"
             android:inputType="textPassword"
             android:layout="@layout/preference_indented"
             app:dependency="ai_diagnostic_analysis_enabled" />
 
         <ListPreference
             android:key="openai_model"
-            android:title="AI Model"
+            android:title="Yapay zekâ modeli"
             android:entries="@array/openai_model_options"
             android:entryValues="@array/openai_model_values"
             android:defaultValue="gpt-4o"
-            android:summary="Choose which OpenAI model to use (GPT-4o is recommended for best accuracy)"
+            android:summary="Kullanılacak OpenAI modelini seçin"
             android:layout="@layout/preference_indented"
             app:dependency="ai_diagnostic_analysis_enabled" />
 
         <SwitchPreferenceCompat
             android:key="ai_upload_scans_to_threads"
-            android:title="Upload Scans to CoPilot"
-            android:summary="Automatically attach scan reports to CoPilot conversations for contextual analysis"
+            android:title="Taramaları CoPilot’a yükle"
+            android:summary="Analiz için tarama raporlarını konuşmalara ekler"
             android:defaultValue="true"
             android:layout="@layout/preference_indented"
             app:dependency="ai_diagnostic_analysis_enabled" />
 
         <Preference
             android:key="openai_api_info"
-            android:title="How to get an API key"
-            android:summary="Tap to learn how to obtain an OpenAI API key"
+            android:title="API anahtarı nasıl alınır"
+            android:summary="OpenAI API anahtarı alma bilgisi için dokunun"
             android:layout="@layout/preference_indented" />
 
         <Preference
             android:key="ai_privacy_notice"
-            android:title="Privacy Notice"
-            android:summary="AI analysis sends scan data (including VIN) to OpenAI. Your API key is required. No data is routed through OBD-Droid servers."
+            android:title="Gizlilik bildirimi"
+            android:summary="Yapay zekâ analizi, şasi numarası dahil tarama verilerini OpenAI’ye gönderir. API anahtarınız gerekir. Veriler OBD-Droid sunucularından geçmez."
             android:selectable="false"
             android:layout="@layout/preference_indented"
             app:iconSpaceReserved="false" />
@@ -347,7 +347,7 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:title="Debugging"
+        android:title="Hata ayıklama"
         android:layout="@layout/preference_category">
 
         <ListPreference

@@ -30,7 +30,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ECU Comparison"
+                android:text="ECU karşılaştırma"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@android:color/white"
@@ -61,7 +61,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Baseline:"
+                    android:text="Referans:"
                     android:textSize="12sp"
                     android:textColor="#B3E5FC"
                     android:textStyle="bold"
@@ -85,7 +85,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Current:"
+                    android:text="Mevcut:"
                     android:textSize="12sp"
                     android:textColor="#B3E5FC"
                     android:textStyle="bold"
@@ -95,7 +95,7 @@
                     android:id="@+id/current_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Live Data"
+                    android:text="Canlı veri"
                     android:textSize="12sp"
                     android:textColor="@android:color/white"/>
             </LinearLayout>
@@ -138,7 +138,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Changed"
+                    android:text="Değişti"
                     android:textSize="12sp"
                     android:textColor="#757575"/>
             </LinearLayout>
@@ -167,7 +167,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Unchanged"
+                    android:text="Değişmedi"
                     android:textSize="12sp"
                     android:textColor="#757575"/>
             </LinearLayout>
@@ -189,7 +189,7 @@
                 android:id="@+id/btn_export"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
-                android:text="Export"
+                android:text="Dışa aktar"
                 android:textColor="#1976D2"
                 android:textSize="14sp"
                 android:background="?android:attr/selectableItemBackground"
@@ -201,7 +201,7 @@
                 android:id="@+id/btn_close"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
-                android:text="Close"
+                android:text="Kapat"
                 android:textColor="#757575"
                 android:textSize="14sp"
                 android:background="?android:attr/selectableItemBackground"

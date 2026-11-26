@@ -349,7 +349,7 @@ public class MainActivity extends AppCompatActivity
 
                 @Override
                 public void warnEcuNotReady() {
-                    SnackbarHelper.showWarning(MainActivity.this, "Please wait for ECU connection to complete");
+                    SnackbarHelper.showWarning(MainActivity.this, "ECU bağlantısının tamamlanmasını bekleyin");
                 }
             },
             connection);
@@ -653,7 +653,7 @@ public class MainActivity extends AppCompatActivity
                                 case TEST_CONTROL_UNSUPPORTED:
                                     // Show helpful message and switch back to dashboard
                                     SnackbarHelper.showInfo(MainActivity.this,
-                                        "Test Control (Mode 8) not supported by this vehicle. This is normal for most consumer vehicles.");
+                                        "Bu araç test kontrolünü (Mod 8) desteklemiyor.");
                                     new Handler(Looper.getMainLooper()).postDelayed(() -> {
                                         if (CommService.elm != null && CommService.elm.getService() == ObdProt.OBD_SVC_CTRL_MODE) {
                                             setObdService(ObdProt.OBD_SVC_NONE, null);
@@ -2137,7 +2137,7 @@ public class MainActivity extends AppCompatActivity
                     // MIL is ON - show warning status
                     statusIcon.setColorFilter(Color.parseColor("#FFC107"));
                     statusText.setText(numCodes + " Fault Code" + (numCodes != 1 ? "s" : "") + " Detected");
-                    statusSubtitle.setText("Check engine light is ON");
+                    statusSubtitle.setText("Motor arıza lambası YANIYOR");
                     statusSubtitle.setTextColor(Color.parseColor("#F57C00"));
 
                     // Show clear codes button when there are codes
@@ -2147,8 +2147,8 @@ public class MainActivity extends AppCompatActivity
                 } else {
                     // MIL is OFF - show normal status
                     statusIcon.setColorFilter(Color.parseColor("#4CAF50"));
-                    statusText.setText("No Fault Codes");
-                    statusSubtitle.setText("Engine running normally");
+                    statusText.setText("Arıza kodu yok");
+                    statusSubtitle.setText("Arıza kodu bildirilmedi");
                     statusSubtitle.setTextColor(Color.parseColor("#757575"));
 
                     // Hide clear codes button when no codes
@@ -2576,7 +2576,7 @@ public class MainActivity extends AppCompatActivity
 
         if (remainingSeconds > 0) {
             log.info("Reconnect cooldown active - " + remainingSeconds + " seconds remaining");
-            SnackbarHelper.showInfo(this, "Please wait " + remainingSeconds + " second(s) before reconnecting again");
+            SnackbarHelper.showInfo(this, "Lütfen bekleyin " + remainingSeconds + " second(s) before reconnecting again");
             return;
         }
 
@@ -2593,7 +2593,7 @@ public class MainActivity extends AppCompatActivity
 
         if (plan == MainConnectionState.ReconnectPlan.NO_ADAPTER) {
             log.warning("No last adapter type found in SharedPreferences");
-            SnackbarHelper.showWarning(this, "No previous adapter connection found. Please select an adapter.");
+            SnackbarHelper.showWarning(this, "Önceki adaptör bulunamadı. Adaptör seçin.");
             return;
         }
 
@@ -2624,33 +2624,33 @@ public class MainActivity extends AppCompatActivity
 
                 case BLUETOOTH_NO_ADDRESS:
                     connection.setManuallyReconnecting(false);
-                    SnackbarHelper.showWarning(this, "No Bluetooth device address found. Please select an adapter.");
+                    SnackbarHelper.showWarning(this, "Bluetooth adresi bulunamadı. Adaptör seçin.");
                     break;
 
                 case NETWORK:
                     connectNetworkDevice(networkIp, prefs.getInt("DEVICE_PORT", 35000));
-                    SnackbarHelper.showInfo(this, "Reconnecting to network adapter...");
+                    SnackbarHelper.showInfo(this, "Ağ adaptörüne yeniden bağlanılıyor…");
                     break;
 
                 case NETWORK_NO_ADDRESS:
                     connection.setManuallyReconnecting(false);
-                    SnackbarHelper.showWarning(this, "No network address found. Please select an adapter.");
+                    SnackbarHelper.showWarning(this, "Ağ adresi bulunamadı. Adaptör seçin.");
                     break;
 
                 case USB_MANUAL:
                     connection.setManuallyReconnecting(false);
-                    SnackbarHelper.showWarning(this, "USB reconnection requires manual device selection. Please use 'Select Adapter'.");
+                    SnackbarHelper.showWarning(this, "USB için adaptörü elle seçmeniz gerekir.");
                     break;
 
                 default:
                     connection.setManuallyReconnecting(false);
-                    SnackbarHelper.showWarning(this, "Unknown adapter type. Please select an adapter.");
+                    SnackbarHelper.showWarning(this, "Bilinmeyen adaptör türü. Adaptör seçin.");
                     break;
             }
         } catch (Exception e) {
             connection.setManuallyReconnecting(false);
             log.log(Level.WARNING, "Error reconnecting to adapter", e);
-            SnackbarHelper.showError(this, "Failed to reconnect. Please select an adapter manually.");
+            SnackbarHelper.showError(this, "Yeniden bağlanılamadı. Adaptörü elle seçin.");
         }
     }
 
@@ -3162,7 +3162,7 @@ public class MainActivity extends AppCompatActivity
                 public void onClick(View v) {
                     // Check if elm is available
                     if (CommService.elm == null) {
-                        SnackbarHelper.showError(MainActivity.this, "OBD adapter not connected");
+                        SnackbarHelper.showError(MainActivity.this, "OBD adaptörü bağlı değil");
                         dialog.dismiss();
                         return;
                     }
@@ -3171,7 +3171,7 @@ public class MainActivity extends AppCompatActivity
                     final int previousService = CommService.elm.getService();
 
                     // Show feedback that clear codes is in progress
-                    SnackbarHelper.showInfo(MainActivity.this, "Clearing fault codes...");
+                    SnackbarHelper.showInfo(MainActivity.this, "Arıza kodları siliniyor…");
 
                     // set service CLEAR_CODES to clear the codes
                     CommService.elm.setService(ObdProt.OBD_SVC_CLEAR_CODES);
@@ -3182,12 +3182,12 @@ public class MainActivity extends AppCompatActivity
                         public void run() {
                             // Check if still connected
                             if (CommService.elm == null) {
-                                SnackbarHelper.showError(MainActivity.this, "Connection lost during clear operation");
+                                SnackbarHelper.showError(MainActivity.this, "Silme sırasında bağlantı koptu");
                                 return;
                             }
 
                             // Show feedback that we're re-reading codes
-                            SnackbarHelper.showInfo(MainActivity.this, "Re-reading fault codes...");
+                            SnackbarHelper.showInfo(MainActivity.this, "Arıza kodları tekrar okunuyor…");
 
                             // Clear the current codes display first
                             runOnUiThread(() -> {
@@ -3207,7 +3207,7 @@ public class MainActivity extends AppCompatActivity
                             // After another delay, check if codes were cleared successfully and restore service
                             new Handler(Looper.getMainLooper()).postDelayed(() -> {
                                 if (ObdProt.tCodes.size() <= 1) {
-                                    SnackbarHelper.showSuccess(MainActivity.this, "Fault codes cleared successfully");
+                                    SnackbarHelper.showSuccess(MainActivity.this, "Arıza kodları silindi");
                                 } else {
                                     // Check if remaining codes are permanent
                                     int permanentCount = 0;
@@ -3224,11 +3224,11 @@ public class MainActivity extends AppCompatActivity
                                     int totalRemaining = ObdProt.tCodes.size() - 1; // Subtract placeholder
                                     if (permanentCount > 0) {
                                         SnackbarHelper.showInfo(MainActivity.this,
-                                            "Active codes cleared. " + permanentCount + " permanent code(s) remain - " +
+                                            "Etkin kodlar silindi. " + permanentCount + " permanent code(s) remain - " +
                                             "these clear automatically after repair and successful drive cycle");
                                     } else {
                                         SnackbarHelper.showWarning(MainActivity.this,
-                                            "Codes cleared. Found " + totalRemaining + " code(s) still present");
+                                            "Kodlar silindi. Bulunan: " + totalRemaining + " code(s) still present");
                                     }
                                 }
 

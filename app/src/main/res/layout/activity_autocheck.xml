@@ -53,7 +53,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Vehicle History Report"
+                            android:text="Araç geçmişi raporu"
                             android:textSize="24sp"
                             android:textStyle="bold"
                             android:textColor="#FFFFFF"
@@ -64,7 +64,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Get a comprehensive vehicle history report powered by AutoCheck. View ownership history, accident records, title status, and more."
+                            android:text="AutoCheck araç geçmişi raporu: sahiplik, kaza ve ruhsat kayıtları."
                             android:textSize="15sp"
                             android:textColor="#B0BEC5"
                             android:gravity="center"
@@ -77,7 +77,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="56dp"
                             android:minWidth="280dp"
-                            android:text="Generate Report"
+                            android:text="Rapor oluştur"
                             android:textSize="16sp"
                             android:textStyle="bold"
                             android:textAllCaps="false"
@@ -125,7 +125,7 @@
                             android:id="@+id/loading_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Fetching Vehicle History..."
+                            android:text="Araç geçmişi alınıyor…"
                             android:textSize="18sp"
                             android:textStyle="bold"
                             android:textColor="#FFFFFF"
@@ -136,7 +136,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="This may take a few seconds"
+                            android:text="Birkaç saniye sürebilir"
                             android:textSize="14sp"
                             android:textColor="#B0BEC5"
                             android:textAlignment="center"
@@ -166,7 +166,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="⚠️ Error Generating Report"
+                            android:text="⚠️ Rapor oluşturulamadı"
                             android:textSize="18sp"
                             android:textStyle="bold"
                             android:textColor="#FFFFFF"
@@ -247,7 +247,7 @@
                                         <TextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:text="SCORE"
+                                            android:text="PUAN"
                                             android:textSize="8sp"
                                             android:textColor="#B0BEC5"
                                             android:letterSpacing="0.1"/>
@@ -355,7 +355,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="📊 Score Analysis"
+                                android:text="📊 Puan analizi"
                                 android:textSize="16sp"
                                 android:textStyle="bold"
                                 android:textColor="#FFFFFF"
@@ -383,7 +383,7 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="Vehicle Comparison"
+                                        android:text="Araç karşılaştırma"
                                         android:textSize="11sp"
                                         android:textStyle="bold"
                                         android:textColor="#B0BEC5"
@@ -414,7 +414,7 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="Vehicle Outlook"
+                                        android:text="Araç genel görünümü"
                                         android:textSize="11sp"
                                         android:textStyle="bold"
                                         android:textColor="#B0BEC5"
@@ -443,7 +443,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="✅ Positive Factors"
+                                    android:text="✅ Olumlu noktalar"
                                     android:textSize="13sp"
                                     android:textStyle="bold"
                                     android:textColor="#4CAF50"
@@ -467,7 +467,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="⚠️ Watch Points"
+                                    android:text="⚠️ Dikkat edilecekler"
                                     android:textSize="13sp"
                                     android:textStyle="bold"
                                     android:textColor="#FFC107"
@@ -504,7 +504,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Key Statistics"
+                                android:text="Temel istatistikler"
                                 android:textSize="20sp"
                                 android:textStyle="bold"
                                 android:textColor="#FFFFFF"
@@ -549,7 +549,7 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="Owners"
+                                        android:text="Sahip sayısı"
                                         android:textSize="12sp"
                                         android:textColor="#B0BEC5"/>
 
@@ -584,7 +584,7 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="Miles"
+                                        android:text="Mil"
                                         android:textSize="12sp"
                                         android:textColor="#B0BEC5"/>
 
@@ -619,7 +619,7 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="Service Records"
+                                        android:text="Servis kayıtları"
                                         android:textSize="12sp"
                                         android:textColor="#B0BEC5"/>
 
@@ -654,7 +654,7 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="Model Year"
+                                        android:text="Model yılı"
                                         android:textSize="12sp"
                                         android:textColor="#B0BEC5"/>
 
@@ -686,7 +686,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Safety &amp; Title Overview"
+                                android:text="Güvenlik ve ruhsat özeti"
                                 android:textSize="16sp"
                                 android:textStyle="bold"
                                 android:textColor="#FFFFFF"
@@ -706,7 +706,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
-                                    android:text="Title Status"
+                                    android:text="Ruhsat durumu"
                                     android:textSize="15sp"
                                     android:textColor="#B0BEC5"/>
 
@@ -745,7 +745,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
-                                    android:text="Accident/Damage"
+                                    android:text="Kaza / hasar"
                                     android:textSize="15sp"
                                     android:textColor="#B0BEC5"/>
 
@@ -780,7 +780,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
-                                    android:text="Structural Damage"
+                                    android:text="Yapısal hasar"
                                     android:textSize="15sp"
                                     android:textColor="#B0BEC5"/>
 
@@ -815,7 +815,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
-                                    android:text="Airbag Deployment"
+                                    android:text="Airbag açılması"
                                     android:textSize="15sp"
                                     android:textColor="#B0BEC5"/>
 
@@ -850,7 +850,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
-                                    android:text="Odometer Rollback"
+                                    android:text="Kilometre düşürme"
                                     android:textSize="15sp"
                                     android:textColor="#B0BEC5"/>
 
@@ -889,7 +889,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="⚠️ Open Recalls"
+                                android:text="⚠️ Açık geri çağırmalar"
                                 android:textSize="16sp"
                                 android:textStyle="bold"
                                 android:textColor="#FFC107"
@@ -929,7 +929,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Vehicle Specifications"
+                                android:text="Araç özellikleri"
                                 android:textSize="16sp"
                                 android:textStyle="bold"
                                 android:textColor="#FFFFFF"
@@ -968,7 +968,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Vehicle History Timeline"
+                                android:text="Araç geçmişi zaman çizelgesi"
                                 android:textSize="20sp"
                                 android:textStyle="bold"
                                 android:textColor="#FFFFFF"

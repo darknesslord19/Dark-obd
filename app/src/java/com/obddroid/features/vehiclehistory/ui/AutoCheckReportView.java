@@ -144,12 +144,12 @@ final class AutoCheckReportView {
                 scoreRange.setText(String.format("Range: %d - %d",
                     report.getScoreRange().low, report.getScoreRange().high));
             } else {
-                scoreRange.setText("Score: " + score);
+                scoreRange.setText("Puan: " + score);
             }
         } else {
             autoCheckScore.setText("N/A");
             scoreRange.setVisibility(View.GONE);
-            scoreInterpretation.setText("Score Not Available");
+            scoreInterpretation.setText("Puan yok");
             scoreInterpretation.setTextColor(Color.parseColor(AutoCheckReportFormat.GREY));
         }
 
@@ -256,7 +256,7 @@ final class AutoCheckReportView {
             titleBrandValue.setBackgroundResource(report.hasCleanTitle()
                 ? R.drawable.status_badge_success : R.drawable.status_badge_error);
         } else {
-            titleBrandValue.setText("UNKNOWN");
+            titleBrandValue.setText("BİLİNMİYOR");
             titleBrandValue.setBackgroundResource(R.drawable.status_badge_warning);
         }
 
@@ -265,7 +265,7 @@ final class AutoCheckReportView {
             accidentValue.setTextColor(Color.parseColor(report.hasAccidents()
                 ? AutoCheckReportFormat.RED : AutoCheckReportFormat.GREEN));
         } else {
-            accidentValue.setText("Unknown");
+            accidentValue.setText("Bilinmiyor");
             accidentValue.setTextColor(Color.parseColor(AutoCheckReportFormat.GREY));
         }
 
@@ -274,10 +274,10 @@ final class AutoCheckReportView {
 
         // No rollback unless AutoCheck says so
         if (Boolean.TRUE.equals(report.getOdometerRollback())) {
-            rollbackValue.setText("✗ Rollback Detected");
+            rollbackValue.setText("✗ Kilometre düşürme tespit edildi");
             rollbackValue.setTextColor(Color.parseColor(AutoCheckReportFormat.RED));
         } else {
-            rollbackValue.setText("✓ No Rollback");
+            rollbackValue.setText("✓ Kilometre düşürme kaydı yok");
             rollbackValue.setTextColor(Color.parseColor(AutoCheckReportFormat.GREEN));
         }
     }
@@ -285,10 +285,10 @@ final class AutoCheckReportView {
     /** "✗ Yes" in red, "✓ No" in green, "Unknown" in grey. */
     private static void showYesIsBad(TextView textView, Boolean value) {
         if (value == null) {
-            textView.setText("Unknown");
+            textView.setText("Bilinmiyor");
             textView.setTextColor(Color.parseColor(AutoCheckReportFormat.GREY));
         } else if (value) {
-            textView.setText("✗ Yes");
+            textView.setText("✗ Evet");
             textView.setTextColor(Color.parseColor(AutoCheckReportFormat.RED));
         } else {
             textView.setText("✓ No");
@@ -377,7 +377,7 @@ final class AutoCheckReportView {
 
         if (recall.status != null && !recall.status.isEmpty()) {
             TextView statusText = new TextView(context);
-            statusText.setText("Status: " + recall.status);
+            statusText.setText("Durum: " + recall.status);
             statusText.setTextSize(11);
             statusText.setTextColor(Color.parseColor(AutoCheckReportFormat.AMBER));
             statusText.setTypeface(null, Typeface.ITALIC);

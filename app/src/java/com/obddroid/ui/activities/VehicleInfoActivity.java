@@ -65,7 +65,7 @@ public class VehicleInfoActivity extends AppCompatActivity {
 
         // Set up action bar
         if (getSupportActionBar() != null) {
-            getSupportActionBar().setTitle("VIN Decoder");
+            getSupportActionBar().setTitle("Şasi no çözücü");
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
@@ -646,7 +646,7 @@ public class VehicleInfoActivity extends AppCompatActivity {
         dialog.setCancelable(true);
 
         TextView dialogTitle = dialog.findViewById(R.id.dialog_title);
-        if (dialogTitle != null) dialogTitle.setText("Save Vehicle Information");
+        if (dialogTitle != null) dialogTitle.setText("Araç bilgisini kaydet");
 
         View csvOption = dialog.findViewById(R.id.option_export_csv);
         if (csvOption != null) {

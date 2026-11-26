@@ -123,7 +123,7 @@ public class LiveDataActivity extends AppCompatActivity
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setTitle("Live Data");
+            getSupportActionBar().setTitle("Canlı veri");
         }
 
         initializeViews();
@@ -194,7 +194,7 @@ public class LiveDataActivity extends AppCompatActivity
         log.info("Set OBD service to OBD_SVC_DATA (Live Data mode)");
 
         // Show streaming notification
-        SnackbarHelper.showInfo(this, "Streaming live data, hang tight!");
+        SnackbarHelper.showInfo(this, "Canlı veri alınıyor…");
 
         // Refresh adapter with current PIDs (in case new ones were added while paused)
         if (recyclerAdapter != null && !ObdProt.PidPvs.isEmpty()) {
@@ -331,7 +331,7 @@ public class LiveDataActivity extends AppCompatActivity
                 log.info("Location permission granted, starting GPS telemetry");
                 if (gpsTelemetryManager != null) {
                     gpsTelemetryManager.start();
-                    SnackbarHelper.showSuccess(this, "GPS Telemetry enabled");
+                    SnackbarHelper.showSuccess(this, "GPS verisi açıldı");
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
                     prefs.edit().putBoolean("gps_telemetry_enabled", true).apply();
 
@@ -344,7 +344,7 @@ public class LiveDataActivity extends AppCompatActivity
             } else {
                 // Permission denied
                 log.warning("Location permission denied by user");
-                SnackbarHelper.showError(this, "GPS Telemetry requires location permission");
+                SnackbarHelper.showError(this, "GPS verisi için konum izni gerekli");
             }
         }
     }
@@ -358,7 +358,7 @@ public class LiveDataActivity extends AppCompatActivity
 
         if (gpsTelemetryManager.isActive()) {
             gpsTelemetryManager.stop();
-            SnackbarHelper.showInfo(this, "GPS Telemetry disabled");
+            SnackbarHelper.showInfo(this, "GPS verisi kapatıldı");
             log.info("GPS Telemetry disabled by user");
             prefs.edit().putBoolean("gps_telemetry_enabled", false).apply();
         } else {
@@ -366,12 +366,12 @@ public class LiveDataActivity extends AppCompatActivity
             if (!PermissionManager.hasLocationPermission(this)) {
                 log.info("Location permission not granted, requesting...");
                 PermissionManager.requestLocationPermission(this);
-                SnackbarHelper.showInfo(this, "Location permission required for GPS Telemetry");
+                SnackbarHelper.showInfo(this, "GPS verisi için konum izni gerekli");
                 return;
             }
 
             gpsTelemetryManager.start();
-            SnackbarHelper.showSuccess(this, "GPS Telemetry enabled");
+            SnackbarHelper.showSuccess(this, "GPS verisi açıldı");
             log.info("GPS Telemetry enabled by user");
             prefs.edit().putBoolean("gps_telemetry_enabled", true).apply();
         }
@@ -394,12 +394,12 @@ public class LiveDataActivity extends AppCompatActivity
 
         if (sensorTelemetryManager.isActive()) {
             sensorTelemetryManager.stop();
-            SnackbarHelper.showInfo(this, "Motion Telemetry disabled");
+            SnackbarHelper.showInfo(this, "Hareket verisi kapatıldı");
             log.info("Motion Telemetry disabled by user");
             prefs.edit().putBoolean("sensor_telemetry_enabled", false).apply();
         } else {
             sensorTelemetryManager.start();
-            SnackbarHelper.showSuccess(this, "Motion Telemetry enabled");
+            SnackbarHelper.showSuccess(this, "Hareket verisi açıldı");
             log.info("Motion Telemetry enabled by user");
             prefs.edit().putBoolean("sensor_telemetry_enabled", true).apply();
         }
@@ -507,7 +507,7 @@ public class LiveDataActivity extends AppCompatActivity
     private void launchChartView() {
         int[] selectedPositions = getSelectedPositions();
         if (selectedPositions.length == 0) {
-            SnackbarHelper.showWarning(this, "Please select items to chart");
+            SnackbarHelper.showWarning(this, "Grafik için öğe seçin");
             return;
         }
 
@@ -534,7 +534,7 @@ public class LiveDataActivity extends AppCompatActivity
     private void launchDashboardView() {
         int[] selectedPositions = getSelectedPositions();
         if (selectedPositions.length == 0) {
-            SnackbarHelper.showWarning(this, "Please select items for dashboard");
+            SnackbarHelper.showWarning(this, "Gösterge paneli için öğe seçin");
             return;
         }
 
@@ -564,24 +564,24 @@ public class LiveDataActivity extends AppCompatActivity
     private void launchHudView() {
         int[] selectedPositions = getSelectedPositions();
         if (selectedPositions.length == 0) {
-            SnackbarHelper.showWarning(this, "Please select items for HUD");
+            SnackbarHelper.showWarning(this, "HUD için öğe seçin");
             return;
         }
 
-        SnackbarHelper.showInfo(this, "HUD view needs adapter compatibility update");
+        SnackbarHelper.showInfo(this, "HUD görünümü için uyumluluk güncellemesi gerekli");
         log.info("HUD view requested with " + selectedPositions.length + " items");
     }
 
     private void applyFilter() {
         int[] selectedPositions = getSelectedPositions();
         if (selectedPositions.length == 0) {
-            SnackbarHelper.showWarning(this, "Please select items to filter");
+            SnackbarHelper.showWarning(this, "Filtrelenecek öğeleri seçin");
             return;
         }
 
         // Set list to filtered mode showing only selected items
         // TODO: Actually implement filtering by hiding non-selected items
-        SnackbarHelper.showInfo(this, "Filter functionality coming soon");
+        SnackbarHelper.showInfo(this, "Filtreleme yakında");
         log.info("Filter requested for " + selectedPositions.length + " items");
     }
 
@@ -592,7 +592,7 @@ public class LiveDataActivity extends AppCompatActivity
      */
     private void showSaveReportDialog() {
         if (ObdProt.PidPvs.isEmpty()) {
-            SnackbarHelper.showWarning(this, "No live data available to save");
+            SnackbarHelper.showWarning(this, "Kaydedilecek canlı veri yok");
             return;
         }
 
@@ -601,7 +601,7 @@ public class LiveDataActivity extends AppCompatActivity
         dialog.setCancelable(true);
 
         TextView dialogTitle = dialog.findViewById(R.id.dialog_title);
-        if (dialogTitle != null) dialogTitle.setText("Save Live Data Report");
+        if (dialogTitle != null) dialogTitle.setText("Canlı veri raporunu kaydet");
 
         View csvOption = dialog.findViewById(R.id.option_export_csv);
         if (csvOption != null) {
@@ -665,11 +665,11 @@ public class LiveDataActivity extends AppCompatActivity
             writer.close();
             ReportFileWriter.writeText(this, filename, ReportFileWriter.MIME_CSV, writer.toString());
 
-            SnackbarHelper.showSuccess(this, "Saved to Documents/OBD-Droid/" + filename);
+            SnackbarHelper.showSuccess(this, "Documents/OBD-Droid/ klasörüne kaydedildi" + filename);
             log.info("Live data exported to CSV: " + filename);
         } catch (IOException e) {
             log.severe("Error exporting CSV: " + e.getMessage());
-            SnackbarHelper.showError(this, "Failed to export CSV: " + e.getMessage());
+            SnackbarHelper.showError(this, "CSV dışa aktarılamadı: " + e.getMessage());
         }
     }
 
@@ -708,11 +708,11 @@ public class LiveDataActivity extends AppCompatActivity
 
             ReportFileWriter.writeText(this, filename, ReportFileWriter.MIME_JSON, json);
 
-            SnackbarHelper.showSuccess(this, "Saved to Documents/OBD-Droid/" + filename);
+            SnackbarHelper.showSuccess(this, "Documents/OBD-Droid/ klasörüne kaydedildi" + filename);
             log.info("Live data exported to JSON: " + filename);
         } catch (IOException e) {
             log.severe("Error exporting JSON: " + e.getMessage());
-            SnackbarHelper.showError(this, "Failed to export JSON: " + e.getMessage());
+            SnackbarHelper.showError(this, "JSON dışa aktarılamadı: " + e.getMessage());
         }
     }
 

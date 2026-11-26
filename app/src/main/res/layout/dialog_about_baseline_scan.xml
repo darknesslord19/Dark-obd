@@ -34,7 +34,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="About Baseline Scans"
+                    android:text="Referans taramalar hakkında"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:textColor="#212121"/>
@@ -52,7 +52,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="What are Baseline Scans?"
+            android:text="Referans tarama nedir?"
             android:textSize="16sp"
             android:textStyle="bold"
             android:textColor="#424242"
@@ -61,7 +61,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="A baseline scan is a snapshot of all ECU calibration data from a specific point in time. You can save these scans and use them later to detect changes in your vehicle's computer calibrations."
+            android:text="Referans tarama, belirli andaki ECU kalibrasyon verilerinin kaydıdır. Sonradan oluşan değişiklikleri bulmak için kullanılır."
             android:textSize="14sp"
             android:textColor="#616161"
             android:lineSpacingExtra="4dp"
@@ -71,7 +71,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="How to Use"
+            android:text="Nasıl kullanılır"
             android:textSize="16sp"
             android:textStyle="bold"
             android:textColor="#424242"
@@ -80,7 +80,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="• Select a saved scan from the list to use as your baseline\n\n• The app will compare it against current live ECU data\n\n• You'll see which ECUs have changed and which haven't\n\n• Tap any scan to view its details before selecting it\n\n• Import previously exported CSV files to restore saved scans"
+            android:text="• Listeden referans tarama seçin\n\n• Mevcut ECU verisiyle karşılaştırılır\n\n• Değişen ECU’lar gösterilir\n\n• Seçmeden önce ayrıntıya bakabilirsiniz\n\n• CSV’den eski tarama yükleyebilirsiniz"
             android:textSize="14sp"
             android:textColor="#616161"
             android:lineSpacingExtra="4dp"
@@ -90,7 +90,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="When to Create Baseline Scans"
+            android:text="Referans tarama ne zaman alınır"
             android:textSize="16sp"
             android:textStyle="bold"
             android:textColor="#424242"
@@ -99,7 +99,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="• Right after purchasing a vehicle\n\n• Before major service or repairs\n\n• After dealer software updates\n\n• Before modifications or tuning\n\n• Periodically for maintenance records"
+            android:text="• Araç alındıktan sonra\n\n• Büyük bakım veya onarımdan önce\n\n• Servis yazılım güncellemesinden sonra\n\n• Değişiklik yapmadan önce\n\n• Bakım kaydı için belirli aralıklarla"
             android:textSize="14sp"
             android:textColor="#616161"
             android:lineSpacingExtra="4dp"
@@ -110,7 +110,7 @@
             android:id="@+id/btn_close"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:text="Got it"
+            android:text="Anladım"
             android:textColor="@android:color/white"
             android:background="@color/colorPrimary"
             android:textStyle="bold"/>

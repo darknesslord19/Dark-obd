@@ -40,7 +40,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="CoPilot AI Assistant"
+                    android:text="CoPilot yapay zekâ yardımcısı"
                     android:textColor="@color/text_primary_dark"
                     android:textSize="20sp"
                     android:textStyle="bold"
@@ -50,7 +50,7 @@
                     android:id="@+id/copilot_status"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Ready to assist with diagnostics"
+                    android:text="Teşhise yardıma hazır"
                     android:textColor="@color/text_secondary_dark"
                     android:textSize="14sp"
                     android:layout_marginTop="4dp" />
@@ -77,25 +77,25 @@
                     style="@style/Widget.MaterialComponents.Chip.Action"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Explain scan results" />
+                    android:text="Tarama sonuçlarını açıkla" />
 
                 <com.google.android.material.chip.Chip
                     style="@style/Widget.MaterialComponents.Chip.Action"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="What's wrong with my car?" />
+                    android:text="Aracımda sorun ne?" />
 
                 <com.google.android.material.chip.Chip
                     style="@style/Widget.MaterialComponents.Chip.Action"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="How urgent is this?" />
+                    android:text="Bu ne kadar acil?" />
 
                 <com.google.android.material.chip.Chip
                     style="@style/Widget.MaterialComponents.Chip.Action"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Repair recommendations" />
+                    android:text="Onarım önerileri" />
 
             </com.google.android.material.chip.ChipGroup>
 
@@ -133,7 +133,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="CoPilot is thinking..."
+                android:text="CoPilot düşünüyor…"
                 android:textColor="@color/text_secondary"
                 android:textSize="14sp"
                 android:layout_gravity="center_vertical"
@@ -181,7 +181,7 @@
                         android:id="@+id/message_input"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Ask CoPilot anything..."
+                        android:hint="CoPilot’a sorun…"
                         android:inputType="textCapSentences|textMultiLine"
                         android:maxLines="4"
                         android:textColor="@color/text_primary_dark"
@@ -232,7 +232,7 @@
                 android:id="@+id/loading_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Processing..."
+                android:text="İşleniyor…"
                 android:textColor="@android:color/white"
                 android:textSize="16sp"
                 android:layout_marginTop="@dimen/spacing_medium" />

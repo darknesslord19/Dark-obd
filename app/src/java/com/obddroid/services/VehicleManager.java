@@ -451,7 +451,7 @@ public class VehicleManager {
         if (vinDecoder != null) {
             VehicleData offlineData = vinDecoder.decode(vin);
             if (offlineData != null && offlineData.getMake() != null) {
-                offlineData.setMessage("Decoded offline");
+                offlineData.setMessage("Çevrimdışı çözüldü");
                 handleDecodedVehicle(offlineData);
             } else {
                 handleDecodingError("Offline decode failed");

@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Device Details"
+        android:text="Cihaz ayrıntıları"
         android:textColor="#212121"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -35,7 +35,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nickname"
+                android:text="Takma ad"
                 android:textSize="14sp"
                 android:textColor="#757575"
                 android:layout_marginBottom="4dp"/>
@@ -44,7 +44,7 @@
                 android:id="@+id/device_nickname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Device Name"
+                android:text="Cihaz adı"
                 android:textSize="20sp"
                 android:textColor="#424242"
                 android:textStyle="bold"/>
@@ -52,7 +52,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Long press to edit"
+                android:text="Düzenlemek için uzun basın"
                 android:textSize="12sp"
                 android:textColor="#757575"
                 android:fontFamily="sans-serif-light"/>
@@ -73,7 +73,7 @@
             android:id="@+id/status_indicator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="● Ready to Connect"
+            android:text="● Bağlanmaya hazır"
             android:textSize="13sp"
             android:textColor="#757575"
             android:layout_marginTop="8dp"/>
@@ -98,7 +98,7 @@
             android:id="@+id/btn_cancel"
             android:layout_width="wrap_content"
             android:layout_height="36dp"
-            android:text="Cancel"
+            android:text="Vazgeç"
             android:textColor="#757575"
             android:textSize="14sp"
             android:background="?android:attr/selectableItemBackground"
@@ -110,7 +110,7 @@
             android:id="@+id/btn_connect"
             android:layout_width="wrap_content"
             android:layout_height="36dp"
-            android:text="Connect"
+            android:text="Bağlan"
             android:textColor="@android:color/white"
             android:textSize="14sp"
             android:background="@drawable/button_subtle"

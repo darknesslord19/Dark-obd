@@ -81,7 +81,7 @@ public class CoPilotActivity extends AppCompatActivity {
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setTitle("CoPilot AI Assistant");
+            getSupportActionBar().setTitle("CoPilot yapay zekâ yardımcısı");
         }
 
         copilotController = CoPilotController.getInstance();
@@ -120,31 +120,19 @@ public class CoPilotActivity extends AppCompatActivity {
         }
 
         new AlertDialog.Builder(this)
-            .setTitle("CoPilot AI Assistant - First Use")
-            .setMessage("Welcome to CoPilot!\n\n" +
-                "CoPilot uses OpenAI's GPT-4 to help you:\n" +
-                "• Analyze diagnostic scan results\n" +
-                "• Explain fault codes in plain language\n" +
-                "• Provide repair recommendations\n" +
-                "• Answer automotive questions\n\n" +
-                "Privacy & Data:\n" +
-                "• Your messages and scan data (including VIN) are sent to OpenAI for analysis\n" +
-                "• Conversations are stored locally and with OpenAI for context continuity\n" +
-                "• No data is routed through OBD-Droid servers\n" +
-                "• You can delete conversations anytime via Settings → Conversation History\n" +
-                "• Your OpenAI API key is required (configure in Settings)\n\n" +
-                "By using CoPilot, you acknowledge that scan data will be processed by OpenAI's API.")
+            .setTitle("CoPilot - ilk kullanım")
+            .setMessage("CoPilot’a hoş geldiniz!\n\nOpenAI GPT-4 ile tarama sonuçlarını analiz eder, arıza kodlarını açıklar ve öneri sunar.\n\nGizlilik:\n• Mesajlarınız ve şasi numarası dahil tarama verileri OpenAI’ye gönderilir\n• Konuşmalar cihazda ve OpenAI’de saklanır\n• Veriler OBD-Droid sunucularından geçmez\n• Konuşmaları Ayarlar → Konuşma geçmişi bölümünden silebilirsiniz\n• OpenAI API anahtarınız gerekir\n\nCoPilot’u kullanarak verilerin OpenAI tarafından işleneceğini kabul edersiniz.")
             .setCancelable(false)
-            .setPositiveButton("I Understand - Continue", (dialog, which) -> {
+            .setPositiveButton("Anladım, devam et", (dialog, which) -> {
                 getSharedPreferences(PREFS_PRIVACY, MODE_PRIVATE)
                     .edit()
                     .putBoolean(KEY_COPILOT_PRIVACY_ACK, true)
                     .apply();
                 dialog.dismiss();
             })
-            .setNegativeButton("Cancel", (dialog, which) -> {
+            .setNegativeButton("Vazgeç", (dialog, which) -> {
                 dialog.dismiss();
-                Toast.makeText(this, "CoPilot requires your consent to proceed", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "CoPilot için onayınız gerekli", Toast.LENGTH_LONG).show();
                 finish();
             })
             .show();
@@ -205,7 +193,7 @@ public class CoPilotActivity extends AppCompatActivity {
             speechRecognizer.setRecognitionListener(new RecognitionListener() {
                 @Override
                 public void onReadyForSpeech(Bundle params) {
-                    copilotStatus.setText("Listening...");
+                    copilotStatus.setText("Dinleniyor…");
                 }
 
                 @Override
@@ -224,7 +212,7 @@ public class CoPilotActivity extends AppCompatActivity {
 
                 @Override
                 public void onEndOfSpeech() {
-                    copilotStatus.setText("Processing...");
+                    copilotStatus.setText("İşleniyor…");
                 }
 
                 @Override
@@ -232,7 +220,7 @@ public class CoPilotActivity extends AppCompatActivity {
                     isListening = false;
                     voiceButton.setImageResource(android.R.drawable.ic_btn_speak_now);
                     updateStatus();
-                    Toast.makeText(CoPilotActivity.this, "Voice recognition error", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CoPilotActivity.this, "Ses tanıma hatası", Toast.LENGTH_SHORT).show();
                 }
 
                 @Override
@@ -262,7 +250,7 @@ public class CoPilotActivity extends AppCompatActivity {
 
     private void toggleVoiceInput() {
         if (speechRecognizer == null) {
-            Toast.makeText(this, "Voice recognition not available", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Ses tanıma kullanılamıyor", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -294,7 +282,7 @@ public class CoPilotActivity extends AppCompatActivity {
     }
 
     private void updateStatus() {
-        copilotStatus.setText("Ready to assist with diagnostics");
+        copilotStatus.setText("Teşhise yardıma hazır");
     }
 
     private void showWelcomeMessage() {
@@ -358,7 +346,7 @@ public class CoPilotActivity extends AppCompatActivity {
                     animateAvatar(false);
 
                     Toast.makeText(CoPilotActivity.this,
-                            "Error: " + errorMessage,
+                            "Hata: " + errorMessage,
                             Toast.LENGTH_LONG).show();
 
                     ChatMessage errorMsg = new ChatMessage(
@@ -398,7 +386,7 @@ public class CoPilotActivity extends AppCompatActivity {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 toggleVoiceInput();
             } else {
-                Toast.makeText(this, "Microphone permission required for voice input",
+                Toast.makeText(this, "Sesli giriş için mikrofon izni gerekli",
                         Toast.LENGTH_SHORT).show();
             }
         }
@@ -409,7 +397,7 @@ public class CoPilotActivity extends AppCompatActivity {
      */
     private void playResponseAudio(String text, ImageButton speakerButton) {
         if (!ttsManager.isEnabled()) {
-            Toast.makeText(this, "Voice responses are disabled in settings", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Sesli yanıtlar ayarlarda kapalı", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -417,7 +405,7 @@ public class CoPilotActivity extends AppCompatActivity {
         ttsManager.stopPlayback();
 
         // Update status
-        copilotStatus.setText("Speaking...");
+        copilotStatus.setText("Konuşuyor…");
 
         // Animate avatar faster during speech
         animateAvatar(true);
@@ -435,7 +423,7 @@ public class CoPilotActivity extends AppCompatActivity {
             @Override
             public void onTtsComplete() {
                 runOnUiThread(() -> {
-                    copilotStatus.setText("Ready to assist with diagnostics");
+                    copilotStatus.setText("Teşhise yardıma hazır");
                     animateAvatar(false);
                     if (speakerButton != null) {
                         speakerButton.setImageResource(android.R.drawable.ic_lock_silent_mode_off);
@@ -446,13 +434,13 @@ public class CoPilotActivity extends AppCompatActivity {
             @Override
             public void onTtsError(String error) {
                 runOnUiThread(() -> {
-                    copilotStatus.setText("Ready to assist with diagnostics");
+                    copilotStatus.setText("Teşhise yardıma hazır");
                     animateAvatar(false);
                     if (speakerButton != null) {
                         speakerButton.setImageResource(android.R.drawable.ic_lock_silent_mode_off);
                     }
                     Toast.makeText(CoPilotActivity.this,
-                            "Voice playback error: " + error,
+                            "Ses oynatma hatası: " + error,
                             Toast.LENGTH_SHORT).show();
                 });
             }

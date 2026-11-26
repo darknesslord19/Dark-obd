@@ -38,7 +38,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:src="@drawable/ic_dashboard_reconnect"
-            android:contentDescription="Auto-reconnect"
+            android:contentDescription="Otomatik yeniden bağlanma"
             android:tint="#4CAF50"/>
 
         <!-- Text content -->
@@ -53,7 +53,7 @@
                 android:id="@+id/countdown_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Auto-reconnecting to adapter in 5s..."
+                android:text="5 sn içinde yeniden bağlanılacak…"
                 android:textColor="#FFFFFF"
                 android:textSize="13sp"
                 android:textStyle="bold"/>
@@ -61,7 +61,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tap to cancel"
+                android:text="İptal için dokunun"
                 android:textColor="#B0B0B0"
                 android:textSize="11sp"
                 android:layout_marginTop="2dp"/>
@@ -74,7 +74,7 @@
             android:layout_height="32dp"
             android:padding="6dp"
             android:src="@android:drawable/ic_menu_close_clear_cancel"
-            android:contentDescription="Cancel auto-reconnect"
+            android:contentDescription="Yeniden bağlanmayı iptal et"
             android:tint="#FFFFFF"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:clickable="true"

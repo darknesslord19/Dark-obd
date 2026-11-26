@@ -291,10 +291,10 @@ public class BtDeviceListActivity extends AppCompatActivity
 
 			// Set status
 			if (isLastUsedDevice(address)) {
-				statusIndicator.setText("● Recently Connected");
+				statusIndicator.setText("● Yakın zamanda bağlanıldı");
 				statusIndicator.setTextColor(Color.parseColor("#4CAF50")); // Green
 			} else {
-				statusIndicator.setText("● Ready to Connect");
+				statusIndicator.setText("● Bağlanmaya hazır");
 				statusIndicator.setTextColor(Color.parseColor("#FF9800")); // Orange
 			}
 
@@ -314,7 +314,7 @@ public class BtDeviceListActivity extends AppCompatActivity
 				public boolean onLongClick(View v) {
 					// Show input dialog for nickname
 					AlertDialog.Builder inputBuilder = new AlertDialog.Builder(BtDeviceListActivity.this);
-					inputBuilder.setTitle("Edit Nickname");
+					inputBuilder.setTitle("Takma adı düzenle");
 
 					// Create container with padding for the EditText
 					LinearLayout inputContainer = new LinearLayout(BtDeviceListActivity.this);
@@ -323,14 +323,14 @@ public class BtDeviceListActivity extends AppCompatActivity
 
 					final EditText input = new EditText(BtDeviceListActivity.this);
 					input.setText(currentNickname[0]);
-					input.setHint("e.g., My Car");
+					input.setHint("ör. Arabam");
 					input.setSingleLine(true);
 					input.selectAll();
 
 					inputContainer.addView(input);
 					inputBuilder.setView(inputContainer);
 
-					inputBuilder.setPositiveButton("Save", new DialogInterface.OnClickListener() {
+					inputBuilder.setPositiveButton("Kaydet", new DialogInterface.OnClickListener() {
 						@Override
 						public void onClick(DialogInterface dialog, int which) {
 							String newNickname = input.getText().toString().trim();
@@ -350,7 +350,7 @@ public class BtDeviceListActivity extends AppCompatActivity
 						}
 					});
 
-					inputBuilder.setNegativeButton("Cancel", null);
+					inputBuilder.setNegativeButton("Vazgeç", null);
 					inputBuilder.show();
 
 					// Request focus and show keyboard
@@ -491,7 +491,7 @@ public class BtDeviceListActivity extends AppCompatActivity
 				recreate();
 			} else {
 				// Permissions denied
-				SnackbarHelper.showWarning(this, "Bluetooth permissions are required to scan for devices");
+				SnackbarHelper.showWarning(this, "Cihaz taramak için Bluetooth izni gerekli");
 				if (PermissionManager.shouldShowBluetoothRationale(this)) {
 					PermissionManager.showBluetoothRationale(this);
 				} else if (PermissionManager.isBluetoothPermissionPermanentlyDenied(this)) {

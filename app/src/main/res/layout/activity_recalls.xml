@@ -49,7 +49,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Safety Recalls"
+                            android:text="Güvenlik geri çağırmaları"
                             android:textColor="#1A1A1A"
                             android:textSize="14sp"
                             android:textStyle="bold"
@@ -58,7 +58,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Check for official NHTSA safety recalls on your vehicle"
+                            android:text="Resmi NHTSA güvenlik geri çağırmalarını sorgulayın"
                             android:textColor="#2A2A2A"
                             android:textSize="11sp"
                             android:layout_marginTop="2dp"
@@ -93,7 +93,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="VEHICLE IDENTIFICATION"
+                            android:text="ARAÇ KİMLİĞİ"
                             android:textSize="@dimen/text_label"
                             android:textStyle="bold"
                             android:textColor="@color/text_secondary_dark"
@@ -199,7 +199,7 @@
                             android:id="@+id/recalls_status_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Searching for safety recalls..."
+                            android:text="Geri çağırmalar aranıyor…"
                             android:textSize="@dimen/text_body"
                             android:textColor="@color/text_secondary_dark"
                             android:textAlignment="center"
@@ -392,7 +392,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="No Recalls Found"
+                            android:text="Geri çağırma bulunamadı"
                             android:textSize="@dimen/text_section_header"
                             android:textStyle="bold"
                             android:textColor="@color/text_primary_dark"
@@ -401,7 +401,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Great news! There are no active safety recalls for this vehicle."
+                            android:text="Bu araç için etkin güvenlik geri çağırması bulunmadı."
                             android:textSize="@dimen/text_caption"
                             android:textColor="@color/text_tertiary_dark"
                             android:textAlignment="center"
@@ -430,7 +430,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="⚠️ Error"
+                            android:text="⚠️ Hata"
                             android:textSize="@dimen/text_section_header"
                             android:textStyle="bold"
                             android:textColor="@color/text_primary_dark"

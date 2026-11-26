@@ -38,7 +38,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Freeze Frame Data"
+                    android:text="Donmuş veri"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:textColor="@color/text_primary_dark"/>
@@ -78,7 +78,7 @@
                     android:id="@+id/btn_refresh"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
-                    android:text="REFRESH"
+                    android:text="YENİLE"
                     android:textColor="@color/colorAccent"
                     android:textSize="14sp"
                     android:textStyle="bold"
@@ -92,7 +92,7 @@
                     android:id="@+id/btn_close"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
-                    android:text="CLOSE"
+                    android:text="KAPAT"
                     android:textColor="@color/fault_success"
                     android:textSize="14sp"
                     android:textStyle="bold"
@@ -127,7 +127,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Loading freeze frame data..."
+                    android:text="Donmuş veri yükleniyor…"
                     android:textSize="16sp"
                     android:textColor="@color/text_secondary_dark"
                     android:layout_marginTop="16dp"/>
@@ -170,7 +170,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="No Freeze Frame Available"
+                    android:text="Donmuş veri yok"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textColor="@color/text_primary_dark"
@@ -179,7 +179,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="This code may not have captured snapshot data"
+                    android:text="Bu kod anlık veri kaydetmemiş olabilir"
                     android:textSize="14sp"
                     android:textColor="@color/text_secondary_dark"
                     android:textAlignment="center"

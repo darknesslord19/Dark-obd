@@ -26,7 +26,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Vehicle History Report"
+            android:text="Araç geçmişi raporu"
             android:textSize="24sp"
             android:textStyle="bold"
             android:textColor="#1A1A1A"
@@ -36,7 +36,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Powered by AutoCheck"
+            android:text="AutoCheck destekli"
             android:textSize="14sp"
             android:textColor="#666666"
             android:gravity="center"
@@ -58,7 +58,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Enter VIN"
+                    android:text="Şasi no girin"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:textColor="#1A1A1A"
@@ -68,7 +68,7 @@
                     android:id="@+id/vin_input"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="17-character VIN"
+                    android:hint="17 haneli şasi no"
                     android:inputType="textCapCharacters"
                     android:maxLength="17"
                     android:textSize="16sp"
@@ -79,7 +79,7 @@
                     android:id="@+id/check_history_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Check Vehicle History"
+                    android:text="Araç geçmişini sorgula"
                     android:textSize="16sp"
                     android:layout_marginTop="16dp"
                     android:padding="12dp"/>
@@ -98,7 +98,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Fetching vehicle history...\nThis may take 30-60 seconds"
+                    android:text="Araç geçmişi alınıyor…\n30-60 saniye sürebilir"
                     android:textColor="#666666"
                     android:textSize="14sp"
                     android:gravity="center"
@@ -126,7 +126,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Error"
+                    android:text="Hata"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:textColor="#C62828"
@@ -166,7 +166,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Vehicle Information"
+                        android:text="Araç bilgisi"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         android:textColor="#1A1A1A"
@@ -207,7 +207,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="AutoCheck Score"
+                        android:text="AutoCheck puanı"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         android:textColor="#1A1A1A"
@@ -240,7 +240,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Vehicle Details"
+                        android:text="Araç ayrıntıları"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         android:textColor="#1A1A1A"

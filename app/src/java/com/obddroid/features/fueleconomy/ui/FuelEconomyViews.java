@@ -97,12 +97,12 @@ final class FuelEconomyViews {
     /** Stopped (below 1 mph, MPG paused) or moving, with the speed and a coloured dot. */
     void showVehicleStatus(float speedMph) {
         if (speedMph < 1.0f) {
-            vehicleStatusText.setText("Vehicle Stopped - MPG calculation paused");
+            vehicleStatusText.setText("Araç duruyor, tüketim hesabı duraklatıldı");
             vehicleSpeedValue.setText("0 mph");
             vehicleStatusIndicator.setBackgroundTintList(
                 ColorStateList.valueOf(ContextCompat.getColor(activity, R.color.fault_warning)));
         } else {
-            vehicleStatusText.setText("Vehicle Moving - Calculating MPG");
+            vehicleStatusText.setText("Araç hareket ediyor, tüketim hesaplanıyor");
             vehicleSpeedValue.setText(String.format(Locale.US, "%.0f mph", speedMph));
             vehicleStatusIndicator.setBackgroundTintList(
                 ColorStateList.valueOf(ContextCompat.getColor(activity, R.color.fault_success)));

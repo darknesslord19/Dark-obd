@@ -84,7 +84,7 @@ public class CustomPidManagerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_custom_pid_manager);
 
         if (getSupportActionBar() != null) {
-            getSupportActionBar().setTitle("Custom PIDs");
+            getSupportActionBar().setTitle("Özel PID’ler");
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
@@ -174,7 +174,7 @@ public class CustomPidManagerActivity extends AppCompatActivity {
             String description = etDescription.getText().toString().trim();
 
             if (name.isEmpty() || pidHex.isEmpty() || formula.isEmpty()) {
-                Toast.makeText(this, "Name, PID, and Formula are required", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Ad, PID ve formül zorunlu", Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -191,20 +191,20 @@ public class CustomPidManagerActivity extends AppCompatActivity {
 
                 if (isEdit) {
                     pidManager.updatePid(pid);
-                    Toast.makeText(this, "PID updated", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "PID güncellendi", Toast.LENGTH_SHORT).show();
                 } else {
                     pidManager.addPid(pid);
-                    Toast.makeText(this, "PID added", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "PID eklendi", Toast.LENGTH_SHORT).show();
                 }
 
                 refreshPidList();
                 notifyCustomPidsChanged();  // Notify live data to refresh
             } catch (PidFormulaParser.FormulaException | SQLException e) {
-                Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Hata: " + e.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
 
-        builder.setNegativeButton("Cancel", null);
+        builder.setNegativeButton("Vazgeç", null);
         builder.show();
     }
 
@@ -234,27 +234,27 @@ public class CustomPidManagerActivity extends AppCompatActivity {
                 refreshPidList();
                 notifyCustomPidsChanged();  // Notify live data to refresh
             } catch (PidFormulaParser.FormulaException | SQLException e) {
-                Toast.makeText(this, "Error updating PID: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "PID güncellenemedi: " + e.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
 
-        builder.setNeutralButton("Edit", (dialog, which) -> showAddEditDialog(pid));
+        builder.setNeutralButton("Düzenle", (dialog, which) -> showAddEditDialog(pid));
 
-        builder.setNegativeButton("Delete", (dialog, which) -> {
+        builder.setNegativeButton("Sil", (dialog, which) -> {
             new AlertDialog.Builder(this)
-                .setTitle("Delete PID?")
-                .setMessage("Are you sure you want to delete \"" + pid.getName() + "\"?")
-                .setPositiveButton("Delete", (d, w) -> {
+                .setTitle("PID silinsin mi?")
+                .setMessage("Silmek istediğinize emin misiniz: \"" + pid.getName() + "\"?")
+                .setPositiveButton("Sil", (d, w) -> {
                     pidManager.deletePid(pid.getId());
-                    Toast.makeText(this, "PID deleted", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "PID silindi", Toast.LENGTH_SHORT).show();
                     refreshPidList();
                     notifyCustomPidsChanged();  // Notify live data to refresh
                 })
-                .setNegativeButton("Cancel", null)
+                .setNegativeButton("Vazgeç", null)
                 .show();
         });
 
-        builder.setNeutralButton("Close", null);
+        builder.setNeutralButton("Kapat", null);
         builder.show();
     }
 
@@ -334,37 +334,37 @@ public class CustomPidManagerActivity extends AppCompatActivity {
 
     private void showExportDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Export Custom PIDs");
-        builder.setMessage("Choose export format:");
+        builder.setTitle("Özel PID’leri dışa aktar");
+        builder.setMessage("Dışa aktarma biçimi:");
 
-        builder.setPositiveButton("CSV Format", (dialog, which) -> {
+        builder.setPositiveButton("CSV biçimi", (dialog, which) -> {
             String filename = "custom_pids_" + new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(new Date()) + ".csv";
             exportCSVLauncher.launch(filename);
         });
 
-        builder.setNeutralButton("JSON Format", (dialog, which) -> {
+        builder.setNeutralButton("JSON biçimi", (dialog, which) -> {
             String filename = "custom_pids_" + new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(new Date()) + ".json";
             exportJSONLauncher.launch(filename);
         });
 
-        builder.setNegativeButton("Cancel", null);
+        builder.setNegativeButton("Vazgeç", null);
         builder.show();
     }
 
     private void showImportDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Import Custom PIDs");
-        builder.setMessage("Choose file format to import:");
+        builder.setTitle("Özel PID içe aktar");
+        builder.setMessage("İçe aktarma biçimi:");
 
-        builder.setPositiveButton("CSV Format", (dialog, which) -> {
+        builder.setPositiveButton("CSV biçimi", (dialog, which) -> {
             importCSVLauncher.launch("text/*");
         });
 
-        builder.setNeutralButton("JSON Format", (dialog, which) -> {
+        builder.setNeutralButton("JSON biçimi", (dialog, which) -> {
             importJSONLauncher.launch("application/json");
         });
 
-        builder.setNegativeButton("Cancel", null);
+        builder.setNegativeButton("Vazgeç", null);
         builder.show();
     }
 
@@ -376,10 +376,10 @@ public class CustomPidManagerActivity extends AppCompatActivity {
             if (outputStream != null) {
                 outputStream.write(csv.getBytes());
                 outputStream.close();
-                Toast.makeText(this, "Exported " + pidList.size() + " PIDs to CSV", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Dışa aktarıldı: " + pidList.size() + " PIDs to CSV", Toast.LENGTH_SHORT).show();
             }
         } catch (IOException | SecurityException e) {
-            Toast.makeText(this, "Export failed: " + e.getMessage(), Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Dışa aktarılamadı: " + e.getMessage(), Toast.LENGTH_LONG).show();
         }
     }
 
@@ -393,10 +393,10 @@ public class CustomPidManagerActivity extends AppCompatActivity {
             if (outputStream != null) {
                 outputStream.write(csv.getBytes());
                 outputStream.close();
-                Toast.makeText(this, "Exported " + pidList.size() + " PIDs", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Dışa aktarıldı: " + pidList.size() + " PIDs", Toast.LENGTH_SHORT).show();
             }
         } catch (IOException | SecurityException e) {
-            Toast.makeText(this, "Export failed: " + e.getMessage(), Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Dışa aktarılamadı: " + e.getMessage(), Toast.LENGTH_LONG).show();
         }
     }
 
@@ -414,12 +414,12 @@ public class CustomPidManagerActivity extends AppCompatActivity {
                 inputStream.close();
 
                 int imported = pidManager.importFromCSV(csv.toString());
-                Toast.makeText(this, "Imported " + imported + " PIDs from CSV", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "İçe aktarıldı: " + imported + " PIDs from CSV", Toast.LENGTH_SHORT).show();
                 refreshPidList();
                 notifyCustomPidsChanged();
             }
         } catch (IOException | SecurityException e) {
-            Toast.makeText(this, "Import failed: " + e.getMessage(), Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "İçe aktarılamadı: " + e.getMessage(), Toast.LENGTH_LONG).show();
         }
     }
 
@@ -439,12 +439,12 @@ public class CustomPidManagerActivity extends AppCompatActivity {
                 // For now, treat as CSV
                 // TODO: Implement proper JSON import in CustomPidManager
                 int imported = pidManager.importFromCSV(content.toString());
-                Toast.makeText(this, "Imported " + imported + " PIDs", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "İçe aktarıldı: " + imported + " PIDs", Toast.LENGTH_SHORT).show();
                 refreshPidList();
                 notifyCustomPidsChanged();
             }
         } catch (IOException | SecurityException e) {
-            Toast.makeText(this, "Import failed: " + e.getMessage(), Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "İçe aktarılamadı: " + e.getMessage(), Toast.LENGTH_LONG).show();
         }
     }
 

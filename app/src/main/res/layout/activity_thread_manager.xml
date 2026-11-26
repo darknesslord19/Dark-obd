@@ -17,7 +17,7 @@
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            app:title="Conversation History" />
+            app:title="Konuşma geçmişi" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <LinearLayout
@@ -43,7 +43,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="CoPilot Conversations"
+                    android:text="CoPilot konuşmaları"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textColor="@color/text_primary" />
@@ -53,7 +53,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="0 conversations"
+                    android:text="0 konuşma"
                     android:textSize="14sp"
                     android:textColor="@color/text_secondary" />
 
@@ -61,7 +61,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="Conversations are stored securely and synced with OpenAI. Delete them at any time."
+                    android:text="Konuşmalar OpenAI ile eşitlenir. İstediğinizde silebilirsiniz."
                     android:textSize="12sp"
                     android:textColor="@color/text_secondary" />
             </LinearLayout>
@@ -91,7 +91,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="No conversations yet"
+                android:text="Henüz konuşma yok"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/text_secondary" />
@@ -100,7 +100,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Start chatting with CoPilot to create your first conversation"
+                android:text="İlk konuşma için CoPilot’a yazın"
                 android:textSize="14sp"
                 android:textColor="@color/text_secondary"
                 android:gravity="center" />
@@ -115,7 +115,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
-        android:text="Delete All Data"
+        android:text="Tüm verileri sil"
         android:textColor="@android:color/white"
         app:icon="@android:drawable/ic_menu_delete"
         app:iconTint="@android:color/white"

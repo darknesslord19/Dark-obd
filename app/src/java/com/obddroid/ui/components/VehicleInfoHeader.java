@@ -82,14 +82,14 @@ final class VehicleInfoHeader {
         vehicleInfo.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
         vehicleInfo.setTextColor(Color.parseColor("#FFFFFF"));
         vehicleInfo.setTypeface(Typeface.DEFAULT_BOLD);
-        vehicleInfo.setText("No Vehicle Connected");
+        vehicleInfo.setText("Araç bağlı değil");
         vehicleInfo.setSingleLine(true);
         vehicleInfo.setEllipsize(TextUtils.TruncateAt.END);
 
         connectionStatus = new TextView(context);
         connectionStatus.setTextSize(TypedValue.COMPLEX_UNIT_SP, 11);
         connectionStatus.setTextColor(Color.parseColor(VehicleInfoFormat.GREY));
-        connectionStatus.setText("Waiting for OBD connection...");
+        connectionStatus.setText("OBD bağlantısı bekleniyor…");
         connectionStatus.setSingleLine(true);
 
         infoContainer.addView(vehicleInfo);
@@ -127,7 +127,7 @@ final class VehicleInfoHeader {
 
     /** VIN read, NHTSA decode started: "VIN: ..." with an orange status. */
     void showVin(String vin) {
-        vehicleInfo.setText("VIN: " + vin);
+        vehicleInfo.setText("Şasi no: " + vin);
         showDecoding();
     }
 
@@ -143,8 +143,8 @@ final class VehicleInfoHeader {
 
     /** A VIN without decoded details. The dot keeps its colour. */
     void showUndecodedVin(String vin) {
-        vehicleInfo.setText("VIN: " + vin);
-        connectionStatus.setText("Unable to decode vehicle details");
+        vehicleInfo.setText("Şasi no: " + vin);
+        connectionStatus.setText("Araç bilgisi çözülemedi");
         connectionStatus.setTextColor(Color.parseColor(VehicleInfoFormat.GREY));
         expandIndicator.setVisibility(View.VISIBLE);
     }
@@ -176,8 +176,8 @@ final class VehicleInfoHeader {
 
     /** Showing the vehicle failed. The dot keeps its colour. */
     void showVehicleError() {
-        vehicleInfo.setText("Error reading vehicle data");
-        connectionStatus.setText("Please reconnect");
+        vehicleInfo.setText("Araç verisi okunamadı");
+        connectionStatus.setText("Lütfen yeniden bağlanın");
         connectionStatus.setTextColor(Color.parseColor("#F44336"));
         expandIndicator.setVisibility(View.VISIBLE);
     }

@@ -63,7 +63,7 @@
                                     android:layout_width="28dp"
                                     android:layout_height="28dp"
                                     android:src="@drawable/ic_dashboard_live_data"
-                                    android:contentDescription="Live Data"/>
+                                    android:contentDescription="Canlı veri"/>
                             </LinearLayout>
 
                             <TextView
@@ -111,7 +111,7 @@
                                     android:layout_width="28dp"
                                     android:layout_height="28dp"
                                     android:src="@drawable/ic_dashboard_test_control"
-                                    android:contentDescription="Test Control"/>
+                                    android:contentDescription="Test kontrolü"/>
                             </LinearLayout>
 
                             <TextView
@@ -159,7 +159,7 @@
                                     android:layout_width="28dp"
                                     android:layout_height="28dp"
                                     android:src="@drawable/ic_dashboard_fault_codes"
-                                    android:contentDescription="Fault Codes"/>
+                                    android:contentDescription="Arıza kodları"/>
                             </LinearLayout>
 
                             <TextView
@@ -207,7 +207,7 @@
                                     android:layout_width="28dp"
                                     android:layout_height="28dp"
                                     android:src="@drawable/ic_dashboard_fuel_economy"
-                                    android:contentDescription="Fuel Economy"/>
+                                    android:contentDescription="Yakıt tüketimi"/>
                             </LinearLayout>
 
                             <TextView
@@ -255,7 +255,7 @@
                                     android:layout_width="28dp"
                                     android:layout_height="28dp"
                                     android:src="@drawable/ic_emissions"
-                                    android:contentDescription="Emissions Diagnostics"/>
+                                    android:contentDescription="Emisyon teşhisi"/>
                             </LinearLayout>
 
                             <TextView
@@ -303,7 +303,7 @@
                                     android:layout_width="28dp"
                                     android:layout_height="28dp"
                                     android:src="@drawable/ic_dashboard_vehicle_history"
-                                    android:contentDescription="Vehicle History"/>
+                                    android:contentDescription="Araç geçmişi"/>
                             </LinearLayout>
 
                             <TextView
@@ -448,7 +448,7 @@
                                     android:layout_width="28dp"
                                     android:layout_height="28dp"
                                     android:src="@drawable/ic_dashboard_vehicle_info"
-                                    android:contentDescription="VIN Decoder"/>
+                                    android:contentDescription="Şasi no çözücü"/>
                             </LinearLayout>
 
                             <TextView
@@ -497,7 +497,7 @@
                                     android:layout_height="wrap_content"
                                     android:text="🤖"
                                     android:textSize="24sp"
-                                    android:contentDescription="CoPilot AI Assistant"/>
+                                    android:contentDescription="CoPilot yapay zekâ yardımcısı"/>
                             </LinearLayout>
 
                             <TextView
@@ -546,7 +546,7 @@
                                     android:layout_height="wrap_content"
                                     android:text="🔍"
                                     android:textSize="24sp"
-                                    android:contentDescription="Full Vehicle Scan"/>
+                                    android:contentDescription="Tam araç taraması"/>
                             </LinearLayout>
 
                             <TextView
@@ -594,7 +594,7 @@
                                     android:layout_width="28dp"
                                     android:layout_height="28dp"
                                     android:src="@drawable/ic_speedometer"
-                                    android:contentDescription="Track Mode"/>
+                                    android:contentDescription="Pist modu"/>
                             </LinearLayout>
 
                             <TextView

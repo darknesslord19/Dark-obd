@@ -43,7 +43,7 @@ final class FuelEconomyReportDialog {
 
     void show() {
         if (!source.hasData()) {
-            SnackbarHelper.showInfo(activity, "Collect fuel economy data before saving a report.");
+            SnackbarHelper.showInfo(activity, "Rapordan önce tüketim verisi toplayın.");
             return;
         }
 
@@ -85,9 +85,9 @@ final class FuelEconomyReportDialog {
         FuelEconomyReportExporter.Snapshot snapshot = source.snapshot();
         try {
             String location = exporter.exportToCsv(snapshot);
-            SnackbarHelper.showSuccess(activity, "Fuel economy report saved: " + location, SnackbarHelper.Duration.LONG);
+            SnackbarHelper.showSuccess(activity, "Yakıt raporu kaydedildi: " + location, SnackbarHelper.Duration.LONG);
         } catch (IOException e) {
-            SnackbarHelper.showError(activity, "Failed to export fuel economy report: " + e.getMessage(), SnackbarHelper.Duration.LONG);
+            SnackbarHelper.showError(activity, "Yakıt raporu dışa aktarılamadı: " + e.getMessage(), SnackbarHelper.Duration.LONG);
             log.severe("Fuel economy CSV export failed: " + e.getMessage());
         }
     }
@@ -96,9 +96,9 @@ final class FuelEconomyReportDialog {
         FuelEconomyReportExporter.Snapshot snapshot = source.snapshot();
         try {
             String location = exporter.exportToJson(snapshot);
-            SnackbarHelper.showSuccess(activity, "Fuel economy report saved: " + location, SnackbarHelper.Duration.LONG);
+            SnackbarHelper.showSuccess(activity, "Yakıt raporu kaydedildi: " + location, SnackbarHelper.Duration.LONG);
         } catch (IOException | JSONException e) {
-            SnackbarHelper.showError(activity, "Failed to export fuel economy report: " + e.getMessage(), SnackbarHelper.Duration.LONG);
+            SnackbarHelper.showError(activity, "Yakıt raporu dışa aktarılamadı: " + e.getMessage(), SnackbarHelper.Duration.LONG);
             log.severe("Fuel economy JSON export failed: " + e.getMessage());
         }
     }

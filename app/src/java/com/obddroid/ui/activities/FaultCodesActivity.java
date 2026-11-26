@@ -423,7 +423,7 @@ public class FaultCodesActivity extends AppCompatActivity {
 
     private void showSaveReportDialog() {
         if (!hasScanResult) {
-            SnackbarHelper.showInfo(this, "Scan fault codes before saving a report.");
+            SnackbarHelper.showInfo(this, "Rapor kaydetmeden önce kodları tarayın.");
             return;
         }
 
@@ -466,9 +466,9 @@ public class FaultCodesActivity extends AppCompatActivity {
             String header = milStatusText != null ? milStatusText.getText().toString() : null;
             String subtitle = milStatusSubtitle != null ? milStatusSubtitle.getText().toString() : null;
             String location = reportExporter.exportToCsv(currentCodes, header, subtitle);
-            SnackbarHelper.showSuccess(this, "Fault code report saved: " + location, SnackbarHelper.Duration.LONG);
+            SnackbarHelper.showSuccess(this, "Arıza raporu kaydedildi: " + location, SnackbarHelper.Duration.LONG);
         } catch (IOException e) {
-            SnackbarHelper.showError(this, "Failed to export fault code report: " + e.getMessage(), SnackbarHelper.Duration.LONG);
+            SnackbarHelper.showError(this, "Arıza raporu dışa aktarılamadı: " + e.getMessage(), SnackbarHelper.Duration.LONG);
             log.log(Level.SEVERE, "Fault code CSV export failed", e);
         }
     }
@@ -478,9 +478,9 @@ public class FaultCodesActivity extends AppCompatActivity {
             String header = milStatusText != null ? milStatusText.getText().toString() : null;
             String subtitle = milStatusSubtitle != null ? milStatusSubtitle.getText().toString() : null;
             String location = reportExporter.exportToJson(currentCodes, header, subtitle);
-            SnackbarHelper.showSuccess(this, "Fault code report saved: " + location, SnackbarHelper.Duration.LONG);
+            SnackbarHelper.showSuccess(this, "Arıza raporu kaydedildi: " + location, SnackbarHelper.Duration.LONG);
         } catch (IOException | JSONException e) {
-            SnackbarHelper.showError(this, "Failed to export fault code report: " + e.getMessage(), SnackbarHelper.Duration.LONG);
+            SnackbarHelper.showError(this, "Arıza raporu dışa aktarılamadı: " + e.getMessage(), SnackbarHelper.Duration.LONG);
             log.log(Level.SEVERE, "Fault code JSON export failed", e);
         }
     }

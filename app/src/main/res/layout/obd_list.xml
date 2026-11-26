@@ -52,7 +52,7 @@
                         android:id="@+id/mil_status_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="MIL Status"
+                        android:text="Arıza lambası durumu"
                         android:textSize="18sp"
                         android:textStyle="bold"/>
 
@@ -60,7 +60,7 @@
                         android:id="@+id/mil_status_subtitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="No fault codes"
+                        android:text="Arıza kodu yok"
                         android:textSize="14sp"
                         android:layout_marginTop="4dp"/>
 
@@ -90,7 +90,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:text="Clear Fault Codes"
+                    android:text="Arıza kodlarını sil"
                     android:textSize="16sp"
                     android:textStyle="bold"/>
 

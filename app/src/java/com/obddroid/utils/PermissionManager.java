@@ -184,15 +184,15 @@ public class PermissionManager {
      */
     public static void showBluetoothRationale(final Activity activity) {
         new AlertDialog.Builder(activity)
-            .setTitle("Bluetooth Permission Required")
-            .setMessage("OBD-Droid needs Bluetooth access to connect to your OBD adapter and read vehicle data.")
-            .setPositiveButton("Grant Permission", new DialogInterface.OnClickListener() {
+            .setTitle("Bluetooth izni gerekli")
+            .setMessage("OBD adaptörüne bağlanıp araç verisi okumak için Bluetooth izni gerekli.")
+            .setPositiveButton("İzin ver", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     requestBluetoothPermissions(activity);
                 }
             })
-            .setNegativeButton("Cancel", null)
+            .setNegativeButton("Vazgeç", null)
             .create()
             .show();
     }
@@ -202,15 +202,15 @@ public class PermissionManager {
      */
     public static void showStorageRationale(final Activity activity) {
         new AlertDialog.Builder(activity)
-            .setTitle("Storage Permission Required")
-            .setMessage("OBD-Droid needs storage access to save data logs, export CSV files, and capture screenshots.")
-            .setPositiveButton("Grant Permission", new DialogInterface.OnClickListener() {
+            .setTitle("Depolama izni gerekli")
+            .setMessage("Veri kaydı, CSV dışa aktarma ve ekran görüntüsü için depolama izni gerekli.")
+            .setPositiveButton("İzin ver", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     requestStoragePermissions(activity);
                 }
             })
-            .setNegativeButton("Cancel", null)
+            .setNegativeButton("Vazgeç", null)
             .create()
             .show();
     }
@@ -220,15 +220,15 @@ public class PermissionManager {
      */
     public static void showNotificationRationale(final Activity activity) {
         new AlertDialog.Builder(activity)
-            .setTitle("Notification Permission")
-            .setMessage("OBD-Droid can show notifications for connection status and data logging progress.")
-            .setPositiveButton("Grant Permission", new DialogInterface.OnClickListener() {
+            .setTitle("Bildirim izni")
+            .setMessage("Bağlantı durumu ve veri kaydı bildirimleri için izin gerekir.")
+            .setPositiveButton("İzin ver", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     requestNotificationPermission(activity);
                 }
             })
-            .setNegativeButton("Not Now", null)
+            .setNegativeButton("Şimdi değil", null)
             .create()
             .show();
     }
@@ -237,7 +237,7 @@ public class PermissionManager {
         new AlertDialog.Builder(activity)
             .setTitle(R.string.gps_telemetry_start)
             .setMessage(R.string.gps_permission_rationale)
-            .setPositiveButton("Grant Permission", new DialogInterface.OnClickListener() {
+            .setPositiveButton("İzin ver", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     requestLocationPermission(activity);
@@ -253,9 +253,9 @@ public class PermissionManager {
      */
     public static void showSettingsDialog(final Activity activity, String message) {
         new AlertDialog.Builder(activity)
-            .setTitle("Permission Required")
+            .setTitle("İzin gerekli")
             .setMessage(message + "\n\nPlease enable it in Settings.")
-            .setPositiveButton("Open Settings", new DialogInterface.OnClickListener() {
+            .setPositiveButton("Ayarları aç", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
@@ -264,7 +264,7 @@ public class PermissionManager {
                     activity.startActivity(intent);
                 }
             })
-            .setNegativeButton("Cancel", null)
+            .setNegativeButton("Vazgeç", null)
             .create()
             .show();
     }

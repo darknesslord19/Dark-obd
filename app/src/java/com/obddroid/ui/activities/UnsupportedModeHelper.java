@@ -168,15 +168,15 @@ final class UnsupportedModeHelper {
         }
 
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-        builder.setTitle("Mode Not Supported")
+        builder.setTitle("Mod desteklenmiyor")
                .setMessage(message)
                .setCancelable(false)
-               .setNegativeButton("Keep Trying", (dialog, which) -> {
+               .setNegativeButton("Denemeye devam et", (dialog, which) -> {
                    reset();
                    dialog.dismiss();
                    unsupportedModeDialog = null;
                })
-               .setPositiveButton("Go Back", (dialog, which) -> {
+               .setPositiveButton("Geri dön", (dialog, which) -> {
                    log.info("Go Back button clicked - returning to dashboard");
 
                    reset();

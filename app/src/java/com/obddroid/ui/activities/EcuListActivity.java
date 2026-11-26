@@ -224,7 +224,7 @@ public class EcuListActivity extends AppCompatActivity implements EcuManager.Ecu
 
         // Set dialog title
         TextView dialogTitle = dialog.findViewById(R.id.dialog_title);
-        dialogTitle.setText("Save Report");
+        dialogTitle.setText("Raporu kaydet");
 
         // CSV option
         View csvOption = dialog.findViewById(R.id.option_export_csv);
@@ -1013,7 +1013,7 @@ public class EcuListActivity extends AppCompatActivity implements EcuManager.Ecu
         TextView baselineDate = dialogView.findViewById(R.id.baseline_date);
         TextView currentDate = dialogView.findViewById(R.id.current_date);
         baselineDate.setText(sdf.format(baseline.getDate()));
-        currentDate.setText("Live Data");
+        currentDate.setText("Canlı veri");
 
         // Get comparison list container
         LinearLayout comparisonList = dialogView.findViewById(R.id.comparison_list);

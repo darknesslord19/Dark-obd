@@ -68,7 +68,7 @@ public class EcuComparisonActivity extends AppCompatActivity {
         // Set up action bar with back button
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setTitle("ECU Comparison");
+            getSupportActionBar().setTitle("ECU karşılaştırma");
         }
 
         // Initialize views
@@ -112,7 +112,7 @@ public class EcuComparisonActivity extends AppCompatActivity {
         if (isCurrentFromImport && currentImportFilename != null) {
             currentDate.setText(currentImportFilename); // Already formatted timestamp from filename
         } else {
-            currentDate.setText("Live Data");
+            currentDate.setText("Canlı veri");
         }
 
         // Populate comparison
@@ -167,7 +167,7 @@ public class EcuComparisonActivity extends AppCompatActivity {
 
         // Set dialog title
         TextView dialogTitle = dialog.findViewById(R.id.dialog_title);
-        dialogTitle.setText("Save Report");
+        dialogTitle.setText("Raporu kaydet");
 
         // CSV option
         View csvOption = dialog.findViewById(R.id.option_export_csv);
@@ -506,7 +506,7 @@ public class EcuComparisonActivity extends AppCompatActivity {
         if (isCurrentFromImport && currentImportFilename != null) {
             currentTimestamp.setText(currentImportFilename); // Already formatted timestamp
         } else {
-            currentTimestamp.setText("Live Data");
+            currentTimestamp.setText("Canlı veri");
         }
 
         // Set status
@@ -532,7 +532,7 @@ public class EcuComparisonActivity extends AppCompatActivity {
             baselineCalId.setText(baseCalId != null ? baseCalId : "N/A");
             baselineCvn.setText(baseCvn != null ? baseCvn : "N/A");
         } else {
-            baselineCalId.setText("(Not in baseline scan)");
+            baselineCalId.setText("(Referans taramada yok)");
             baselineCvn.setText("N/A");
         }
 
@@ -546,7 +546,7 @@ public class EcuComparisonActivity extends AppCompatActivity {
             currentCalId.setText(currCalId != null ? currCalId : "N/A");
             currentCvn.setText(currCvn != null ? currCvn : "N/A");
         } else {
-            currentCalId.setText("(Removed from vehicle)");
+            currentCalId.setText("(Araçtan kaldırılmış)");
             currentCvn.setText("N/A");
         }
 

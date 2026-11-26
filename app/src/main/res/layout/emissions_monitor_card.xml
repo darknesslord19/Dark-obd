@@ -40,7 +40,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Catalyst Efficiency"
+                    android:text="Katalizör verimi"
                     android:textColor="#FFFFFF"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -49,7 +49,7 @@
                     android:id="@+id/monitor_status_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="✓ Ready"
+                    android:text="✓ Hazır"
                     android:textColor="#4CAF50"
                     android:textSize="14sp"
                     android:textStyle="bold" />

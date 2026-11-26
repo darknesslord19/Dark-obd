@@ -237,11 +237,11 @@ public class UnifiedAdapterSelectionActivity extends AppCompatActivity {
             String portStr = networkPortInput.getText().toString().trim();
 
             if (ip.isEmpty()) {
-                SnackbarHelper.showError(this, "Please enter IP address", SnackbarHelper.Duration.SHORT);
+                SnackbarHelper.showError(this, "IP adresini girin", SnackbarHelper.Duration.SHORT);
                 return;
             }
             if (portStr.isEmpty()) {
-                SnackbarHelper.showError(this, "Please enter port", SnackbarHelper.Duration.SHORT);
+                SnackbarHelper.showError(this, "Port girin", SnackbarHelper.Duration.SHORT);
                 return;
             }
 
@@ -261,7 +261,7 @@ public class UnifiedAdapterSelectionActivity extends AppCompatActivity {
                 setResult(Activity.RESULT_OK, intent);
                 finish();
             } catch (NumberFormatException e) {
-                SnackbarHelper.showError(this, "Invalid port number", SnackbarHelper.Duration.SHORT);
+                SnackbarHelper.showError(this, "Geçersiz port numarası", SnackbarHelper.Duration.SHORT);
             }
         });
     }
@@ -302,15 +302,15 @@ public class UnifiedAdapterSelectionActivity extends AppCompatActivity {
 
         switch (tab) {
             case BLUETOOTH:
-                adapterTypeSubtitle.setText("(Bluetooth Adapters)");
+                adapterTypeSubtitle.setText("(Bluetooth adaptörleri)");
                 loadBluetoothDevices();
                 break;
             case USB:
-                adapterTypeSubtitle.setText("(USB Adapters)");
+                adapterTypeSubtitle.setText("(USB adaptörleri)");
                 loadUsbDevices();
                 break;
             case WIFI:
-                adapterTypeSubtitle.setText("(WiFi/Network Adapters)");
+                adapterTypeSubtitle.setText("(Wi-Fi / ağ adaptörleri)");
                 break;
         }
     }
@@ -371,7 +371,7 @@ public class UnifiedAdapterSelectionActivity extends AppCompatActivity {
         View dialogView = getLayoutInflater().inflate(android.R.layout.select_dialog_multichoice, null);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Bluetooth Settings");
+        builder.setTitle("Bluetooth ayarları");
 
         // Create layout for settings
         LinearLayout layout = new LinearLayout(this);
@@ -393,7 +393,7 @@ public class UnifiedAdapterSelectionActivity extends AppCompatActivity {
 
         if (!hasPermission) {
             Button requestPermButton = new Button(this);
-            requestPermButton.setText("Grant");
+            requestPermButton.setText("İzin ver");
             requestPermButton.setTextSize(11);
             requestPermButton.setPadding(20, 10, 20, 10);
             requestPermButton.setOnClickListener(v -> {
@@ -405,7 +405,7 @@ public class UnifiedAdapterSelectionActivity extends AppCompatActivity {
 
         // System Bluetooth settings button
         Button systemBtButton = new Button(this);
-        systemBtButton.setText("Open System Bluetooth Settings");
+        systemBtButton.setText("Telefonun Bluetooth ayarlarını aç");
         systemBtButton.setTextSize(12);
         systemBtButton.setPadding(20, 15, 20, 15);
         systemBtButton.setOnClickListener(v -> {
@@ -425,13 +425,13 @@ public class UnifiedAdapterSelectionActivity extends AppCompatActivity {
 
         // Secure connection checkbox
         CheckBox secureCheckbox = new CheckBox(this);
-        secureCheckbox.setText("Secure Connection");
+        secureCheckbox.setText("Güvenli bağlantı");
         secureCheckbox.setChecked(secureConnection);
         layout.addView(secureCheckbox);
 
         // Protocol selection
         TextView protocolLabel = new TextView(this);
-        protocolLabel.setText("OBD Protocol");
+        protocolLabel.setText("OBD protokolü");
         protocolLabel.setPadding(0, 30, 0, 10);
         protocolLabel.setTextSize(14);
         layout.addView(protocolLabel);
@@ -449,14 +449,14 @@ public class UnifiedAdapterSelectionActivity extends AppCompatActivity {
         layout.addView(protocolSpinner);
 
         builder.setView(layout);
-        builder.setPositiveButton("Save", (dialog, which) -> {
+        builder.setPositiveButton("Kaydet", (dialog, which) -> {
             prefs.edit()
                 .putBoolean("bt_secure_connection", secureCheckbox.isChecked())
                 .putString("protocol", String.valueOf(protocolSpinner.getSelectedItemPosition()))
                 .apply();
-            SnackbarHelper.showSuccess(this, "Bluetooth settings saved", SnackbarHelper.Duration.SHORT);
+            SnackbarHelper.showSuccess(this, "Bluetooth ayarları kaydedildi", SnackbarHelper.Duration.SHORT);
         });
-        builder.setNegativeButton("Cancel", null);
+        builder.setNegativeButton("Vazgeç", null);
         builder.show();
     }
 
@@ -466,7 +466,7 @@ public class UnifiedAdapterSelectionActivity extends AppCompatActivity {
         int protocolIndex = Integer.parseInt(prefs.getString("protocol", "0"));
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("USB Settings");
+        builder.setTitle("USB ayarları");
 
         LinearLayout layout = new LinearLayout(this);
         layout.setOrientation(LinearLayout.VERTICAL);
@@ -474,7 +474,7 @@ public class UnifiedAdapterSelectionActivity extends AppCompatActivity {
 
         // USB permission info
         TextView usbInfo = new TextView(this);
-        usbInfo.setText("ℹ USB permissions are requested when connecting to a device");
+        usbInfo.setText("ℹ USB izni cihaza bağlanırken istenir");
         usbInfo.setTextSize(11);
         usbInfo.setTextColor(Color.parseColor("#757575"));
         usbInfo.setPadding(0, 0, 0, 20);
@@ -482,7 +482,7 @@ public class UnifiedAdapterSelectionActivity extends AppCompatActivity {
 
         // Baud rate selection
         TextView baudLabel = new TextView(this);
-        baudLabel.setText("Baud Rate");
+        baudLabel.setText("Veri hızı (baud)");
         baudLabel.setPadding(0, 0, 0, 10);
         baudLabel.setTextSize(14);
         layout.addView(baudLabel);
@@ -502,7 +502,7 @@ public class UnifiedAdapterSelectionActivity extends AppCompatActivity {
 
         // Protocol selection
         TextView protocolLabel = new TextView(this);
-        protocolLabel.setText("OBD Protocol");
+        protocolLabel.setText("OBD protokolü");
         protocolLabel.setPadding(0, 30, 0, 10);
         protocolLabel.setTextSize(14);
         layout.addView(protocolLabel);
@@ -520,14 +520,14 @@ public class UnifiedAdapterSelectionActivity extends AppCompatActivity {
         layout.addView(protocolSpinner);
 
         builder.setView(layout);
-        builder.setPositiveButton("Save", (dialog, which) -> {
+        builder.setPositiveButton("Kaydet", (dialog, which) -> {
             prefs.edit()
                 .putString("comm_baudrate", baudSpinner.getSelectedItem().toString())
                 .putString("protocol", String.valueOf(protocolSpinner.getSelectedItemPosition()))
                 .apply();
-            SnackbarHelper.showSuccess(this, "USB settings saved", SnackbarHelper.Duration.SHORT);
+            SnackbarHelper.showSuccess(this, "USB ayarları kaydedildi", SnackbarHelper.Duration.SHORT);
         });
-        builder.setNegativeButton("Cancel", null);
+        builder.setNegativeButton("Vazgeç", null);
         builder.show();
     }
 
@@ -536,7 +536,7 @@ public class UnifiedAdapterSelectionActivity extends AppCompatActivity {
         int protocolIndex = Integer.parseInt(prefs.getString("protocol", "0"));
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("WiFi/Network Settings");
+        builder.setTitle("Wi-Fi / ağ ayarları");
 
         LinearLayout layout = new LinearLayout(this);
         layout.setOrientation(LinearLayout.VERTICAL);
@@ -544,7 +544,7 @@ public class UnifiedAdapterSelectionActivity extends AppCompatActivity {
 
         // Network permission status
         TextView permissionStatus = new TextView(this);
-        permissionStatus.setText("✓ Network permission granted (manifest permission)");
+        permissionStatus.setText("✓ Ağ izni verildi");
         permissionStatus.setTextSize(12);
         permissionStatus.setTextColor(Color.parseColor("#4CAF50"));
         permissionStatus.setPadding(0, 0, 0, 10);
@@ -552,7 +552,7 @@ public class UnifiedAdapterSelectionActivity extends AppCompatActivity {
 
         // WiFi settings button
         Button wifiSettingsButton = new Button(this);
-        wifiSettingsButton.setText("Open WiFi Settings");
+        wifiSettingsButton.setText("Wi-Fi ayarlarını aç");
         wifiSettingsButton.setTextSize(12);
         wifiSettingsButton.setPadding(20, 15, 20, 15);
         wifiSettingsButton.setOnClickListener(v -> {
@@ -572,7 +572,7 @@ public class UnifiedAdapterSelectionActivity extends AppCompatActivity {
 
         // Note about IP/Port
         TextView noteView = new TextView(this);
-        noteView.setText("IP Address and Port are configured in the Network tab above");
+        noteView.setText("IP adresi ve port yukarıdaki Ağ sekmesinden ayarlanır");
         noteView.setTextSize(12);
         noteView.setTextColor(Color.parseColor("#757575"));
         noteView.setPadding(0, 0, 0, 10);
@@ -580,7 +580,7 @@ public class UnifiedAdapterSelectionActivity extends AppCompatActivity {
 
         // Protocol selection
         TextView protocolLabel = new TextView(this);
-        protocolLabel.setText("OBD Protocol");
+        protocolLabel.setText("OBD protokolü");
         protocolLabel.setPadding(0, 10, 0, 10);
         protocolLabel.setTextSize(14);
         layout.addView(protocolLabel);
@@ -598,13 +598,13 @@ public class UnifiedAdapterSelectionActivity extends AppCompatActivity {
         layout.addView(protocolSpinner);
 
         builder.setView(layout);
-        builder.setPositiveButton("Save", (dialog, which) -> {
+        builder.setPositiveButton("Kaydet", (dialog, which) -> {
             prefs.edit()
                 .putString("protocol", String.valueOf(protocolSpinner.getSelectedItemPosition()))
                 .apply();
-            SnackbarHelper.showSuccess(this, "WiFi settings saved", SnackbarHelper.Duration.SHORT);
+            SnackbarHelper.showSuccess(this, "Wi-Fi ayarları kaydedildi", SnackbarHelper.Duration.SHORT);
         });
-        builder.setNegativeButton("Cancel", null);
+        builder.setNegativeButton("Vazgeç", null);
         builder.show();
     }
 
@@ -771,10 +771,10 @@ public class UnifiedAdapterSelectionActivity extends AppCompatActivity {
             addInfoRow(infoContainer, "MAC Address", address);
 
             if (isLastUsedDevice(address)) {
-                statusIndicator.setText("● Recently Connected");
+                statusIndicator.setText("● Yakın zamanda bağlanıldı");
                 statusIndicator.setTextColor(Color.parseColor("#4CAF50"));
             } else {
-                statusIndicator.setText("● Ready to Connect");
+                statusIndicator.setText("● Bağlanmaya hazır");
                 statusIndicator.setTextColor(Color.parseColor("#FF9800"));
             }
 
@@ -790,7 +790,7 @@ public class UnifiedAdapterSelectionActivity extends AppCompatActivity {
                 @Override
                 public boolean onLongClick(View v) {
                     AlertDialog.Builder inputBuilder = new AlertDialog.Builder(UnifiedAdapterSelectionActivity.this);
-                    inputBuilder.setTitle("Edit Nickname");
+                    inputBuilder.setTitle("Takma adı düzenle");
 
                     LinearLayout inputContainer = new LinearLayout(UnifiedAdapterSelectionActivity.this);
                     inputContainer.setOrientation(LinearLayout.VERTICAL);
@@ -798,14 +798,14 @@ public class UnifiedAdapterSelectionActivity extends AppCompatActivity {
 
                     final EditText input = new EditText(UnifiedAdapterSelectionActivity.this);
                     input.setText(currentNickname[0]);
-                    input.setHint("e.g., My Car");
+                    input.setHint("ör. Arabam");
                     input.setSingleLine(true);
                     input.selectAll();
 
                     inputContainer.addView(input);
                     inputBuilder.setView(inputContainer);
 
-                    inputBuilder.setPositiveButton("Save", new DialogInterface.OnClickListener() {
+                    inputBuilder.setPositiveButton("Kaydet", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             String newNickname = input.getText().toString().trim();
@@ -823,7 +823,7 @@ public class UnifiedAdapterSelectionActivity extends AppCompatActivity {
                         }
                     });
 
-                    inputBuilder.setNegativeButton("Cancel", null);
+                    inputBuilder.setNegativeButton("Vazgeç", null);
                     inputBuilder.show();
 
                     input.postDelayed(new Runnable() {
@@ -905,7 +905,7 @@ public class UnifiedAdapterSelectionActivity extends AppCompatActivity {
 
             if (!deviceInfo.isUsbCompatible || deviceInfo.usbPort == null) {
                 SnackbarHelper.showWarning(UnifiedAdapterSelectionActivity.this,
-                        "This device is not a compatible USB serial adapter", SnackbarHelper.Duration.SHORT);
+                        "Bu cihaz uyumlu bir USB seri adaptör değil", SnackbarHelper.Duration.SHORT);
                 return;
             }
 
@@ -982,7 +982,7 @@ public class UnifiedAdapterSelectionActivity extends AppCompatActivity {
             if (PermissionManager.handlePermissionResult(requestCode, permissions, grantResults)) {
                 recreate();
             } else {
-                SnackbarHelper.showWarning(this, "Bluetooth permissions are required to scan for devices");
+                SnackbarHelper.showWarning(this, "Cihaz taramak için Bluetooth izni gerekli");
                 if (PermissionManager.shouldShowBluetoothRationale(this)) {
                     PermissionManager.showBluetoothRationale(this);
                 } else if (PermissionManager.isBluetoothPermissionPermanentlyDenied(this)) {

@@ -22,7 +22,7 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:src="@drawable/ic_dashboard_vehicle_history"
-            android:contentDescription="Vehicle"
+            android:contentDescription="Araç"
             app:tint="@color/primary" />
 
         <!-- Thread Info -->
@@ -61,7 +61,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text="Latest scan: –"
+                android:text="Son tarama: –"
                 android:textSize="12sp"
                 android:textColor="@color/text_secondary"
                 android:maxLines="2"
@@ -72,7 +72,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
-                android:text="Synced to CoPilot"
+                android:text="CoPilot ile eşitlendi"
                 android:textSize="11sp"
                 android:textColor="@color/text_secondary" />
 
@@ -88,7 +88,7 @@
                     style="@style/Widget.MaterialComponents.Button.TextButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Open"
+                    android:text="Aç"
                     android:textAllCaps="false" />
 
                 <com.google.android.material.button.MaterialButton
@@ -97,7 +97,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:text="Compare Scans"
+                    android:text="Taramaları karşılaştır"
                     android:textAllCaps="false" />
 
                 <com.google.android.material.button.MaterialButton
@@ -106,7 +106,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:text="Export JSON"
+                    android:text="JSON dışa aktar"
                     android:textAllCaps="false" />
             </LinearLayout>
         </LinearLayout>
@@ -117,7 +117,7 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:src="@android:drawable/ic_menu_delete"
-            android:contentDescription="Delete conversation"
+            android:contentDescription="Konuşmayı sil"
             android:background="?attr/selectableItemBackgroundBorderless"
             app:tint="@android:color/holo_red_dark" />
 

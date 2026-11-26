@@ -17,6 +17,6 @@
         android:id="@+id/tilt_indicator"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:contentDescription="Vehicle Tilt Indicator" />
+        android:contentDescription="Araç eğim göstergesi" />
 
 </androidx.cardview.widget.CardView>

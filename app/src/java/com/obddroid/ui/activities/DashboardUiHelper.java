@@ -58,7 +58,7 @@ final class DashboardUiHelper {
             }
             activity.setObdService(ObdProt.OBD_SVC_CTRL_MODE, DashboardCards.TEST_CONTROL_TITLE);
         } else {
-            SnackbarHelper.showWarning(activity, "Please connect to vehicle first");
+            SnackbarHelper.showWarning(activity, "Önce araca bağlanın");
         }
     }
 
@@ -91,7 +91,7 @@ final class DashboardUiHelper {
         new AlertDialog.Builder(activity)
             .setTitle(title)
             .setMessage(message)
-            .setPositiveButton("Close", null)
+            .setPositiveButton("Kapat", null)
             .show();
         return true;
     }

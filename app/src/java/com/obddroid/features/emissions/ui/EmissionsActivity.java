@@ -115,7 +115,7 @@ public class EmissionsActivity extends AppCompatActivity implements PvChangeList
         // Setup action bar
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setTitle("Emissions Diagnostics");
+            getSupportActionBar().setTitle("Emisyon teşhisi");
         }
 
         // Initialize views
@@ -797,7 +797,7 @@ public class EmissionsActivity extends AppCompatActivity implements PvChangeList
     private void updateTimestamp() {
         SimpleDateFormat sdf = new SimpleDateFormat("h:mm a", Locale.US);
         String currentTime = sdf.format(new Date());
-        lastUpdatedText.setText("Last updated: " + currentTime);
+        lastUpdatedText.setText("Son güncelleme: " + currentTime);
     }
 
     private void rebuildMonitorCards() {
@@ -874,7 +874,7 @@ public class EmissionsActivity extends AppCompatActivity implements PvChangeList
         // Set status
         if (!monitor.isAvailable) {
             statusIndicator.setBackgroundColor(COLOR_UNKNOWN);
-            statusText.setText("Not Equipped");
+            statusText.setText("Donanımda yok");
             performanceText.setVisibility(View.GONE);
             performanceBar.setVisibility(View.GONE);
         } else if (monitor.conditions == 0) {
@@ -882,14 +882,14 @@ public class EmissionsActivity extends AppCompatActivity implements PvChangeList
             // Force it to not available so it doesn't count against EPA readiness
             monitor.isAvailable = false;
             statusIndicator.setBackgroundColor(COLOR_UNKNOWN);
-            statusText.setText("No Data");
-            performanceText.setText("Drive cycle needed");
+            statusText.setText("Veri yok");
+            performanceText.setText("Sürüş çevrimi gerekli");
             performanceBar.setVisibility(View.GONE);
         } else if (monitor.isReady) {
             statusIndicator.setBackgroundColor(COLOR_READY);
 
             // Clean, simple status text
-            statusText.setText("✓ Ready");
+            statusText.setText("✓ Hazır");
 
             // Build performance text with quality indicator on separate lines
             String iumprQuality = monitor.getIUMPRQuality();
@@ -923,7 +923,7 @@ public class EmissionsActivity extends AppCompatActivity implements PvChangeList
             performanceBar.setBackgroundColor(COLOR_READY);
         } else {
             statusIndicator.setBackgroundColor(COLOR_NOT_READY);
-            statusText.setText("⚠ Not Ready");
+            statusText.setText("⚠ Hazır değil");
 
             if (monitor.completions == 0 && monitor.conditions > 0) {
                 performanceText.setText(String.format(

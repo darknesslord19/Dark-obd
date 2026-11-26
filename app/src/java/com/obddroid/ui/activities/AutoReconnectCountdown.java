@@ -127,7 +127,7 @@ final class AutoReconnectCountdown {
             bar.setVisibility(View.GONE);
         }
 
-        SnackbarHelper.showInfo(activity, "Auto-reconnect cancelled");
+        SnackbarHelper.showInfo(activity, "Yeniden bağlanma iptal edildi");
     }
 
     private void start() {

@@ -104,7 +104,7 @@ final class TankCapacity {
         input.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
         input.setText(String.format(Locale.US, "%.1f", estimatedGallons));
         input.setSelectAllOnFocus(true);
-        input.setHint("Tank capacity (gallons)");
+        input.setHint("Depo kapasitesi (galon)");
 
         int padding = (int) (16 * activity.getResources().getDisplayMetrics().density);
         input.setPadding(padding, padding, padding, padding);
@@ -118,11 +118,11 @@ final class TankCapacity {
                 vehicleData.getDisplayName(), estimatedGallons);
 
         AlertDialog dialog = new AlertDialog.Builder(activity)
-                .setTitle("Confirm Fuel Tank Size")
+                .setTitle("Depo kapasitesini onaylayın")
                 .setMessage(message)
                 .setView(input)
-                .setPositiveButton("Confirm", (dialogInterface, which) -> save(input, vin))
-                .setNegativeButton("Later", (dialogInterface, which) -> {
+                .setPositiveButton("Onayla", (dialogInterface, which) -> save(input, vin))
+                .setNegativeButton("Sonra", (dialogInterface, which) -> {
                     vehiclePreferences.markTankSizePrompted(vin);
                     log.info("User deferred tank capacity confirmation");
                 })

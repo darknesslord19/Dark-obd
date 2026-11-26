@@ -56,7 +56,7 @@
                     android:id="@+id/status_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="No changes"
+                    android:text="Değişiklik yok"
                     android:textSize="12sp"
                     android:textColor="#4CAF50"
                     android:layout_marginTop="2dp"/>
@@ -167,7 +167,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Calibration ID"
+                    android:text="Kalibrasyon kimliği"
                     android:textSize="11sp"
                     android:textColor="#A5D6A7"
                     android:textStyle="bold"/>
@@ -181,7 +181,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Was:"
+                        android:text="Önceki:"
                         android:textSize="11sp"
                         android:textColor="#90A4AE"
                         android:layout_marginEnd="8dp"
@@ -206,7 +206,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Now:"
+                        android:text="Şimdi:"
                         android:textSize="11sp"
                         android:textColor="#FF9800"
                         android:textStyle="bold"
@@ -237,7 +237,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Calibration Verification Number"
+                    android:text="Kalibrasyon doğrulama numarası"
                     android:textSize="11sp"
                     android:textColor="#A5D6A7"
                     android:textStyle="bold"/>
@@ -251,7 +251,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Was:"
+                        android:text="Önceki:"
                         android:textSize="11sp"
                         android:textColor="#90A4AE"
                         android:layout_marginEnd="8dp"
@@ -276,7 +276,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Now:"
+                        android:text="Şimdi:"
                         android:textSize="11sp"
                         android:textColor="#FF9800"
                         android:textStyle="bold"

@@ -54,7 +54,7 @@
                             android:layout_width="0dp"
                             android:layout_weight="1"
                             android:layout_height="wrap_content"
-                            android:text="Vehicle Stopped - MPG calculation paused"
+                            android:text="Araç duruyor, tüketim hesabı duraklatıldı"
                             android:textSize="@dimen/text_small_value"
                             android:textColor="@color/text_primary_dark" />
 
@@ -126,7 +126,7 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="Inst"
+                                        android:text="Anlık"
                                         android:textSize="@dimen/text_label"
                                         android:textStyle="italic"
                                         android:textColor="@color/text_secondary_dark" />
@@ -180,7 +180,7 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="Avg"
+                                        android:text="Ort."
                                         android:textSize="@dimen/text_label"
                                         android:textStyle="italic"
                                         android:textColor="@color/text_secondary_dark" />
@@ -208,7 +208,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="AVERAGE FUEL ECONOMY"
+                            android:text="ORTALAMA YAKIT TÜKETİMİ"
                             android:textSize="@dimen/text_caption"
                             android:textStyle="bold"
                             android:textColor="@color/text_primary_dark"
@@ -275,7 +275,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="FUEL LEVEL"
+                                android:text="YAKIT SEVİYESİ"
                                 android:textSize="@dimen/text_label"
                                 android:textStyle="bold"
                                 android:textColor="@color/text_secondary_dark"
@@ -326,7 +326,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="miles"
+                                    android:text="mil"
                                     android:textSize="@dimen/text_caption"
                                     android:textColor="@color/text_secondary_dark"
                                     android:layout_marginStart="@dimen/spacing_xs" />
@@ -335,7 +335,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="RANGE"
+                                android:text="MENZİL"
                                 android:textSize="@dimen/text_label"
                                 android:textStyle="bold"
                                 android:textColor="@color/text_secondary_dark"
@@ -405,7 +405,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="FUEL FLOW"
+                            android:text="YAKIT AKIŞI"
                             android:textSize="@dimen/text_label"
                             android:textStyle="bold"
                             android:textColor="@color/text_secondary_dark"
@@ -472,7 +472,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="THROTTLE"
+                                android:text="GAZ"
                                 android:textSize="@dimen/text_label"
                                 android:textStyle="bold"
                                 android:textColor="@color/text_secondary_dark"
@@ -523,7 +523,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="hrs"
+                                    android:text="sa"
                                     android:textSize="@dimen/text_caption"
                                     android:textColor="@color/text_secondary_dark"
                                     android:layout_marginStart="@dimen/spacing_xs" />
@@ -532,7 +532,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="TIME TO EMPTY"
+                                android:text="KALAN SÜRE"
                                 android:textSize="@dimen/text_label"
                                 android:textStyle="bold"
                                 android:textColor="@color/text_secondary_dark"

@@ -34,7 +34,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="About ECU Modules"
+                    android:text="ECU modülleri hakkında"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:textColor="#212121"/>
@@ -52,7 +52,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="What are ECU Modules?"
+            android:text="ECU modülü nedir?"
             android:textSize="16sp"
             android:textStyle="bold"
             android:textColor="#424242"
@@ -61,7 +61,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Electronic Control Units (ECUs) are embedded computers in your vehicle that control various systems like engine, transmission, airbags, and more. Each ECU contains calibration data and software versions that can be viewed and monitored."
+            android:text="ECU’lar motor, şanzıman ve airbag gibi sistemleri yöneten araç bilgisayarlarıdır. Desteklenen kalibrasyon ve yazılım bilgileri görüntülenebilir."
             android:textSize="14sp"
             android:textColor="#616161"
             android:lineSpacingExtra="4dp"
@@ -71,7 +71,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="How to Use"
+            android:text="Nasıl kullanılır"
             android:textSize="16sp"
             android:textStyle="bold"
             android:textColor="#424242"
@@ -80,7 +80,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="• Scan ECUs: Tap 'Rescan ECUs' to discover all modules\n\n• View Details: Tap any ECU to see calibration IDs and CVNs\n\n• Compare Scans: Save baseline scans and compare them later to detect calibration changes\n\n• Export Data: Save ECU data as CSV or JSON for record keeping\n\n• Import Scans: Load previously saved scans for comparison"
+            android:text="• ECU tara: Modülleri bulun\n\n• Ayrıntı: Bir ECU’ya dokunun\n\n• Karşılaştır: Referans kaydedip sonra karşılaştırın\n\n• Dışa aktar: CSV veya JSON kaydedin\n\n• İçe aktar: Eski taramaları yükleyin"
             android:textSize="14sp"
             android:textColor="#616161"
             android:lineSpacingExtra="4dp"
@@ -90,7 +90,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Why it Matters"
+            android:text="Neden önemli"
             android:textSize="16sp"
             android:textStyle="bold"
             android:textColor="#424242"
@@ -99,7 +99,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Monitoring ECU calibrations helps you:\n\n• Detect unauthorized tuning or tampering\n• Track software updates from the dealer\n• Verify calibrations after repairs\n• Maintain accurate service records"
+            android:text="Kalibrasyon takibi şunlara yardım eder:\n\n• İzinsiz değişiklikleri fark etmek\n• Servis yazılım güncellemelerini izlemek\n• Onarım sonrası doğrulama\n• Servis kaydı tutmak"
             android:textSize="14sp"
             android:textColor="#616161"
             android:lineSpacingExtra="4dp"
@@ -110,7 +110,7 @@
             android:id="@+id/btn_close"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:text="Got it"
+            android:text="Anladım"
             android:textColor="@android:color/white"
             android:background="@color/colorPrimary"
             android:textStyle="bold"/>

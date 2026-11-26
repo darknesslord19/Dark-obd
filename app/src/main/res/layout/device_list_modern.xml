@@ -36,7 +36,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="(Paired Devices)"
+                    android:text="(Eşleştirilmiş cihazlar)"
                     android:textColor="#B0B0B0"
                     android:textSize="14sp"
                     android:layout_marginTop="2dp"/>
@@ -50,7 +50,7 @@
                 android:src="@drawable/ic_explore_24"
                 android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:padding="8dp"
-                android:contentDescription="Demo Mode"
+                android:contentDescription="Demo modu"
                 android:tint="@android:color/white"
                 android:layout_gravity="center_vertical"
                 android:layout_marginEnd="8dp"/>
@@ -62,7 +62,7 @@
                 android:src="@drawable/ic_bluetooth_settings_24"
                 android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:padding="8dp"
-                android:contentDescription="Open Bluetooth Settings"
+                android:contentDescription="Bluetooth ayarlarını aç"
                 android:tint="@android:color/white"
                 android:layout_gravity="center_vertical"/>
         </LinearLayout>
@@ -106,7 +106,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="No paired devices found"
+                android:text="Eşleştirilmiş cihaz yok"
                 android:textSize="18sp"
                 android:textColor="?android:attr/textColorPrimary"
                 android:layout_marginBottom="8dp"/>
@@ -114,7 +114,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Make sure Bluetooth is enabled and pair your OBD adapter in system settings"
+                android:text="Bluetooth’u açıp adaptörü telefon ayarlarından eşleştirin"
                 android:textSize="14sp"
                 android:textColor="?android:attr/textColorSecondary"
                 android:gravity="center"
@@ -124,7 +124,7 @@
                 android:id="@+id/btn_open_settings"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Open Bluetooth Settings"
+                android:text="Bluetooth ayarlarını aç"
                 android:textColor="@android:color/white"
                 android:background="?android:attr/colorPrimary"
                 android:padding="12dp"/>

@@ -108,7 +108,7 @@ public class ScanActivity extends AppCompatActivity implements ScanOrchestrator.
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setTitle("Full Vehicle Scan");
+            getSupportActionBar().setTitle("Tam araç taraması");
         }
 
         initializeViews();
@@ -209,9 +209,9 @@ public class ScanActivity extends AppCompatActivity implements ScanOrchestrator.
 
         String vin = vehicleManager.getCurrentVIN();
         if (vin != null && !vin.isEmpty()) {
-            vehicleDetails.setText("VIN: " + vin + "\nReady for comprehensive diagnostic scan");
+            vehicleDetails.setText("Şasi no: " + vin + "\nReady for comprehensive diagnostic scan");
         } else {
-            vehicleDetails.setText("Ready for comprehensive diagnostic scan");
+            vehicleDetails.setText("Kapsamlı taramaya hazır");
         }
     }
 
@@ -256,7 +256,7 @@ public class ScanActivity extends AppCompatActivity implements ScanOrchestrator.
     }
 
     private void onScanStartInProgress() {
-        progressText.setText("Scan in progress...");
+        progressText.setText("Tarama sürüyor…");
 
         // Update menu items - hide all during scan
         setMenuItemEnabled(R.id.action_start_scan, false);
@@ -273,11 +273,11 @@ public class ScanActivity extends AppCompatActivity implements ScanOrchestrator.
 
             progressBar.setMax(totalStages);
             progressBar.setProgress(0);
-            progressText.setText("Starting scan...");
+            progressText.setText("Tarama başlıyor…");
             progressPercentage.setText("0%");
             currentStageText.setText(totalStages + " stages to complete");
 
-            vehicleDetails.setText("Scanning in progress - please wait");
+            vehicleDetails.setText("Tarama sürüyor, bekleyin");
             setMenuItemEnabled(R.id.action_analyze_ai, false);
             setMenuItemEnabled(R.id.action_share_report, false);
             setMenuItemEnabled(R.id.action_ask_copilot, false);
@@ -296,7 +296,7 @@ public class ScanActivity extends AppCompatActivity implements ScanOrchestrator.
 
             updateStageView(stageIndex, stageName, "in_progress", null);
 
-            currentStageText.setText("Stage " + (stageIndex + 1) + "/" + totalStages + ": " + stageName);
+            currentStageText.setText("Aşama " + (stageIndex + 1) + "/" + totalStages + ": " + stageName);
             progressText.setText(stageName + "...");
         });
     }
@@ -316,7 +316,7 @@ public class ScanActivity extends AppCompatActivity implements ScanOrchestrator.
             updateStageView(stageIndex, null, status, result.getMessage());
 
             if (completedStages == totalStages) {
-                currentStageText.setText("All stages completed");
+                currentStageText.setText("Tüm aşamalar tamamlandı");
             }
         });
     }
@@ -331,10 +331,10 @@ public class ScanActivity extends AppCompatActivity implements ScanOrchestrator.
 
             progressBar.setProgress(totalStages);
             progressPercentage.setText("100%");
-            progressText.setText("Scan Complete!");
-            currentStageText.setText("Duration: " + (report.getTotalDurationMs() / 1000.0) + " seconds");
+            progressText.setText("Tarama tamamlandı!");
+            currentStageText.setText("Süre: " + (report.getTotalDurationMs() / 1000.0) + " seconds");
 
-            vehicleDetails.setText("Scan completed successfully");
+            vehicleDetails.setText("Tarama başarıyla tamamlandı");
 
             // Show results
             resultsCard.setVisibility(View.VISIBLE);
@@ -465,12 +465,7 @@ public class ScanActivity extends AppCompatActivity implements ScanOrchestrator.
         // Show message directing users to use CoPilot for analysis
         aiAnalysisCard.setVisibility(View.VISIBLE);
         aiAnalysisProgress.setVisibility(View.GONE);
-        aiAnalysisText.setText("AI diagnostic analysis is now integrated with CoPilot!\n\n" +
-            "Open CoPilot and ask:\n" +
-            "• \"Analyze my scan results\"\n" +
-            "• \"What do these fault codes mean?\"\n" +
-            "• \"What should I fix first?\"\n\n" +
-            "CoPilot can run scans, analyze results, and provide detailed repair recommendations - all in one conversation!");
+        aiAnalysisText.setText("Yapay zekâ analizi CoPilot içindedir.\n\nCoPilot’u açıp sorun:\n• Tarama sonuçlarımı analiz et\n• Bu arıza kodları ne demek?\n• Önce neyi onarmalıyım?\n\nÖnerileri onarımdan önce doğrulayın.");
         
         
 
@@ -484,9 +479,9 @@ public class ScanActivity extends AppCompatActivity implements ScanOrchestrator.
     @Override
     public void onScanCancelled() {
         runOnUiThread(() -> {
-            progressText.setText("Scan Cancelled");
-            currentStageText.setText("Scan was cancelled by user");
-            vehicleDetails.setText("Scan cancelled - partial data may be available");
+            progressText.setText("Tarama iptal edildi");
+            currentStageText.setText("Tarama kullanıcı tarafından iptal edildi");
+            vehicleDetails.setText("Tarama iptal edildi, veriler eksik olabilir");
 
             
             
@@ -502,9 +497,9 @@ public class ScanActivity extends AppCompatActivity implements ScanOrchestrator.
     @Override
     public void onScanFailed(Exception error) {
         runOnUiThread(() -> {
-            progressText.setText("Scan Failed");
-            currentStageText.setText("Error: " + error.getMessage());
-            vehicleDetails.setText("Scan failed - please try again");
+            progressText.setText("Tarama başarısız");
+            currentStageText.setText("Hata: " + error.getMessage());
+            vehicleDetails.setText("Tarama başarısız, tekrar deneyin");
 
             
             

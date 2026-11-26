@@ -523,7 +523,7 @@ public class SettingsActivity
 				}
 				else
 				{
-					apiKeyPref.setSummary("Not configured - tap to set");
+					apiKeyPref.setSummary("Ayarlanmadı - dokunun");
 				}
 
 				// Handle preference changes
@@ -533,13 +533,13 @@ public class SettingsActivity
 					if (apiKey.isEmpty())
 					{
 						securePreferences.clearOpenAiApiKey();
-						apiKeyPref.setSummary("Not configured - tap to set");
+						apiKeyPref.setSummary("Ayarlanmadı - dokunun");
 					}
 					else
 					{
 						securePreferences.setOpenAiApiKey(apiKey);
 						apiKeyPref.setSummary(maskApiKey(apiKey));
-						SnackbarHelper.showSuccess(getActivity(), "API key saved securely");
+						SnackbarHelper.showSuccess(getActivity(), "API anahtarı güvenle kaydedildi");
 					}
 					return true;
 				});
@@ -591,18 +591,16 @@ public class SettingsActivity
 		private void showDeleteAllConversationsDialog()
 		{
 			new AlertDialog.Builder(requireContext())
-				.setTitle("Delete All Conversations?")
-				.setMessage("This will permanently delete all stored CoPilot conversation threads from OpenAI's servers.\n\n" +
-						"This action cannot be undone.\n\n" +
-						"Are you sure you want to continue?")
-				.setNegativeButton("Cancel", null)
-				.setPositiveButton("Delete All", (dialog, which) ->
+				.setTitle("Tüm konuşmalar silinsin mi?")
+				.setMessage("OpenAI’de kayıtlı tüm CoPilot konuşmaları kalıcı olarak silinecek.\n\nBu işlem geri alınamaz.\n\nDevam edilsin mi?")
+				.setNegativeButton("Vazgeç", null)
+				.setPositiveButton("Tümünü sil", (dialog, which) ->
 				{
 					// Import AgentCoPilotController at top of file
 					com.obddroid.features.copilot.data.AgentCoPilotController agentController =
 						com.obddroid.features.copilot.data.AgentCoPilotController.getInstance();
 					agentController.deleteAllConversations();
-					SnackbarHelper.showSuccess(getActivity(), "All conversation threads deleted");
+					SnackbarHelper.showSuccess(getActivity(), "Tüm konuşmalar silindi");
 				})
 				.show();
 		}
@@ -625,17 +623,10 @@ public class SettingsActivity
 		private void showApiKeyInfoDialog()
 		{
 			new AlertDialog.Builder(requireContext())
-				.setTitle("How to Get an OpenAI API Key")
-				.setMessage("To use AI-powered fault code analysis:\n\n" +
-						"1. Visit https://platform.openai.com\n" +
-						"2. Create a free account or sign in\n" +
-						"3. Go to API Keys section\n" +
-						"4. Click 'Create new secret key'\n" +
-						"5. Copy the key and paste it here\n\n" +
-						"Note: Your API key is stored securely on your device and never shared. " +
-						"You will be charged by OpenAI based on your usage.")
+				.setTitle("OpenAI API anahtarı nasıl alınır")
+				.setMessage("Yapay zekâ analizi için:\n\n1. https://platform.openai.com adresine gidin\n2. Hesap açın veya giriş yapın\n3. API Keys bölümüne girin\n4. Yeni gizli anahtar oluşturun\n5. Anahtarı buraya yapıştırın\n\nNot: Anahtar cihazınızda saklanır ve OpenAI isteklerinde kullanılır. Kullanımınız için OpenAI ücret alır.")
 				.setPositiveButton("OK", null)
-				.setNeutralButton("Open Website", (dialog, which) ->
+				.setNeutralButton("Siteyi aç", (dialog, which) ->
 				{
 					Intent intent = new Intent(Intent.ACTION_VIEW,
 							Uri.parse("https://platform.openai.com/api-keys"));
@@ -647,7 +638,7 @@ public class SettingsActivity
 					{
 						log.log(Level.WARNING, "Failed to open OpenAI website", e);
 						SnackbarHelper.showError(getActivity(),
-								"Could not open browser. Please visit platform.openai.com manually.");
+								"Tarayıcı açılamadı. platform.openai.com adresini elle açın.");
 					}
 				})
 				.show();

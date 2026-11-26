@@ -58,7 +58,7 @@ public class AutoCheckActivity extends AppCompatActivity {
         getWindow().setNavigationBarColor(androidx.core.content.ContextCompat.getColor(this, R.color.background_secondary));
 
         if (getSupportActionBar() != null) {
-            getSupportActionBar().setTitle("Vehicle History");
+            getSupportActionBar().setTitle("Araç geçmişi");
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
@@ -106,7 +106,7 @@ public class AutoCheckActivity extends AppCompatActivity {
             reportContainer.setVisibility(View.GONE);
             errorCard.setVisibility(View.GONE);
             loadingContainer.setVisibility(View.VISIBLE);
-            loadingText.setText("Refreshing vehicle history...");
+            loadingText.setText("Araç geçmişi yenileniyor…");
 
             fetchVehicleHistory();
             return true;
@@ -146,22 +146,18 @@ public class AutoCheckActivity extends AppCompatActivity {
 
             if (currentVin == null || currentVin.isEmpty()) {
                 checkHistoryButton.setEnabled(false);
-                checkHistoryButton.setText("No VIN Available");
+                checkHistoryButton.setText("Şasi no yok");
             }
         } catch (Exception e) {
             checkHistoryButton.setEnabled(false);
-            checkHistoryButton.setText("VIN Not Available");
+            checkHistoryButton.setText("Şasi no alınamadı");
         }
     }
 
     private void checkApiHealth() {
         autoCheckService.checkHealth(healthy -> {
             if (!healthy) {
-                showError("Warning: AutoCheck API server is not reachable.\n\n" +
-                        "Please ensure:\n" +
-                        "1. Your laptop is running the API server\n" +
-                        "2. Both devices are on the same WiFi\n" +
-                        "3. Update the IP address if needed");
+                showError("AutoCheck sunucusuna ulaşılamıyor.\n\nBu özellik ayrı bir API sunucusu gerektirir. Sunucunun çalıştığını, aynı Wi-Fi ağında olduğunuzu ve IP adresini kontrol edin.");
             }
         });
     }
@@ -264,14 +260,14 @@ public class AutoCheckActivity extends AppCompatActivity {
         try {
             if (cache.has(currentVin)) {
                 loadingContainer.setVisibility(View.VISIBLE);
-                loadingText.setText("Loading cached report...");
+                loadingText.setText("Kayıtlı rapor yükleniyor…");
 
                 AutoCheckReport report = cache.load(currentVin);
                 if (report != null) {
                     displayReport(report);
 
                     loadingContainer.setVisibility(View.GONE);
-                    loadingText.setText("Loading vehicle history...");
+                    loadingText.setText("Araç geçmişi yükleniyor…");
 
                     String pdfPath = cache.findPdf(currentVin);
                     if (pdfPath != null) {
@@ -280,13 +276,13 @@ public class AutoCheckActivity extends AppCompatActivity {
                     }
                 } else {
                     loadingContainer.setVisibility(View.GONE);
-                    loadingText.setText("Loading vehicle history...");
+                    loadingText.setText("Araç geçmişi yükleniyor…");
                 }
             }
         } catch (Exception e) {
             // If the cache cannot be read, the user can fetch a new report
             loadingContainer.setVisibility(View.GONE);
-            loadingText.setText("Loading vehicle history...");
+            loadingText.setText("Araç geçmişi yükleniyor…");
             Log.w(TAG, "Could not load cached report", e);
         }
     }

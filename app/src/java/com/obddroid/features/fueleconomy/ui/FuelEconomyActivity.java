@@ -120,7 +120,7 @@ public class FuelEconomyActivity extends AppCompatActivity implements PvChangeLi
         }
 
         if (getSupportActionBar() != null) {
-            getSupportActionBar().setTitle("Fuel Economy");
+            getSupportActionBar().setTitle("Yakıt tüketimi");
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
@@ -291,9 +291,9 @@ public class FuelEconomyActivity extends AppCompatActivity implements PvChangeLi
         boolean calibrated = mapAvailable && fuelRate.calibratedVE() != null;
 
         new android.app.AlertDialog.Builder(this)
-            .setTitle("Fuel Economy")
+            .setTitle("Yakıt tüketimi")
             .setMessage(FuelEconomyFormat.infoMessage(mapAvailable, calibrated))
-            .setPositiveButton("Got it", null)
+            .setPositiveButton("Anladım", null)
             .show();
     }
 

@@ -177,12 +177,12 @@ public class DeviceAdapter extends BaseAdapter {
         // Set status text
         if (isLastUsed && position == 0) {
             // Recently used device - always show this first
-            holder.deviceStatus.setText("Recently used • Tap to reconnect");
+            holder.deviceStatus.setText("Yakın zamanda kullanıldı • Bağlanmak için dokunun");
         } else if (!nickname.isEmpty()) {
             // Show original name when nickname is set
             holder.deviceStatus.setText(deviceName + " • Tap to connect");
         } else {
-            holder.deviceStatus.setText("Tap to connect");
+            holder.deviceStatus.setText("Bağlanmak için dokunun");
         }
 
         // Set icon based on device type
@@ -211,10 +211,10 @@ public class DeviceAdapter extends BaseAdapter {
 
         if (info.isUsbCompatible && info.usbPort != null) {
             String driverName = info.usbPort.getDriver().getClass().getSimpleName().replace("SerialDriver", "");
-            holder.deviceStatus.setText("Compatible OBD adapter • " + driverName);
+            holder.deviceStatus.setText("Uyumlu OBD adaptörü • " + driverName);
             holder.deviceIcon.setImageResource(android.R.drawable.ic_menu_directions);
         } else {
-            holder.deviceStatus.setText("Not a compatible serial adapter");
+            holder.deviceStatus.setText("Uyumlu seri adaptör değil");
             holder.deviceIcon.setImageResource(android.R.drawable.ic_menu_manage);
         }
     }

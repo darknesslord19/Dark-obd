@@ -139,7 +139,7 @@ public class TrackModeActivity extends AppCompatActivity implements
         // Setup action bar
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setTitle("Track Mode");
+            getSupportActionBar().setTitle("Pist modu");
         }
 
         // Load tracks and show selector
@@ -294,7 +294,7 @@ public class TrackModeActivity extends AppCompatActivity implements
                 // Update position text
                 if (tvTrackPosition != null) {
                     tvTrackPosition.setText(String.format(Locale.US,
-                        "Lat: %.6f, Lon: %.6f",
+                        "Enlem: %.6f, Boylam: %.6f",
                         currentLoc.getLatitude(),
                         currentLoc.getLongitude()));
                 }
@@ -304,7 +304,7 @@ public class TrackModeActivity extends AppCompatActivity implements
                     float distance = currentSession != null ?
                         (float)(currentSession.getTotalDistance() / 1000.0) : 0;
                     tvTrackDistance.setText(String.format(Locale.US,
-                        "Distance: %.2f km", distance));
+                        "Mesafe: %.2f km", distance));
                 }
             }
         }
@@ -380,15 +380,15 @@ public class TrackModeActivity extends AppCompatActivity implements
         }
 
         new AlertDialog.Builder(this)
-                .setTitle("Select Track")
+                .setTitle("Pist seçin")
                 .setItems(trackNames, (dialog, which) -> {
                     selectedTrack = tracks.get(which);
                     tvTrackName.setText(selectedTrack.getName());
                     trackDatabase.updateTrackLastUsed(selectedTrack.getId());
                 })
-                .setNeutralButton("Create New", (dialog, which) -> {
+                .setNeutralButton("Yeni oluştur", (dialog, which) -> {
                     // TODO: Implement track creation mode
-                    Toast.makeText(this, "Track creation coming soon!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Pist oluşturma yakında!", Toast.LENGTH_SHORT).show();
                 })
                 .setCancelable(false)
                 .show();
@@ -406,7 +406,7 @@ public class TrackModeActivity extends AppCompatActivity implements
         }
 
         new AlertDialog.Builder(this)
-                .setTitle("Select Session Type")
+                .setTitle("Oturum türü seçin")
                 .setItems(typeNames, (dialog, which) -> {
                     TrackSession.SessionType selectedType = types[which];
                     createSession(selectedType);
@@ -421,7 +421,7 @@ public class TrackModeActivity extends AppCompatActivity implements
     private void startSession() {
         if (selectedTrack == null) {
             SnackbarHelper.showError(this,
-                    "Please select a track first");
+                    "Önce pist seçin");
             return;
         }
 
@@ -456,7 +456,7 @@ public class TrackModeActivity extends AppCompatActivity implements
         updateSessionUI();
 
         SnackbarHelper.showInfo(this,
-                "Session started - Cross finish line to begin lap timing");
+                "Oturum başladı, tur süresi için bitiş çizgisinden geçin");
     }
 
     /**
@@ -503,8 +503,8 @@ public class TrackModeActivity extends AppCompatActivity implements
                     currentSession.getTotalLaps() + 1,
                     currentSession.getValidLaps()));
         } else {
-            tvSessionInfo.setText("No active session");
-            tvLapCount.setText("Lap 0/0");
+            tvSessionInfo.setText("Etkin oturum yok");
+            tvLapCount.setText("Tur 0/0");
         }
     }
 
@@ -533,10 +533,10 @@ public class TrackModeActivity extends AppCompatActivity implements
         );
 
         new AlertDialog.Builder(this)
-                .setTitle("Session Summary")
+                .setTitle("Oturum özeti")
                 .setMessage(summary)
                 .setPositiveButton("OK", null)
-                .setNeutralButton("View Details", (dialog, which) -> {
+                .setNeutralButton("Ayrıntıları gör", (dialog, which) -> {
                     // TODO: Open detailed session view
                 })
                 .show();
@@ -549,7 +549,7 @@ public class TrackModeActivity extends AppCompatActivity implements
             tvLapCount.setText(String.format("Lap %d", lapNumber));
             sectorSplits.clear();
             SnackbarHelper.showInfo(this,
-                    "Lap " + lapNumber + " started");
+                    "Tur " + lapNumber + " started");
         });
     }
 
@@ -562,12 +562,12 @@ public class TrackModeActivity extends AppCompatActivity implements
                 tvBestLapTime.setText(lap.getFormattedLapTime());
                 tvBestLapTime.setTextColor(Color.parseColor("#9B59B6")); // Purple
                 SnackbarHelper.showSuccess(this,
-                        "New best lap! " + lap.getFormattedLapTime());
+                        "Yeni en iyi tur! " + lap.getFormattedLapTime());
             }
 
             if (!lap.isValid()) {
                 SnackbarHelper.showWarning(this,
-                        "Lap invalidated");
+                        "Tur geçersiz");
             }
 
             updateSessionUI();
@@ -580,7 +580,7 @@ public class TrackModeActivity extends AppCompatActivity implements
             sectorSplits.add(sectorTime);
             updateSectorTimes();
             SnackbarHelper.showInfo(this,
-                    "Sector " + (sector + 1) + ": " + LapTime.formatTime(sectorTime));
+                    "Sektör " + (sector + 1) + ": " + LapTime.formatTime(sectorTime));
         });
     }
 
@@ -609,7 +609,7 @@ public class TrackModeActivity extends AppCompatActivity implements
     public void onLapInvalidated(String reason) {
         runOnUiThread(() -> {
             SnackbarHelper.showWarning(this,
-                    "Lap invalid: " + reason);
+                    "Geçersiz tur: " + reason);
         });
     }
 
@@ -666,11 +666,11 @@ public class TrackModeActivity extends AppCompatActivity implements
             return true;
         } else if (item.getItemId() == R.id.action_track_history) {
             // TODO: Open track history
-            Toast.makeText(this, "Track history coming soon!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Pist geçmişi yakında!", Toast.LENGTH_SHORT).show();
             return true;
         } else if (item.getItemId() == R.id.action_track_settings) {
             // TODO: Open track settings
-            Toast.makeText(this, "Track settings coming soon!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Pist ayarları yakında!", Toast.LENGTH_SHORT).show();
             return true;
         }
         return super.onOptionsItemSelected(item);

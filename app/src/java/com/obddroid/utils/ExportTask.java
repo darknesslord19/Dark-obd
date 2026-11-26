@@ -197,7 +197,7 @@ public class ExportTask {
 
     private void onPostExecute(String result) {
         if (result == null) {
-            SnackbarHelper.showError(activity, "Export failed", SnackbarHelper.Duration.SHORT);
+            SnackbarHelper.showError(activity, "Dışa aktarılamadı", SnackbarHelper.Duration.SHORT);
             executorService.shutdown();
             return;
         }

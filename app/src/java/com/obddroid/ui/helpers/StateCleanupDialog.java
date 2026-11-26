@@ -74,17 +74,17 @@ public class StateCleanupDialog {
 
         // Set initial title based on cleanup level
         if (level == StateManager.CleanupLevel.FULL) {
-            titleView.setText("Resetting Adapter");
-            statusView.setText("Performing full ELM327 reset...");
+            titleView.setText("Adaptör sıfırlanıyor");
+            statusView.setText("ELM327 tam sıfırlanıyor…");
         } else if (level == StateManager.CleanupLevel.HARD) {
-            titleView.setText("Cleaning Up State");
-            statusView.setText("Resetting adapter to defaults...");
+            titleView.setText("Durum temizleniyor");
+            statusView.setText("Adaptör varsayılana döndürülüyor…");
         } else {
-            titleView.setText("Cleaning Up State");
-            statusView.setText("Clearing OBD data...");
+            titleView.setText("Durum temizleniyor");
+            statusView.setText("OBD verileri temizleniyor…");
         }
 
-        stepView.setText("Preparing...");
+        stepView.setText("Hazırlanıyor…");
 
         // Make dialog background transparent (CardView provides the background)
         if (dialog.getWindow() != null) {
@@ -102,8 +102,8 @@ public class StateCleanupDialog {
 
                 // Update progress: Step 1/6
                 mainHandler.post(() -> {
-                    statusView.setText("Stopping service...");
-                    stepView.setText("Step 1 of 6");
+                    statusView.setText("Servis durduruluyor…");
+                    stepView.setText("Adım 1 / 6");
                 });
 
                 // Small delay so user can see the progress
@@ -111,16 +111,16 @@ public class StateCleanupDialog {
 
                 // Update progress: Step 2/6
                 mainHandler.post(() -> {
-                    statusView.setText("Clearing data collections...");
-                    stepView.setText("Step 2 of 6");
+                    statusView.setText("Veriler temizleniyor…");
+                    stepView.setText("Adım 2 / 6");
                 });
 
                 Thread.sleep(200);
 
                 // Update progress: Step 3/6
                 mainHandler.post(() -> {
-                    statusView.setText("Clearing ECU addresses...");
-                    stepView.setText("Step 3 of 6");
+                    statusView.setText("ECU adresleri temizleniyor…");
+                    stepView.setText("Adım 3 / 6");
                 });
 
                 Thread.sleep(200);
@@ -130,8 +130,8 @@ public class StateCleanupDialog {
 
                 // Update progress: Validation
                 mainHandler.post(() -> {
-                    statusView.setText("Validating cleanup...");
-                    stepView.setText("Step 6 of 6");
+                    statusView.setText("Temizlik doğrulanıyor…");
+                    stepView.setText("Adım 6 / 6");
                 });
 
                 Thread.sleep(200);
@@ -187,11 +187,11 @@ public class StateCleanupDialog {
 
         // Set title
         if (level == StateManager.CleanupLevel.FULL) {
-            titleView.setText("Resetting Adapter");
+            titleView.setText("Adaptör sıfırlanıyor");
         } else if (level == StateManager.CleanupLevel.HARD) {
-            titleView.setText("Cleaning Up State");
+            titleView.setText("Durum temizleniyor");
         } else {
-            titleView.setText("Cleaning Up State");
+            titleView.setText("Durum temizleniyor");
         }
 
         // Make background transparent
@@ -208,24 +208,24 @@ public class StateCleanupDialog {
             try {
                 // Step 1: Stop service
                 mainHandler.post(() -> {
-                    statusView.setText("Stopping service...");
-                    stepView.setText("Step 1 of 6");
+                    statusView.setText("Servis durduruluyor…");
+                    stepView.setText("Adım 1 / 6");
                     if (callback != null) callback.onProgress(1, "Stopping service");
                 });
                 Thread.sleep(300);
 
                 // Step 2: Clear data
                 mainHandler.post(() -> {
-                    statusView.setText("Clearing data collections...");
-                    stepView.setText("Step 2 of 6");
+                    statusView.setText("Veriler temizleniyor…");
+                    stepView.setText("Adım 2 / 6");
                     if (callback != null) callback.onProgress(2, "Clearing data");
                 });
                 Thread.sleep(300);
 
                 // Step 3: Clear ECU addresses
                 mainHandler.post(() -> {
-                    statusView.setText("Clearing ECU addresses...");
-                    stepView.setText("Step 3 of 6");
+                    statusView.setText("ECU adresleri temizleniyor…");
+                    stepView.setText("Adım 3 / 6");
                     if (callback != null) callback.onProgress(3, "Clearing ECU addresses");
                 });
                 Thread.sleep(300);
@@ -236,13 +236,13 @@ public class StateCleanupDialog {
                         statusView.setText(level == StateManager.CleanupLevel.FULL
                             ? "Resetting adapter (ATZ)..."
                             : "Resetting adapter (ATD)...");
-                        stepView.setText("Step 4 of 6");
+                        stepView.setText("Adım 4 / 6");
                         if (callback != null) callback.onProgress(4, "Resetting adapter");
                     });
                 } else {
                     mainHandler.post(() -> {
-                        statusView.setText("Skipping adapter reset...");
-                        stepView.setText("Step 4 of 6");
+                        statusView.setText("Adaptör sıfırlama atlanıyor…");
+                        stepView.setText("Adım 4 / 6");
                         if (callback != null) callback.onProgress(4, "Skipping adapter reset");
                     });
                     Thread.sleep(300);
@@ -253,16 +253,16 @@ public class StateCleanupDialog {
 
                 // Step 5: Clear app state
                 mainHandler.post(() -> {
-                    statusView.setText("Clearing application state...");
-                    stepView.setText("Step 5 of 6");
+                    statusView.setText("Uygulama durumu temizleniyor…");
+                    stepView.setText("Adım 5 / 6");
                     if (callback != null) callback.onProgress(5, "Clearing app state");
                 });
                 Thread.sleep(300);
 
                 // Step 6: Validate
                 mainHandler.post(() -> {
-                    statusView.setText("Validating cleanup...");
-                    stepView.setText("Step 6 of 6");
+                    statusView.setText("Temizlik doğrulanıyor…");
+                    stepView.setText("Adım 6 / 6");
                     if (callback != null) callback.onProgress(6, "Validating");
                 });
                 Thread.sleep(300);

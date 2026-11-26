@@ -39,7 +39,7 @@
                         android:id="@+id/vehicle_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Full Vehicle Scan"
+                        android:text="Tam araç taraması"
                         android:textColor="@color/text_primary_dark"
                         android:textSize="@dimen/text_section_header"
                         android:textStyle="bold" />
@@ -49,7 +49,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/spacing_small"
-                        android:text="Preparing comprehensive diagnostic scan..."
+                        android:text="Kapsamlı tarama hazırlanıyor…"
                         android:textColor="@color/text_secondary_dark"
                         android:textSize="@dimen/text_body" />
 
@@ -82,7 +82,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Ready to scan"
+                            android:text="Taramaya hazır"
                             android:textColor="@color/text_primary_dark"
                             android:textSize="@dimen/text_body"
                             android:textStyle="bold" />
@@ -111,7 +111,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/spacing_small"
-                        android:text="Tap 'Start Scan' to begin"
+                        android:text="Başlamak için taramayı başlatın"
                         android:textColor="@color/text_secondary_dark"
                         android:textSize="@dimen/text_caption" />
 
@@ -137,7 +137,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Scan Stages"
+                        android:text="Tarama aşamaları"
                         android:textColor="@color/text_primary_dark"
                         android:textSize="@dimen/text_section_header"
                         android:textStyle="bold"
@@ -172,7 +172,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Scan Results"
+                        android:text="Tarama sonuçları"
                         android:textColor="@color/text_primary_dark"
                         android:textSize="@dimen/text_section_header"
                         android:textStyle="bold"
@@ -209,7 +209,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="AI Diagnostic Analysis"
+                        android:text="Yapay zekâ teşhis analizi"
                         android:textColor="@color/text_primary_dark"
                         android:textSize="@dimen/text_section_header"
                         android:textStyle="bold"

@@ -14,7 +14,7 @@
         android:id="@+id/section_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Section Title"
+        android:text="Bölüm başlığı"
         android:textSize="14sp"
         android:textStyle="bold"
         android:textColor="@color/primary"

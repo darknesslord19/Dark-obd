@@ -52,7 +52,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Data Source: NHTSA"
+                            android:text="Veri kaynağı: NHTSA"
                             android:textColor="#1A1A1A"
                             android:textSize="14sp"
                             android:textStyle="bold"
@@ -61,7 +61,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Official vehicle information from the National Highway Traffic Safety Administration"
+                            android:text="NHTSA resmi araç bilgisi"
                             android:textColor="#2A2A2A"
                             android:textSize="11sp"
                             android:layout_marginTop="2dp"
@@ -117,7 +117,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="No Vehicle Data Available"
+                    android:text="Araç verisi yok"
                     android:textColor="@color/text_primary_dark"
                     android:textSize="18sp"
                     android:textStyle="bold"
@@ -126,7 +126,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Connect to a vehicle to view decoded VIN information"
+                    android:text="Şasi bilgisini görmek için araca bağlanın"
                     android:textColor="@color/text_secondary_dark"
                     android:textSize="@dimen/text_body"
                     android:gravity="center"

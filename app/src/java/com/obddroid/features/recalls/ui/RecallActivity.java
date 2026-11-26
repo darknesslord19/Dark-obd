@@ -278,7 +278,7 @@ public class RecallActivity extends AppCompatActivity {
             for (int i = 0; i < ((LinearLayout) heroInfoState).getChildCount(); i++) {
                 View child = ((LinearLayout) heroInfoState).getChildAt(i);
                 if (child instanceof TextView) {
-                    ((TextView) child).setText("Connect to a vehicle to check for safety recalls");
+                    ((TextView) child).setText("Geri çağırma sorgusu için araca bağlanın");
                     break;
                 }
             }
@@ -301,7 +301,7 @@ public class RecallActivity extends AppCompatActivity {
             public void onSearchStarted() {
                 runOnUiThread(() -> {
                     if (loadingCard != null) loadingCard.setVisibility(View.VISIBLE);
-                    if (statusText != null) statusText.setText("Searching for recalls...");
+                    if (statusText != null) statusText.setText("Geri çağırmalar aranıyor…");
                     resultsContainer.removeAllViews();
                     resultsContainer.setVisibility(View.GONE);
                     if (emptyState != null) emptyState.setVisibility(View.GONE);
@@ -313,7 +313,7 @@ public class RecallActivity extends AppCompatActivity {
             public void onVinDecoded(VehicleData vehicleData) {
                 runOnUiThread(() -> {
                     if (statusText != null) {
-                        statusText.setText("Looking up recalls for " + vehicleData.getDisplayName() + "...");
+                        statusText.setText("Geri çağırma sorgulanıyor: " + vehicleData.getDisplayName() + "...");
                     }
                 });
             }
@@ -499,13 +499,13 @@ public class RecallActivity extends AppCompatActivity {
         // Campaign title
         String campaignNumber = recall.getNhtsaCampaignNumber();
         if (!TextUtils.isEmpty(campaignNumber)) {
-            campaignTitle.setText("Campaign #" + campaignNumber);
+            campaignTitle.setText("Kampanya no " + campaignNumber);
         }
 
         // Component
         if (!TextUtils.isEmpty(recall.getComponent())) {
             String componentText = recall.getComponent().replace(":", " - ");
-            component.setText("Component: " + componentText);
+            component.setText("Parça: " + componentText);
             component.setVisibility(View.VISIBLE);
         } else {
             component.setVisibility(View.GONE);
@@ -527,7 +527,7 @@ public class RecallActivity extends AppCompatActivity {
         if (!TextUtils.isEmpty(recall.getReportReceivedDate())) {
             try {
                 String formattedDate = formatDate(recall.getReportReceivedDate());
-                reportDate.setText("Reported: " + formattedDate);
+                reportDate.setText("Bildirim: " + formattedDate);
                 reportDate.setVisibility(View.VISIBLE);
             } catch (Exception e) {
                 reportDate.setVisibility(View.GONE);
@@ -946,7 +946,7 @@ public class RecallActivity extends AppCompatActivity {
         dialog.setCancelable(true);
 
         TextView dialogTitle = dialog.findViewById(R.id.dialog_title);
-        if (dialogTitle != null) dialogTitle.setText("Save Report");
+        if (dialogTitle != null) dialogTitle.setText("Raporu kaydet");
 
         View csvOption = dialog.findViewById(R.id.option_export_csv);
         if (csvOption != null) {

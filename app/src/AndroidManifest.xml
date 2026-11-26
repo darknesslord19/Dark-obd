@@ -124,27 +124,27 @@
             android:exported="false" />
         <activity
             android:name="com.obddroid.ui.activities.CustomPidManagerActivity"
-            android:label="Custom PIDs"
+            android:label="Özel PID’ler"
             android:configChanges="touchscreen|orientation|screenSize"
             android:exported="false" />
         <activity
             android:name="com.obddroid.ui.activities.LiveDataActivity"
-            android:label="Live Data"
+            android:label="Canlı veri"
             android:configChanges="touchscreen|orientation|screenSize"
             android:exported="false" />
         <activity
             android:name="com.obddroid.features.fueleconomy.ui.FuelEconomyActivity"
-            android:label="Fuel Economy"
+            android:label="Yakıt tüketimi"
             android:configChanges="touchscreen|orientation|screenSize"
             android:exported="false" />
         <activity
             android:name="com.obddroid.features.emissions.ui.EmissionsActivity"
-            android:label="Emissions Diagnostics"
+            android:label="Emisyon teşhisi"
             android:configChanges="touchscreen|orientation|screenSize"
             android:exported="false" />
         <activity
             android:name="com.obddroid.features.vehiclehistory.ui.AutoCheckActivity"
-            android:label="Vehicle History"
+            android:label="Araç geçmişi"
             android:configChanges="touchscreen|orientation|screenSize"
             android:exported="false" />
         <activity
@@ -160,17 +160,17 @@
             android:exported="false" />
         <activity
             android:name="com.obddroid.ui.activities.VehicleInfoActivity"
-            android:label="Vehicle Information"
+            android:label="Araç bilgisi"
             android:configChanges="touchscreen|orientation|screenSize"
             android:exported="false" />
         <activity
             android:name="com.obddroid.ui.activities.FaultCodesActivity"
-            android:label="Fault Codes"
+            android:label="Arıza kodları"
             android:configChanges="touchscreen|orientation|screenSize"
             android:exported="false" />
         <activity
             android:name="com.obddroid.ui.activities.FaultCodeDetailsActivity"
-            android:label="Fault Code Details"
+            android:label="Arıza kodu ayrıntıları"
             android:configChanges="touchscreen|orientation|screenSize"
             android:parentActivityName="com.obddroid.ui.activities.FaultCodesActivity"
             android:exported="false">
@@ -187,14 +187,14 @@
             android:exported="false" />
         <activity
             android:name="com.obddroid.features.copilot.ui.ThreadManagerActivity"
-            android:label="Conversation History"
+            android:label="Konuşma geçmişi"
             android:theme="@style/AppTheme.MaterialComponents.NoActionBar"
             android:configChanges="touchscreen|orientation|screenSize"
             android:parentActivityName="com.obddroid.ui.activities.MainActivity"
             android:exported="false" />
         <activity
             android:name="com.obddroid.features.trackmode.TrackModeActivity"
-            android:label="Track Mode"
+            android:label="Pist modu"
             android:theme="@style/AppTheme.MaterialComponents"
             android:configChanges="touchscreen|orientation|screenSize"
             android:screenOrientation="portrait"
@@ -202,19 +202,19 @@
             android:exported="false" />
         <activity
             android:name="com.obddroid.ui.activities.ScanActivity"
-            android:label="Full Vehicle Scan"
+            android:label="Tam araç taraması"
             android:configChanges="touchscreen|orientation|screenSize"
             android:parentActivityName="com.obddroid.ui.activities.MainActivity"
             android:exported="false" />
         <activity
             android:name="com.obddroid.ui.activities.EcuComparisonActivity"
-            android:label="ECU Comparison"
+            android:label="ECU karşılaştırma"
             android:configChanges="touchscreen|orientation|screenSize"
             android:parentActivityName="com.obddroid.ui.activities.EcuListActivity"
             android:exported="false" />
         <activity
             android:name="com.obddroid.ui.activities.BaselineScanSelectionActivity"
-            android:label="Select Baseline Scan"
+            android:label="Referans tarama seçin"
             android:configChanges="touchscreen|orientation|screenSize"
             android:parentActivityName="com.obddroid.ui.activities.EcuListActivity"
             android:exported="false" />
