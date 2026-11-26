@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/action_rescan"
-        android:title="Rescan Fault Codes"
+        android:title="Kodları yeniden tara"
         android:icon="@drawable/ic_refresh_24"
         app:showAsAction="never" />
 
@@ -22,7 +22,7 @@
 
     <item
         android:id="@+id/action_info"
-        android:title="Help"
+        android:title="Yardım"
         android:icon="@drawable/ic_info_24"
         app:showAsAction="never" />
 

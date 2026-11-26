@@ -4,13 +4,13 @@
 
     <item
         android:id="@+id/action_rescan"
-        android:title="Rescan"
+        android:title="Yeniden tara"
         android:icon="@drawable/ic_refresh_24"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/action_export"
-        android:title="Save Report"
+        android:title="Raporu kaydet"
         android:icon="@drawable/ic_save_24"
         app:showAsAction="never" />
 

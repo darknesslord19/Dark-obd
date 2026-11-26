@@ -15,7 +15,7 @@
         android:visible="false"/>
     <item
         android:id="@+id/action_info"
-        android:title="Help"
+        android:title="Yardım"
         android:icon="@drawable/ic_info_24"
         app:showAsAction="never" />
     <item

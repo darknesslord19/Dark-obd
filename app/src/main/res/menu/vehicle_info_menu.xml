@@ -13,21 +13,21 @@
             <item
                 android:id="@+id/action_refresh_vehicle_info"
                 android:icon="@drawable/ic_refresh_24"
-                android:title="Refresh"
+                android:title="Yenile"
                 app:iconTint="@color/text_secondary_dark"
                 app:showAsAction="never" />
 
             <item
                 android:id="@+id/action_save_vehicle_info"
                 android:icon="@drawable/ic_save_24"
-                android:title="Save Report"
+                android:title="Raporu kaydet"
                 app:iconTint="@color/text_secondary_dark"
                 app:showAsAction="never" />
 
             <item
                 android:id="@+id/action_info"
                 android:icon="@drawable/ic_info_24"
-                android:title="Help"
+                android:title="Yardım"
                 app:iconTint="@color/text_secondary_dark"
                 app:showAsAction="never" />
         </menu>

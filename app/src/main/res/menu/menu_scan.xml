@@ -4,31 +4,31 @@
 
     <item
         android:id="@+id/action_start_scan"
-        android:title="Start Scan"
+        android:title="Taramayı başlat"
         android:icon="@android:drawable/ic_media_play"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/action_analyze_ai"
-        android:title="Analyze with AI"
+        android:title="Yapay zekâ ile analiz"
         android:icon="@android:drawable/ic_menu_search"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/action_share_report"
-        android:title="Share Report"
+        android:title="Raporu paylaş"
         android:icon="@android:drawable/ic_menu_share"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/action_ask_copilot"
-        android:title="Ask CoPilot"
+        android:title="CoPilot\'a sor"
         android:icon="@android:drawable/ic_menu_help"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/action_info"
-        android:title="Help"
+        android:title="Yardım"
         android:icon="@drawable/ic_info_24"
         app:showAsAction="never" />
 

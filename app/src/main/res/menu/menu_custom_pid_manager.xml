@@ -4,19 +4,19 @@
 
     <item
         android:id="@+id/action_import"
-        android:title="Import PIDs"
+        android:title="PID içe aktar"
         android:icon="@android:drawable/ic_menu_upload"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/action_export"
-        android:title="Export PIDs"
+        android:title="PID dışa aktar"
         android:icon="@android:drawable/ic_menu_save"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/action_info"
-        android:title="Help"
+        android:title="Yardım"
         android:icon="@drawable/ic_info_24"
         app:showAsAction="never" />
 

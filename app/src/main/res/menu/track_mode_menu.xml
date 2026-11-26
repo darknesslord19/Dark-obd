@@ -4,13 +4,13 @@
 
     <item
         android:id="@+id/action_track_history"
-        android:title="History"
+        android:title="Geçmiş"
         android:icon="@drawable/ic_chart"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/action_track_settings"
-        android:title="Settings"
+        android:title="Ayarlar"
         android:icon="@drawable/ic_settings_24"
         app:showAsAction="never" />
 

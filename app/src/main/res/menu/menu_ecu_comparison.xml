@@ -4,13 +4,13 @@
 
     <item
         android:id="@+id/action_export_csv"
-        android:title="Save Report"
+        android:title="Raporu kaydet"
         android:icon="@drawable/ic_file_upload_24"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/action_about"
-        android:title="Help"
+        android:title="Yardım"
         android:icon="@drawable/ic_info_24"
         app:showAsAction="never" />
 

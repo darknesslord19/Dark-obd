@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/action_calibrate"
-        android:title="Calibrate"
+        android:title="Kalibre et"
         android:icon="@drawable/ic_tune_24"
         app:showAsAction="never" />
 
@@ -16,7 +16,7 @@
 
     <item
         android:id="@+id/action_info"
-        android:title="Help"
+        android:title="Yardım"
         android:icon="@drawable/ic_info_24"
         app:showAsAction="never" />
 

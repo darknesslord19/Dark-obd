@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/service_home"
-        android:title="Home"
+        android:title="Ana sayfa"
         android:icon="@drawable/ic_home_24"
         android:enabled="true"/>
     <item

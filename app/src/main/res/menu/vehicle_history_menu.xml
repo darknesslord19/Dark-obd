@@ -4,13 +4,13 @@
 
     <item
         android:id="@+id/action_refresh"
-        android:title="Refresh"
+        android:title="Yenile"
         android:icon="@drawable/ic_refresh_24"
         app:showAsAction="never"/>
 
     <item
         android:id="@+id/action_save_report"
-        android:title="Save Report"
+        android:title="Raporu kaydet"
         android:icon="@drawable/ic_save_24"
         app:showAsAction="never"/>
 

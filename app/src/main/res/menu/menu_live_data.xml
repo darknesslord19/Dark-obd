@@ -5,35 +5,35 @@
     <!-- GPS Telemetry Toggle -->
     <item
         android:id="@+id/action_toggle_gps_telemetry"
-        android:title="Enable GPS Telemetry"
+        android:title="GPS verisini aç"
         android:icon="@drawable/ic_gps_24"
         app:showAsAction="never" />
 
     <!-- Motion Telemetry Toggle -->
     <item
         android:id="@+id/action_toggle_motion_telemetry"
-        android:title="Enable Motion Telemetry"
+        android:title="Hareket verisini aç"
         android:icon="@drawable/ic_sensors_24"
         app:showAsAction="never" />
 
     <!-- Save Report -->
     <item
         android:id="@+id/action_save_report"
-        android:title="Save Report"
+        android:title="Raporu kaydet"
         android:icon="@drawable/ic_file_upload_24"
         app:showAsAction="never" />
 
     <!-- Manage Custom PIDs -->
     <item
         android:id="@+id/action_manage_custom_pids"
-        android:title="Manage Custom PIDs"
+        android:title="Özel PID yönetimi"
         android:icon="@android:drawable/ic_menu_add"
         app:showAsAction="never" />
 
     <!-- Help -->
     <item
         android:id="@+id/action_info"
-        android:title="Help"
+        android:title="Yardım"
         android:icon="@drawable/ic_info_24"
         app:showAsAction="never" />
 
