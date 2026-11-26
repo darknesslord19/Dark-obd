@@ -14,7 +14,12 @@ jobs:
         with: { distribution: temurin, java-version: '17' }
       - uses: gradle/actions/setup-gradle@v4
         with: { gradle-version: '8.13' }
-      - run: gradle :app:assembleDebug --no-daemon --stacktrace
+      - name: Derle
+        run: |
+          set -o pipefail
+          gradle :app:assembleDebug --no-daemon 2>&1 | tee build.log || {
+            msg=$(grep -E -A3 "error:|^e: |What went wrong|AAPT" build.log | head -50 | cut -c1-250 | sed 's/%/%25/g' | awk '{printf "%s%%0A",$0}')
+            echo "::error title=DERLEME::$msg"; exit 1; }
       - run: cp "$(find app/build/outputs/apk/debug -name '*.apk' | head -1)" DarkOBD-Full.apk
       - name: APK imzala
         run: |
