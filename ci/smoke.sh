@@ -3,7 +3,10 @@
 PKG=com.obddroid
 fail() {
   msg=$(adb logcat -d -b crash | sed -E 's/^.*AndroidRuntime: //' | grep -E "Exception|Error|Caused by|com\.obddroid" | head -30)
-  echo "::error title=CRASH ($1)::$(echo "${msg:-surec kapandi}" | sed 's/%/%25/g' | awk '{printf "%s%%0A",$0}')"
+  if [ -z "$msg" ]; then
+    msg=$(adb logcat -d | grep -E "$PKG|AndroidRuntime|FATAL|Fatal signal|lowmemorykiller" | grep -E "Killing|died|crash|FATAL|Fatal|Exception|ANR|kill|Force" | tail -25 | cut -c1-260)
+  fi
+  echo "::error title=CRASH ($1)::$(echo "${msg:-kayit yok, surec yok}" | sed 's/%/%25/g' | awk '{printf "%s%%0A",$0}')"
   exit 1
 }
 launch() {
